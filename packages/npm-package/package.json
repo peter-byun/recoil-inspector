@@ -1,7 +1,18 @@
 {
-  "name": "recoil-inspector",
-  "private": true,
-  "version": "0.0.1",
+  "name": "@peterbyun/recoil-inspector",
+  "description": "A reliable, and hassle free recoil dev tool.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Donghyeok Byun",
+    "email": "peter1035k@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PeterByun/recoil-inspector-project.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/PeterByun"
+  },
   "type": "module",
   "main": "./build/main.umd.cjs",
   "module": "./build/main.js",
@@ -13,10 +24,6 @@
   },
   "typings": "./build/main.d.ts",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PeterByun/recoil-inspector"
-  },
   "scripts": {
     "dev": "vite build && tsc",
     "build": "vite build && tsc",

@@ -9,7 +9,44 @@ A reliable, and hassle free recoil dev tool.
    ```zsh
    npm install recoil-inspector
    ```
-3. Open up a Chrome devtool and start debugging!
+3. Import the package in your entry point like the below examples.
+
+   ```tsx
+   // Client Side Rendering using Vite's React template.
+   import { RecoilRoot } from 'recoil';
+   import RecoilInspector from 'recoil-inspector';
+
+   function App() {
+     return (
+       <RecoilRoot>
+         <div className="App">
+           <RecoilInspector />
+           {/* Your application code goes here */}
+         </div>
+       </RecoilRoot>
+     );
+   }
+
+   export default App;
+   ```
+
+   ```tsx
+   // Server Side Rendering using Next.js.
+   import type { AppProps } from 'next/app';
+   import { RecoilRoot } from 'recoil';
+   import RecoilInspector from 'recoil-inspector';
+
+   export default function App({ Component, pageProps }: AppProps) {
+     return (
+       <RecoilRoot>
+         <RecoilInspector />
+         <Component {...pageProps} />;
+       </RecoilRoot>
+     );
+   }
+   ```
+
+4. Open up a Chrome devtool and start debugging!
 
 ## Features
 
