@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
+import { Node } from '@peterbyun/recoil-inspector';
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
-import { Node } from 'recoil-inspector';
 
 import { Button } from '../../../components/atoms/Button';
 import { Toast } from '../../../components/atoms/Toast';

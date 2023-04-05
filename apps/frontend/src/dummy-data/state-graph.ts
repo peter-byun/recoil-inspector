@@ -1,4 +1,4 @@
-import { Node } from 'recoil-inspector';
+import { Node } from '@peterbyun/recoil-inspector';
 
 export const DUMMY_RECOIL_STATES = [
   {

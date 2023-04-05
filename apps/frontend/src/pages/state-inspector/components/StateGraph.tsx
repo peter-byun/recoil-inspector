@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
+import { Node } from '@peterbyun/recoil-inspector';
 import { useEffect, useState } from 'react';
-import { Node } from 'recoil-inspector';
 
 import { StatePanelLayout } from '../../../components/molecules/StatePanelLayout';
 import { RecoilStates } from '../StateInspector';

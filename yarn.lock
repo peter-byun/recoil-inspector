@@ -1019,6 +1019,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@peterbyun/recoil-inspector@*, @peterbyun/recoil-inspector@workspace:packages/npm-package":
+  version: 0.0.0-use.local
+  resolution: "@peterbyun/recoil-inspector@workspace:packages/npm-package"
+  dependencies:
+    "@types/react": ^17.0.37
+    "@types/react-dom": ^17.0.11
+    eslint: ^7.32.0
+    eslint-config-custom: "*"
+    tsconfig: "*"
+    typescript: ^4.9.3
+    vite: ^4.0.0
+    vite-plugin-dts: ^2.0.2
+  peerDependencies:
+    react: "*"
+    react-dom: "*"
+    recoil: "*"
+  languageName: unknown
+  linkType: soft
+
 "@radix-ui/number@npm:1.0.0":
   version: 1.0.0
   resolution: "@radix-ui/number@npm:1.0.0"
@@ -3097,6 +3116,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-client-app-csr@workspace:apps/example-client-app-csr"
   dependencies:
+    "@peterbyun/recoil-inspector": "*"
     "@types/react": ^18.0.26
     "@types/react-dom": ^18.0.9
     "@vitejs/plugin-react": ^3.0.0
@@ -3104,7 +3124,6 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     recoil: "*"
-    recoil-inspector: "*"
     vite: ^4.0.0
   languageName: unknown
   linkType: soft
@@ -3113,6 +3132,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "example-client-app@workspace:apps/example-client-app"
   dependencies:
+    "@peterbyun/recoil-inspector": "*"
     "@types/node": 18.11.13
     "@types/react": 18.0.26
     "@types/react-dom": 18.0.9
@@ -3121,7 +3141,6 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     recoil: ^0.7.7
-    recoil-inspector: "*"
     typescript: 4.9.4
   languageName: unknown
   linkType: soft
@@ -3218,6 +3237,7 @@ __metadata:
     "@emotion/babel-plugin": ^11.10.5
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.10.5
+    "@peterbyun/recoil-inspector": "*"
     "@radix-ui/react-icons": ^1.1.1
     "@radix-ui/react-select": latest
     "@radix-ui/react-switch": latest
@@ -3240,7 +3260,6 @@ __metadata:
     highlight.js: ^11.7.0
     react: ^18.2.0
     react-dom: ^18.2.0
-    recoil-inspector: "*"
     tsconfig: "*"
     typescript: ^4.9.3
     vite: ^4.0.0
@@ -4758,25 +4777,6 @@ __metadata:
     eslint-config-custom: "*"
     prettier: latest
     turbo: latest
-  languageName: unknown
-  linkType: soft
-
-"recoil-inspector@*, recoil-inspector@workspace:packages/npm-package":
-  version: 0.0.0-use.local
-  resolution: "recoil-inspector@workspace:packages/npm-package"
-  dependencies:
-    "@types/react": ^17.0.37
-    "@types/react-dom": ^17.0.11
-    eslint: ^7.32.0
-    eslint-config-custom: "*"
-    tsconfig: "*"
-    typescript: ^4.9.3
-    vite: ^4.0.0
-    vite-plugin-dts: ^2.0.2
-  peerDependencies:
-    react: "*"
-    react-dom: "*"
-    recoil: "*"
   languageName: unknown
   linkType: soft
 

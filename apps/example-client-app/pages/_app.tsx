@@ -1,6 +1,6 @@
+import RecoilInspector from '@peterbyun/recoil-inspector';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
-import RecoilInspector from 'recoil-inspector';
 
 import '../styles/globals.css';
 

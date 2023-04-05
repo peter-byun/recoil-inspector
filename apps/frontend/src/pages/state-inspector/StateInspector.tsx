@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
+import { Node } from '@peterbyun/recoil-inspector';
 import { useMemo, useState } from 'react';
-import { Node } from 'recoil-inspector';
 
 import { StateChangeHistory } from '../../components/organisms/state-change-history/StateChangeHistory';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';

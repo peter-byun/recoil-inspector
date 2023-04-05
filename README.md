@@ -1,10 +1,12 @@
 # Recoil Inspector
 
-A reliable, and hassle free recoil dev tool.
+## Note! We are still working on this project, but if you are interested in this project, please feel free to try it out and give us feedback!
 
 ## Installation
 
-1. Install the [Recoil Inspector devtool](https://chrome.google.com/webstore/category/extensions?hl=en-US), and [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome web store.
+1. Install the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome web store.
+   1-2. Install Recoil Inspector devtool from the Chrome web store. (Not yet available, but if you want you can try it out by building it from the source code. See the Contributing.md file.)
+
 2. Install the NPM package.
    ```zsh
    npm install recoil-inspector
