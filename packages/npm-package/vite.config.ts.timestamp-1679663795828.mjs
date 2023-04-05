@@ -1,0 +1,22 @@
+// vite.config.ts
+import path from "path";
+import { defineConfig } from "file:///Users/peter/repos/recoil-inspector-project/node_modules/vite/dist/node/index.js";
+import dts from "file:///Users/peter/repos/recoil-inspector-project/node_modules/vite-plugin-dts/dist/index.mjs";
+var __vite_injected_original_dirname = "/Users/peter/repos/recoil-inspector-project/packages/npm-package";
+var vite_config_default = defineConfig({
+  build: {
+    outDir: "./build",
+    lib: {
+      entry: [path.resolve(__vite_injected_original_dirname, "./src/main.ts")],
+      name: "RecoilInspector"
+    },
+    rollupOptions: {
+      external: ["react", "react-dom", "recoil"]
+    }
+  },
+  plugins: [dts()]
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcudHMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCIvVXNlcnMvcGV0ZXIvcmVwb3MvcmVjb2lsLWluc3BlY3Rvci1wcm9qZWN0L3BhY2thZ2VzL25wbS1wYWNrYWdlXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCIvVXNlcnMvcGV0ZXIvcmVwb3MvcmVjb2lsLWluc3BlY3Rvci1wcm9qZWN0L3BhY2thZ2VzL25wbS1wYWNrYWdlL3ZpdGUuY29uZmlnLnRzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9Vc2Vycy9wZXRlci9yZXBvcy9yZWNvaWwtaW5zcGVjdG9yLXByb2plY3QvcGFja2FnZXMvbnBtLXBhY2thZ2Uvdml0ZS5jb25maWcudHNcIjtpbXBvcnQgcGF0aCBmcm9tICdwYXRoJztcbmltcG9ydCB7IGRlZmluZUNvbmZpZyB9IGZyb20gJ3ZpdGUnO1xuaW1wb3J0IGR0cyBmcm9tICd2aXRlLXBsdWdpbi1kdHMnO1xuXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuICBidWlsZDoge1xuICAgIG91dERpcjogJy4vYnVpbGQnLFxuICAgIGxpYjoge1xuICAgICAgZW50cnk6IFtwYXRoLnJlc29sdmUoX19kaXJuYW1lLCAnLi9zcmMvbWFpbi50cycpXSxcbiAgICAgIG5hbWU6ICdSZWNvaWxJbnNwZWN0b3InLFxuICAgIH0sXG4gICAgcm9sbHVwT3B0aW9uczoge1xuICAgICAgZXh0ZXJuYWw6IFsncmVhY3QnLCAncmVhY3QtZG9tJywgJ3JlY29pbCddLFxuICAgIH0sXG4gIH0sXG4gIHBsdWdpbnM6IFtkdHMoKV0sXG59KTtcbiJdLAogICJtYXBwaW5ncyI6ICI7QUFBa1gsT0FBTyxVQUFVO0FBQ25ZLFNBQVMsb0JBQW9CO0FBQzdCLE9BQU8sU0FBUztBQUZoQixJQUFNLG1DQUFtQztBQUl6QyxJQUFPLHNCQUFRLGFBQWE7QUFBQSxFQUMxQixPQUFPO0FBQUEsSUFDTCxRQUFRO0FBQUEsSUFDUixLQUFLO0FBQUEsTUFDSCxPQUFPLENBQUMsS0FBSyxRQUFRLGtDQUFXLGVBQWUsQ0FBQztBQUFBLE1BQ2hELE1BQU07QUFBQSxJQUNSO0FBQUEsSUFDQSxlQUFlO0FBQUEsTUFDYixVQUFVLENBQUMsU0FBUyxhQUFhLFFBQVE7QUFBQSxJQUMzQztBQUFBLEVBQ0Y7QUFBQSxFQUNBLFNBQVMsQ0FBQyxJQUFJLENBQUM7QUFDakIsQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K

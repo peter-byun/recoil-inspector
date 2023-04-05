@@ -1,0 +1,42 @@
+{
+  "name": "recoil-inspector",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./build/main.umd.cjs",
+  "module": "./build/main.js",
+  "exports": {
+    ".": {
+      "import": "./build/main.js",
+      "require": "./build/main.umd.cjs"
+    }
+  },
+  "typings": "./build/main.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PeterByun/recoil-inspector"
+  },
+  "scripts": {
+    "dev": "vite build && tsc",
+    "build": "vite build && tsc",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "eslint": "^7.32.0",
+    "eslint-config-custom": "*",
+    "tsconfig": "*",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*",
+    "recoil": "*"
+  },
+  "dependencies": {
+    "vite-plugin-dts": "^2.0.2"
+  }
+}
