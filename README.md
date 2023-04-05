@@ -1,4 +1,4 @@
-# Reoil Inspector
+# Recoil Inspector
 
 A reliable, and hassle free recoil dev tool.
 
