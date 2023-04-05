@@ -2,9 +2,9 @@ import { css } from '@emotion/react';
 import { useEffect, useState } from 'react';
 import { Node } from 'recoil-inspector';
 
-import { ComponentTree } from '../../../components/molecules/ComponentsTree';
 import { StatePanelLayout } from '../../../components/molecules/StatePanelLayout';
 import { RecoilStates } from '../StateInspector';
+import { ComponentTree } from './components-tree/ComponentsTree';
 
 interface StateGraphProps {
   componentTree: Node;
