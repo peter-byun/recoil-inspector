@@ -9,5 +9,6 @@ export const colors = {
     surface1: '#5c677f',
     surface2: '#545e77',
     focus: '#616161c6',
+    border: '#7d7d7d',
   },
 } as const;

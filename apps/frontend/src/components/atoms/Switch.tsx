@@ -21,7 +21,7 @@ export const Switch = ({ checked, onCheckedChange, label }: SwitchProps) => (
         css={css`
           padding-right: 15px;
           color: white;
-          font-size: 15px;
+          font-size: 10px;
           line-height: 1;
         `}
       >
@@ -32,7 +32,7 @@ export const Switch = ({ checked, onCheckedChange, label }: SwitchProps) => (
         onCheckedChange={onCheckedChange}
         css={css`
           width: 42px;
-          height: 25px;
+          height: 23px;
           background-color: #8f8f8f;
 
           border-radius: 9999px;
@@ -51,8 +51,9 @@ export const Switch = ({ checked, onCheckedChange, label }: SwitchProps) => (
         <BaseSwitch.Thumb
           css={css`
             display: block;
-            width: 21px;
-            height: 21px;
+
+            width: 17px;
+            height: 17px;
             background-color: white;
             border-radius: 9999px;
             box-shadow: 0 2px 2px black;

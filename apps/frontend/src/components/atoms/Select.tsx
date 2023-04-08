@@ -77,7 +77,8 @@ export function Select<Item extends SelectItem>({
             <BaseSelect.Label
               css={css`
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 11px;
+                font-weight: 600;
                 line-height: 25px;
                 color: black;
               `}
@@ -115,9 +116,9 @@ const SelectTrigger = styled(BaseSelect.Trigger)`
   justify-content: center;
   border-radius: 4px;
   padding: 0 15px;
-  font-size: 13px;
+  font-size: 11px;
   line-height: 1;
-  height: 35px;
+  height: 25px;
   gap: 5px;
   background-color: white;
   color: black;
@@ -144,7 +145,7 @@ const Option = styled(BaseSelect.Item)`
   padding: 0 0 0 5px;
   border-radius: 3px;
 
-  font-size: 13px;
+  font-size: 10px;
 
   user-select: none;
   line-height: 1;

@@ -215,6 +215,22 @@ export const StateChangeHistory = ({
 
   return (
     <section css={containerCss}>
+      <h3
+        css={css`
+          background: ${colors.dark.surface1};
+          position: sticky;
+          top: 0;
+          width: 100%;
+          padding: 15px 0px;
+          border-bottom: 1px solid ${colors.dark.border};
+          border-width: 0px 0px 1px 0px;
+          margin: 0px;
+          font-size: 16px;
+          text-align: center;
+        `}
+      >
+        State Change History
+      </h3>
       {stateChangeHistoryForDisplaySortedByChangedAtInDesc.map(
         (stateChange, idx) => (
           <StateChangeHistoryItem
@@ -241,7 +257,6 @@ const containerCss = css`
 
   background-color: ${colors.dark.surface1};
   border-radius: 5px;
-  padding: 2px;
 
   overflow-y: scroll;
 

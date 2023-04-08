@@ -16,7 +16,7 @@ const GlobalCss = css`
     color: ${colors.dark.fontColor};
     background-color: ${colors.dark.background};
 
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Roboto, Inter, Avenir, Helvetica, Arial, sans-serif;
     font-synthesis: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

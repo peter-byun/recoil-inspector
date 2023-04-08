@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 
+import { colors } from '../../../styles/colors';
 import { StateChange } from '../../../types/state';
 import { OnPressedChange, Toggle } from '../../atoms/Toggle';
 
@@ -24,11 +25,11 @@ export const StateChangeHistoryItem = ({
       onPressedChange={onPressedChange}
       cssProp={css`
         width: 100%;
-        padding: 15px 0;
+        padding: 13px 0;
         ${!isLastItem &&
         css`
           border-style: solid;
-          border-color: #7d7d7d;
+          border-color: ${colors.dark.border};
           border-width: 0px 0px 1px 0px;
         `}
         text-align: center;

@@ -17,7 +17,7 @@ export const StatePanelLayout = ({
     <section
       css={[
         css`
-          background-color: ${colors.dark.surface2};
+          background-color: ${colors.dark.surface1};
           display: flex;
           flex-direction: column;
           align-items: center;

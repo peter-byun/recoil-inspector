@@ -1,11 +1,12 @@
-import { css } from "@emotion/react";
-import { colors } from "./colors";
+import { css } from '@emotion/react';
 
-const SCROLL_BAR_BORDER_RADIUS = "6px";
+import { colors } from './colors';
+
+const SCROLL_BAR_BORDER_RADIUS = '6px';
 
 export const scrollbarCss = css`
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
 
   ::-webkit-scrollbar-thumb {

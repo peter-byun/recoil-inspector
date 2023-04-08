@@ -6,7 +6,9 @@ export const NavigationBar = () => {
       css={css`
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+        font-face: 'Roboto';
+        font-size: 15px;
       `}
     >
       <h1>State Inspector</h1>
