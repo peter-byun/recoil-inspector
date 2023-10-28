@@ -5,56 +5,13 @@ import { colors } from '../../../styles/colors';
 import { scrollbarCss } from '../../../styles/scrollbar';
 import { StateChange } from '../../../types/state';
 import { StateChangeHistoryItem } from './StateChangHistoryItem';
-
-interface StateChangeForDisplay extends StateChange {
-  pressed: boolean;
-}
-
-const convertStateChangeHistoryForDisplay = (
-  stateChangeHistory: StateChange[]
-): StateChangeForDisplay[] => {
-  return stateChangeHistory.map((stateChange) => {
-    return {
-      ...stateChange,
-      pressed: false,
-    };
-  });
-};
-
-const areStatesEqual = (
-  stateChangeA: StateChange,
-  stateChangeB: StateChange
-) => {
-  return (
-    stateChangeA.id === stateChangeB.id &&
-    stateChangeA.changedAt === stateChangeB.changedAt &&
-    stateChangeA.name === stateChangeB.name
-  );
-};
-
-// TODO: It takes O(n2) time to compute, so we need to use the timestamps as IDs,
-// or use a nano-id to make the history data Map.
-const mergeLeftStateChangeHistoryForDisplay = (
-  stateChangeHistoryA: StateChangeForDisplay[],
-  stateChangeHistoryB: StateChangeForDisplay[]
-) => {
-  const pressedItemsFromHistoryA = stateChangeHistoryA.filter(
-    (stateChange) => stateChange.pressed
-  );
-
-  return stateChangeHistoryB.map((stateChange) => {
-    for (let pressedItem of pressedItemsFromHistoryA) {
-      if (areStatesEqual(stateChange, pressedItem)) {
-        return {
-          ...stateChange,
-          pressed: pressedItem.pressed,
-        };
-      }
-    }
-
-    return stateChange;
-  });
-};
+import { StateChangeForDisplay } from './state-change-history.types';
+import {
+  areStatesEqual,
+  convertStateChangeHistoryForDisplay,
+  isLeftTimeStringLessThanRight,
+  mergeLeftStateChangeHistoryForDisplay,
+} from './state-change-history.utils';
 
 interface StateChangeHistoryProps {
   stateChangeHistory: StateChange[];
@@ -90,6 +47,17 @@ export const StateChangeHistory = ({
   useEffect(() => {
     syncStateChangeHistoryForDisplayWithOriginalHistory();
   }, [stateChangeHistory]);
+
+  const handlePressedChange =
+    (changedState: StateChange) => (pressed: boolean) => {
+      if (isDiffOn) {
+        handlePressedChangeInDiffMode(changedState, pressed);
+
+        return;
+      }
+
+      handlePressedChangeInSingleMode(changedState);
+    };
 
   const pressedItemsCount = useMemo<number>(() => {
     return stateChangeHistoryForDisplay.filter(
@@ -151,17 +119,6 @@ export const StateChangeHistory = ({
     onSelectedStateChange(changedState);
   };
 
-  const handlePressedChange =
-    (changedState: StateChange) => (pressed: boolean) => {
-      if (isDiffOn) {
-        handlePressedChangeInDiffMode(changedState, pressed);
-
-        return;
-      }
-
-      handlePressedChangeInSingleMode(changedState);
-    };
-
   const unSelectAllExceptLastSelectedChange = () => {
     setStateChangeHistoryForDisplay((prevStateChangeHistoryForDisplay) => {
       return prevStateChangeHistoryForDisplay.map((stateChange) => {
@@ -189,27 +146,12 @@ export const StateChangeHistory = ({
     }
   }, [isDiffOn, setStateChangeHistoryForDisplay]);
 
-  const compareHHMMSS = (a: string, b: string) => {
-    const [aHour, aMinute, aSecond] = a.split(':').map((s) => parseInt(s, 10));
-    const [bHour, bMinute, bSecond] = b.split(':').map((s) => parseInt(s, 10));
-
-    if (aHour !== bHour) {
-      return bHour - aHour;
-    }
-
-    if (aMinute !== bMinute) {
-      return bMinute - aMinute;
-    }
-
-    return bSecond - aSecond;
-  };
-
   const stateChangeHistoryForDisplaySortedByChangedAtInDesc = useMemo(() => {
     return stateChangeHistoryForDisplay.sort((a, b) => {
       if (!a.changedAt || !b.changedAt) {
         return 0;
       }
-      return compareHHMMSS(a.changedAt, b.changedAt);
+      return isLeftTimeStringLessThanRight(a.changedAt, b.changedAt);
     });
   }, [stateChangeHistoryForDisplay]);
 

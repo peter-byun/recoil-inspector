@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { Node } from '@peterbyun/recoil-inspector';
 import { useEffect, useState } from 'react';
 
-import { StatePanelLayout } from '../../../components/molecules/StatePanelLayout';
+import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { RecoilStates } from '../StateInspector';
 import { ComponentTree } from './components-tree/ComponentsTree';
 

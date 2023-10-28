@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { RectClipPath } from '@visx/clip-path';
 import { Zoom } from '@visx/zoom';
 
-import { Button } from '../../atoms/Button';
+import { Button } from '../../base-ui/Button';
 
 const initialTransform = {
   scaleX: 1,

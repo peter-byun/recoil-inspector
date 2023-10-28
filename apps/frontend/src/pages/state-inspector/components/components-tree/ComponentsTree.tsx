@@ -6,7 +6,7 @@ import { Line, LinkHorizontal } from '@visx/shape';
 import { Tooltip, useTooltip } from '@visx/tooltip';
 import { useMemo } from 'react';
 
-import { ZoomContainer } from '../../../../components/organisms/svg/ZoomContainer';
+import { ZoomContainer } from '../../../../components/state-inspector/svg/ZoomContainer';
 import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,

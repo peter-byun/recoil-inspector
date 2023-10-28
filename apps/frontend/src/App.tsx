@@ -1,6 +1,6 @@
 import { Global, css } from '@emotion/react';
 
-import { NavigationBar } from './components/molecules/NavigationBar';
+import { NavigationBar } from './components/layouts/NavigationBar';
 import { StateInspector } from './pages/state-inspector/StateInspector';
 import { colors } from './styles/colors';
 

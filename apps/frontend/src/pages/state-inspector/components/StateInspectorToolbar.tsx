@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
 import * as Toolbar from '@radix-ui/react-toolbar';
 
-import { Select, SelectItem } from '../../../components/atoms/Select';
-import { Switch } from '../../../components/atoms/Switch';
+import { Select, SelectItem } from '../../../components/base-ui/Select';
+import { Switch } from '../../../components/base-ui/Switch';
 import { colors } from '../../../styles/colors';
 
 export function StateInspectorToolbar<Item extends SelectItem>({

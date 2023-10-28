@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { Node } from '@peterbyun/recoil-inspector';
 import { useMemo, useState } from 'react';
 
-import { StateChangeHistory } from '../../components/organisms/state-change-history/StateChangeHistory';
+import { StateChangeHistory } from '../../components/state-inspector/state-change-history/StateChangeHistory';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';
 import {
   DUMMY_RECOIL_STATES,

@@ -3,9 +3,9 @@ import { Node } from '@peterbyun/recoil-inspector';
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
 
-import { Button } from '../../../components/atoms/Button';
-import { Toast } from '../../../components/atoms/Toast';
-import { StatePanelLayout } from '../../../components/molecules/StatePanelLayout';
+import { Button } from '../../../components/base-ui/Button';
+import { Toast } from '../../../components/base-ui/Toast';
+import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 
 interface StateRawDataProps {
   componentTree: Node;

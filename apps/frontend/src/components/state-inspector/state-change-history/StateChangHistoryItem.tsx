@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 
 import { colors } from '../../../styles/colors';
 import { StateChange } from '../../../types/state';
-import { OnPressedChange, Toggle } from '../../atoms/Toggle';
+import { OnPressedChange, Toggle } from '../../base-ui/Toggle';
 
 interface StateChangedProps {
   stateChange: StateChange;
