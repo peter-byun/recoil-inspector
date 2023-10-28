@@ -1,9 +1,9 @@
 {
   "name": "@peterbyun/recoil-inspector",
-  "description": "A reliable, and hassle free recoil dev tool.",
+  "description": "A reliable recoil dev tool.",
   "version": "0.1.0",
   "author": {
-    "name": "Donghyeok Byun",
+    "name": "Peter Byun",
     "email": "peter1035k@gmail.com"
   },
   "repository": {

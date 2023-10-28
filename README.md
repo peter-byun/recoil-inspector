@@ -1,12 +1,15 @@
-# Recoil Inspector
+# Recoil Inspector 🔍
 
-## Note! We are still working on this project, but if you are interested in this project, please feel free to try it out and give us feedback!
+> ❕ Note: We are still working on this project, but if you are interested in this project, please feel free to try it out and give us feedback!
 
-## Installation
+---
+
+# Installation Guide
 
 1. Install the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome web store.
 
-   1-2. Install Recoil Inspector devtool from the Chrome web store. (Not yet available, but if you want you can try it out by building it from the source code. See the Contributing.md file.)
+   1-2. Install Recoil Inspector devtool from the Chrome web store.
+   (Not yet available, but if you want you can try it out by building it from the source code. See the Contributing.md file.)
 
 2. Install the NPM package.
    ```zsh
@@ -15,7 +18,7 @@
 3. Import the package in your entry point like the below examples.
 
    ```tsx
-   // Client Side Rendering using Vite's React template.
+   // Client Side Rendering app using Vite's React template.
    import { RecoilRoot } from 'recoil';
    import RecoilInspector from 'recoil-inspector';
 
@@ -34,7 +37,7 @@
    ```
 
    ```tsx
-   // Server Side Rendering using Next.js.
+   // Server Side Rendering app using Next.js.
    import type { AppProps } from 'next/app';
    import { RecoilRoot } from 'recoil';
    import RecoilInspector from 'recoil-inspector';
@@ -51,26 +54,26 @@
 
 4. Open up a Chrome devtool and start debugging!
 
-## Features
+# Features
 
 ### State and Components Visualization
 
-See which components are referencing which Recoil states, and their data.
+Observe which components are referencing which Recoil states, and their data.
 
-<!-- TODO: GIF goes here -->
+<br/>
 
 ### State Changes History
 
 Record every Recoil state changes to see when the data have changed by which component.
 
-<!-- TODO: GIF goes here -->
+<br/>
 
 ### State Change Diff
 
 Diff Recoil state changes to see which part of data have updated.
 
-<!-- TODO: GIF goes here -->
+<br/>
 
-## Acknowledgement
+## Acknowledgements
 
 This project is inspired by many other devtools, including Redux DevTools, React Developer Tools, Recoil Dev Tools, and Recoilize.
