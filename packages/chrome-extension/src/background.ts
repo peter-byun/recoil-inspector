@@ -36,6 +36,22 @@ const handleMessageFromChrome = (message: Message, port: object) => {
     case 'frontendLoaded':
       if (tabId) {
         tabConnections[tabId] = port;
+
+        chrome.tabs.query(
+          { active: true, currentWindow: true },
+          function (tabs) {
+            if (!tabs[0].id) {
+              return;
+            }
+
+            chrome.tabs.sendMessage(tabs[0].id, {
+              message: {
+                action: 'frontendCopyToClipboardRequested',
+                payload: message,
+              },
+            });
+          }
+        );
       }
       break;
     case 'frontendCopyToClipboardRequested':

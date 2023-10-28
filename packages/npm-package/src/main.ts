@@ -96,6 +96,25 @@ export default function RecoilInspector() {
     });
   });
 
+  useEffect(() => {
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'frontendLoaded') {
+        if (
+          window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT &&
+          window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT
+        ) {
+          sendMessageToExtension({
+            action: 'extensionDataUpdated',
+            payload: {
+              componentTreeRoot: window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT,
+              recoilStates: window.__RECOIL_INSPECTOR_RECOIL_STATES,
+            },
+          });
+        }
+      }
+    });
+  });
+
   return null;
 }
 

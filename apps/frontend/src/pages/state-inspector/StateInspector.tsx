@@ -37,10 +37,10 @@ const DEBUG_MODE = window.location.port === '5173';
 
 export const StateInspector = () => {
   const [componentTree, setComponentTree] = useState<any>(
-    DEBUG_MODE ? DUMMY_STATE_GRAPH : {}
+    DEBUG_MODE ? DUMMY_STATE_GRAPH : null
   );
   const [recoilStates, setRecoilStates] = useState<any>(
-    DEBUG_MODE ? DUMMY_RECOIL_STATES : {}
+    DEBUG_MODE ? DUMMY_RECOIL_STATES : null
   );
   const [stateGraphHistory, setStateGraphHistory] = useState<StateGraphHistory>(
     DEBUG_MODE ? DUMMY_STATE_GRAPH_HISTORY : {}
@@ -59,9 +59,13 @@ export const StateInspector = () => {
 
   useExtensionBridge({
     onDisconnectFromExtensionProcess: () => {
-      setComponentTree({});
+      // setComponentTree({});
     },
     onExtensionDataUpdated: (updatedData: any) => {
+      if (!updatedData) {
+        return;
+      }
+
       setComponentTree(updatedData.componentTreeRoot);
       setRecoilStates(updatedData.recoilStates);
 
@@ -117,6 +121,9 @@ export const StateInspector = () => {
     );
   };
 
+  const shouldShowGraph =
+    selectedVisualizationType.value === VISUALIZATION_TYPES.GRAPH.value;
+
   return (
     <>
       <div css={layoutCss}>
@@ -143,13 +150,12 @@ export const StateInspector = () => {
             componentTreesToDiff={componentTreesToDiff}
           />
         )}
-        {selectedVisualizationType.value ===
-          VISUALIZATION_TYPES.GRAPH.value && (
+        {shouldShowGraph ? (
           <StateGraph
             componentTree={componentTree}
             recoilStates={recoilStates}
           />
-        )}
+        ) : null}
         {selectedVisualizationType.value ===
           VISUALIZATION_TYPES.RAW_DATA.value && (
           <StateRawData componentTree={componentTree} />

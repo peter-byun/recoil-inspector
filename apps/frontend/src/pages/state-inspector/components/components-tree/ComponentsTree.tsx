@@ -63,6 +63,7 @@ export function ComponentTree({
         tooltipOpen &&
         tooltipData && (
           <Tooltip
+            // TODO: Should offset the dragged position
             top={tooltipData.x}
             left={tooltipData.y}
             css={css`
@@ -82,6 +83,7 @@ export function ComponentTree({
             {tooltipData.data.recoilStates ? (
               <RecoilStateTooltip
                 recoilStates={tooltipData.data.recoilStates}
+                isNodeComponent={Boolean(tooltipData.data.hookTypes?.length)}
               />
             ) : (
               'No Data'

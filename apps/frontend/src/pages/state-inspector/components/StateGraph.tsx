@@ -29,21 +29,27 @@ export const StateGraph = ({
       setWidth(window.innerWidth * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE);
       setHeight(window.innerHeight * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE);
     });
+
     resizeObserver.observe(document.body);
+
     return () => {
       resizeObserver.disconnect();
     };
   }, []);
 
+  const graphDataExist = componentTree && recoilStates;
+
   return (
     <StatePanelLayout
       children={
-        <ComponentTree
-          treeData={componentTree}
-          recoilStates={recoilStates}
-          width={width}
-          height={height}
-        />
+        graphDataExist ? (
+          <ComponentTree
+            treeData={componentTree}
+            recoilStates={recoilStates}
+            width={width}
+            height={height}
+          />
+        ) : null
       }
       containerCss={css`
         grid-column: 2/2;

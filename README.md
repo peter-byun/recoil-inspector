@@ -5,6 +5,7 @@
 ## Installation
 
 1. Install the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome web store.
+
    1-2. Install Recoil Inspector devtool from the Chrome web store. (Not yet available, but if you want you can try it out by building it from the source code. See the Contributing.md file.)
 
 2. Install the NPM package.

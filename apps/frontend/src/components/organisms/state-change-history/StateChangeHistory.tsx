@@ -221,7 +221,7 @@ export const StateChangeHistory = ({
           position: sticky;
           top: 0;
           width: 100%;
-          padding: 15px 0px;
+          padding: 20px 0px;
           border-bottom: 1px solid ${colors.dark.border};
           border-width: 0px 0px 1px 0px;
           margin: 0px;

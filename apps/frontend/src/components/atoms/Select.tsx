@@ -14,7 +14,6 @@ interface SelectProps<Item extends SelectItem> {
   items: Item[];
   selectedItem: Item | undefined;
   onSelectedItemChange: (selectedItem: Item) => void;
-  label: string;
   placeholder: string;
   disabled?: boolean;
 }
@@ -24,7 +23,6 @@ export function Select<Item extends SelectItem>({
   selectedItem,
   onSelectedItemChange,
   placeholder,
-  label,
   disabled,
 }: SelectProps<Item>) {
   const handleSelectedItemChange = (selectedItemValue: Item['value']) => {
@@ -74,18 +72,6 @@ export function Select<Item extends SelectItem>({
               padding: 5px;
             `}
           >
-            <BaseSelect.Label
-              css={css`
-                padding: 0 25px;
-                font-size: 11px;
-                font-weight: 600;
-                line-height: 25px;
-                color: black;
-              `}
-            >
-              {label}
-            </BaseSelect.Label>
-
             {items.map((item) => (
               <Option key={item.name} value={item.value}>
                 {item.name}

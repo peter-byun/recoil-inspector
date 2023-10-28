@@ -7,10 +7,16 @@ interface SwitchProps {
   checked: boolean;
   onCheckedChange: (checked: boolean) => void;
   label: string;
+  className?: string;
 }
 
-export const Switch = ({ checked, onCheckedChange, label }: SwitchProps) => (
-  <form>
+export const Switch = ({
+  checked,
+  onCheckedChange,
+  label,
+  className,
+}: SwitchProps) => (
+  <form className={className}>
     <div
       css={css`
         display: flex;

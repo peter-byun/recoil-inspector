@@ -11,6 +11,7 @@ window.addEventListener('message', (msg) => {
       'Content Script: Got a message from the NPM package. Propagating it to the Chrome Runtime.',
       msg
     );
+
   chrome.runtime.sendMessage(msg.data);
 });
 
@@ -30,15 +31,21 @@ const copyToClipboard = (text: string) => {
 // to the NPM package through the window object.
 // The background script does not have an access to the window object.
 
-// Example of propagating a message from the frontend to the NPM package:
+// An example of propagating a message from the frontend to the NPM package:
 // const TARGET_ORIGIN_ALL = '*';
 // window.postMessage(message, TARGET_ORIGIN_ALL);
-
 chrome.runtime.onMessage.addListener(({ message }) => {
   const { action } = message;
 
+  console.log('content: got message from  background');
+
   switch (action) {
+    case 'frontendLoaded':
+      window.postMessage({ type: 'frontendLoaded', data: null }, '*');
+
+      break;
     case 'frontendCopyToClipboardRequested':
+      console.log(message.payload);
       copyToClipboard(message.payload.text);
 
       break;

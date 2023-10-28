@@ -24,6 +24,10 @@ export const StateChangeHistoryItem = ({
       pressed={pressed}
       onPressedChange={onPressedChange}
       cssProp={css`
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         padding: 13px 0;
         ${!isLastItem &&
@@ -36,7 +40,22 @@ export const StateChangeHistoryItem = ({
         cursor: pointer;
       `}
     >
-      {name} - {changedAt}
+      <p
+        css={css`
+          margin: 0 0 0 ${TOGGLE_CONTENT_SPACING}px;
+        `}
+      >
+        {name}{' '}
+      </p>
+      <p
+        css={css`
+          margin: 0 ${TOGGLE_CONTENT_SPACING}px 0 0;
+        `}
+      >
+        {changedAt}
+      </p>
     </Toggle>
   );
 };
+
+const TOGGLE_CONTENT_SPACING = 20;

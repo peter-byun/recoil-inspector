@@ -35,7 +35,8 @@ export function StateInspectorToolbar<Item extends SelectItem>({
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 5px;
 
         grid-column: 2/2;
         grid-row: 1/1;
@@ -44,18 +45,29 @@ export function StateInspectorToolbar<Item extends SelectItem>({
         border-radius: 5px;
       `}
     >
+      <label
+        css={css`
+          font-size: 11px;
+          color: ${colors.dark.fontColor};
+        `}
+      >
+        Visualization Type
+      </label>
       <Select<Item>
         items={items}
         selectedItem={selectedItem}
         onSelectedItemChange={handleSelectedItemChange}
-        label="Visualization Type"
         placeholder="Select the visualization type."
         disabled={isDiffOn}
       />
+
       <Switch
         checked={isDiffOn}
         onCheckedChange={handleDiffCheckedChange}
         label="State Diff Mode"
+        css={css`
+          margin-left: auto;
+        `}
       />
     </Toolbar.Root>
   );

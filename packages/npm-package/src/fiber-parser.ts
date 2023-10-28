@@ -176,8 +176,11 @@ const isDebugging = false;
 // NOTE: Fiber does not have children property. Instead, it has child and sibling properties.
 // So we have to traverse the fiber using child and sibling properties, to convert it to a tree.
 export const convertFiberToComponentTree = (fiber: Fiber, parentNode: Node) => {
+  const isNotDebuggerState = fiber.elementType?.name !== 'RecoilInspector';
   const isFiberNodeComponent =
-    checkIfFiberNodeHasState(fiber) && checkIfFiberNodeIsUserComponent(fiber);
+    checkIfFiberNodeHasState(fiber) &&
+    checkIfFiberNodeIsUserComponent(fiber) &&
+    isNotDebuggerState;
 
   const recoilStates: any[] = [];
   const memoizedStateCache: any[] = [];

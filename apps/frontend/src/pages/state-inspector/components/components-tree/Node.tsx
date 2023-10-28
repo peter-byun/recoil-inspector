@@ -9,6 +9,7 @@ const white = '#ffffff';
 export const background = '#272b4d';
 
 export interface TreeNode {
+  [x: string]: any;
   name: string;
   children?: this[];
   recoilStates?: RecoilStates;
@@ -33,7 +34,7 @@ export const NodeText = ({ label, fill }: { label: string; fill: string }) => {
   );
 };
 
-export const ROOT_START_X = 75;
+export const ROOT_START_X = 150;
 
 export function RootNode({ node }: { node: HierarchyNode }) {
   return (
