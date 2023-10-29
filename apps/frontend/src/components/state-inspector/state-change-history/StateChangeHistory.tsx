@@ -164,7 +164,7 @@ export const StateChangeHistory = ({
           top: 0;
           width: 100%;
           padding: 20px 0px;
-          border-bottom: 1px solid ${colors.dark.border};
+          border-bottom: 6px solid ${colors.dark.background};
           border-width: 0px 0px 1px 0px;
           margin: 0px;
           font-size: 16px;
@@ -200,7 +200,7 @@ const containerCss = css`
   background-color: ${colors.dark.surface1};
   border-radius: 5px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 
   ${scrollbarCss}
 `;

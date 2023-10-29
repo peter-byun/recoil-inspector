@@ -74,7 +74,7 @@ export function Node({
         fill={graphColors.background}
         stroke={graphColors.blue}
         strokeWidth={1}
-        rx={10}
+        rx={14}
       />
       <NodeText label={node.data.name} fill={graphColors.white}></NodeText>
     </Group>

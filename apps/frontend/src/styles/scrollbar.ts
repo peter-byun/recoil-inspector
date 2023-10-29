@@ -18,7 +18,7 @@ export const scrollbarCss = css`
   }
 
   ::-webkit-scrollbar-track {
-    background-color: ${colors.dark.surface2};
+    background-color: ${colors.dark.lightGray};
     border-radius: ${SCROLL_BAR_BORDER_RADIUS};
   }
 `;
