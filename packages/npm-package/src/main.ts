@@ -7,44 +7,9 @@ import {
   createNode,
 } from './fiber-parser/fiber-parser';
 
-interface UseOnFiberRootMountProps {
-  onFiberRootUpdate: (fiberRoot: any) => void;
-}
-const useOnFiberRootMount = ({
-  onFiberRootUpdate,
-}: UseOnFiberRootMountProps) => {
-  useEffect(function tabIntoReactDevToolFiberRootUpdate() {
-    if (!window) {
-      return;
-    }
-
-    const reactDevToolGlobalHook = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
-
-    reactDevToolGlobalHook.onCommitFiberRoot = beforeCommitFiberRoot(
-      reactDevToolGlobalHook.onCommitFiberRoot,
-      onFiberRootUpdate
-    );
-  }, []);
-};
-function beforeCommitFiberRoot(
-  onCommitFiberRoot: (...args: any) => void,
-  onFiberRootUpdate: (fiberRoot: any) => void
-) {
-  return function recordFiberRootAndExecuteOriginalReactDevToolGlobalHook(
-    ...args: any
-  ) {
-    const fiberRoot = window.__REACT_DEVTOOLS_GLOBAL_HOOK__
-      .getFiberRoots(1)
-      .values()
-      .next().value.current;
-    onFiberRootUpdate(fiberRoot);
-
-    return onCommitFiberRoot(...args);
-  };
-}
-
 /**
  * @description It should be a child component of the RecoilRoot component that you want to debug.
+ * Your application's process.env.NODE_ENV value should be 'development' to enable the debugger.
  */
 export default function RecoilInspector() {
   if (process.env.NODE_ENV !== 'development') {
@@ -108,6 +73,40 @@ export default function RecoilInspector() {
   }, []);
 
   return null;
+}
+
+interface UseOnFiberRootMountProps {
+  onFiberRootUpdate: (fiberRoot: any) => void;
+}
+function useOnFiberRootMount({ onFiberRootUpdate }: UseOnFiberRootMountProps) {
+  useEffect(function tabIntoReactDevToolFiberRootUpdate() {
+    if (!window) {
+      return;
+    }
+
+    const reactDevToolGlobalHook = window.__REACT_DEVTOOLS_GLOBAL_HOOK__;
+
+    reactDevToolGlobalHook.onCommitFiberRoot = beforeCommitFiberRoot(
+      reactDevToolGlobalHook.onCommitFiberRoot,
+      onFiberRootUpdate
+    );
+  }, []);
+}
+function beforeCommitFiberRoot(
+  onCommitFiberRoot: (...args: any) => void,
+  onFiberRootUpdate: (fiberRoot: any) => void
+) {
+  return function recordFiberRootAndExecuteOriginalReactDevToolGlobalHook(
+    ...args: any
+  ) {
+    const fiberRoot = window.__REACT_DEVTOOLS_GLOBAL_HOOK__
+      .getFiberRoots(1)
+      .values()
+      .next().value.current;
+    onFiberRootUpdate(fiberRoot);
+
+    return onCommitFiberRoot(...args);
+  };
 }
 
 function transformFiberRootToComponentTree(fiberRoot: any) {
