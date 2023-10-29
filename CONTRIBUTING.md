@@ -89,3 +89,11 @@ yarn workspace <workspace> upgrade <package>
 yarn workspace web upgrade react
 
 ```
+
+### Publish a new NPM package version
+
+```bash
+cd ./packages/npm-package
+npm version patch
+npm publish
+```
