@@ -1,6 +1,9 @@
 window.addEventListener(
   'message',
   function forwardMessageFromNpmPackageToExtensionBackground(msg) {
+    console.log(
+      'content-script: forwarding a message to the background script'
+    );
     chrome.runtime.sendMessage(msg.data);
   }
 );
@@ -20,6 +23,11 @@ const copyToClipboard = (text: string) => {
 chrome.runtime.onMessage.addListener(
   function forwardMessageFromExtensionFrontendToNpmPackage({ message }) {
     const { action } = message;
+
+    console.log(
+      'content-script: forwarding a message to the NPM script',
+      message
+    );
 
     switch (action) {
       case 'frontendLoaded':

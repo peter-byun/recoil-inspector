@@ -11,6 +11,8 @@ import {
   States,
 } from './fiber-parser.types';
 
+export * from './fiber-parser.types';
+
 const isDebugging = false;
 
 // NOTE: Fiber does not have children property. Instead, it has child and sibling properties.

@@ -1,11 +1,11 @@
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 
 import {
   JSONItemProperties,
   JSONItemPropertiesInDiffMode,
 } from './JSONItemProperties';
 
-export const JSONItem = (item: Node) => {
+export const JSONItem = (item: FiberNode) => {
   return (
     <>
       <JSONItemProperties item={item} />
@@ -29,7 +29,9 @@ export const JSONItem = (item: Node) => {
     </>
   );
 };
-export const JSONItemInDiffMode = (componentTreesToDiff: (Node | null)[]) => {
+export const JSONItemInDiffMode = (
+  componentTreesToDiff: (FiberNode | null)[]
+) => {
   const [prevItem, nextItem] = componentTreesToDiff;
 
   const childrenExist = prevItem?.children || nextItem?.children;
@@ -66,11 +68,14 @@ export const JSONItemInDiffMode = (componentTreesToDiff: (Node | null)[]) => {
   );
 };
 
-function mergeJSONItemChildrenToDiff([prevItem, nextItem]: (Node | null)[]) {
+function mergeJSONItemChildrenToDiff([
+  prevItem,
+  nextItem,
+]: (FiberNode | null)[]) {
   const mergedChildren: {
     name: string;
-    prevValue: Node | null;
-    nextValue: Node | null;
+    prevValue: FiberNode | null;
+    nextValue: FiberNode | null;
   }[] = [];
 
   prevItem?.children?.forEach((prevChild) => {

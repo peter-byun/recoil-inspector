@@ -11,6 +11,9 @@ export const useExtensionBridge = ({
 }) => {
   const setupExtensionProcessEventListeners = () => {
     const connectionToExtensionProcess = chrome.runtime.connect();
+    console.log(
+      'sending the frontendLoaded event to the NPM script to request data'
+    );
     connectionToExtensionProcess.postMessage({
       action: 'frontendLoaded',
       tabId: chrome.devtools.inspectedWindow.tabId,
@@ -22,6 +25,7 @@ export const useExtensionBridge = ({
         payload: MessagePayload;
         sourceTab: number;
       }) => {
+        console.log('got a message from the background', message);
         const { action, payload } = message;
 
         switch (action) {

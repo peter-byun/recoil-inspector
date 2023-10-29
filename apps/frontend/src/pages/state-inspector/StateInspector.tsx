@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 import { useMemo, useState } from 'react';
 
 import { StateChangeHistory } from '../../components/state-inspector/state-change-history/StateChangeHistory';
@@ -17,7 +17,7 @@ import { StateJSON } from './state-json/StateJSON';
 import { StateRawData } from './state-raw-data/StateRawData';
 
 type StateGraphHistory = {
-  [key: string]: Node;
+  [key: string]: FiberNode;
 };
 
 export type RecoilStates = {
@@ -107,7 +107,9 @@ export const StateInspector = () => {
     }
   };
 
-  const [componentTreesToDiff, setComponentTreesToDiff] = useState<Node[]>([]);
+  const [componentTreesToDiff, setComponentTreesToDiff] = useState<FiberNode[]>(
+    []
+  );
 
   const handleStatesToDiffChange = (stateChanges: StateChange[]) => {
     setSelectedVisualizationType(VISUALIZATION_TYPES.JSON);

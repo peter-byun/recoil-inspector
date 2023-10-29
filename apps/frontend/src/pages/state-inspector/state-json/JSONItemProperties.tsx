@@ -1,10 +1,10 @@
 import { css } from '@emotion/react';
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 import { useState } from 'react';
 
 import { colors } from '../../../styles/colors';
 
-export const JSONItemProperties = ({ item }: { item: Node }) => {
+export const JSONItemProperties = ({ item }: { item: FiberNode }) => {
   return (
     <>
       {item &&
@@ -23,8 +23,8 @@ export const JSONItemPropertiesInDiffMode = ({
   prevItem,
   nextItem,
 }: {
-  prevItem: Node | null;
-  nextItem: Node | null;
+  prevItem: FiberNode | null;
+  nextItem: FiberNode | null;
 }) => {
   const addedItemKeys =
     nextItem &&
@@ -80,7 +80,7 @@ export const JSONItemPropertiesInDiffMode = ({
   );
 };
 
-type NodeValues = Node[keyof Node];
+type NodeValues = FiberNode[keyof FiberNode];
 
 const JSONItemPropertyValue = ({ value }: { value: NodeValues }) => {
   const stringifiedValue = JSON.stringify(value);

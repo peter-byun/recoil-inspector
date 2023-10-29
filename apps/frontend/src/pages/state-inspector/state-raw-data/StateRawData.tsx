@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
 
@@ -8,7 +8,7 @@ import { Toast } from '../../../components/base-ui/Toast';
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 
 interface StateRawDataProps {
-  componentTree: Node;
+  componentTree: FiberNode;
 }
 
 export const StateRawData = ({ componentTree }: StateRawDataProps) => {

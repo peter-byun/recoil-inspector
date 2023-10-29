@@ -1,13 +1,13 @@
 import { css } from '@emotion/react';
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { JSONItem, JSONItemInDiffMode } from './JSONItem';
 
 interface StateJSONProps {
-  componentTree: Node;
+  componentTree: FiberNode;
   isDiffOn: boolean;
-  componentTreesToDiff: Node[];
+  componentTreesToDiff: FiberNode[];
 }
 
 export const StateJSON = ({

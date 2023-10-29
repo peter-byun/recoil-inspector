@@ -24,7 +24,7 @@ const handleMessageFromChromeExtensionFrontEnd = (
   switch (action) {
     case 'frontendLoaded':
       forwardMessageFromExtensionFrontendToContentScript({
-        action: 'frontendCopyToClipboardRequested',
+        action: 'frontendLoaded',
         payload: message,
       });
       break;
@@ -39,6 +39,10 @@ const handleMessageFromChromeExtensionFrontEnd = (
   }
 };
 function forwardMessageFromExtensionFrontendToContentScript(message: any) {
+  console.log(
+    'background: forwarding a message to the content-script',
+    message
+  );
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     if (!tabs[0].id) {
       return;
@@ -62,28 +66,32 @@ chrome.runtime.onConnect.addListener((port) => {
   });
 });
 
-const handleMessageFromChromeExtensionContentScript = (
-  message: any,
-  sender: chrome.runtime.MessageSender
-) => {
-  const { action } = message;
-
-  switch (action) {
-    case 'extensionDataUpdated':
-      if (sender?.tab?.id) {
-        tabConnections[sender.tab.id].postMessage({
-          action: 'extensionDataUpdated',
-          payload: message,
-        });
-      }
-      break;
-    default:
-      break;
-  }
-};
-
 chrome.runtime.onMessage.addListener(
-  handleMessageFromChromeExtensionContentScript
+  function handleMessageFromChromeExtensionContentScript(
+    message: any,
+    sender: chrome.runtime.MessageSender
+  ) {
+    const { action } = message;
+    console.log(
+      'background: passing a message from the content-script to the frontend',
+      message
+    );
+
+    const connectionToExtensionProcess = chrome.runtime.connect();
+
+    switch (action) {
+      case 'extensionDataUpdated':
+        if (sender?.tab?.id) {
+          tabConnections[sender.tab.id].postMessage({
+            action: 'extensionDataUpdated',
+            payload: message,
+          });
+        }
+        break;
+      default:
+        break;
+    }
+  }
 );
 
 export {};

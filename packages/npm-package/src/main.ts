@@ -87,11 +87,14 @@ export default function RecoilInspector() {
 
   useEffect(function setupExtensionEventListenerOnMount() {
     window.addEventListener('message', (event) => {
+      console.log('got a message from the extension', event.data);
+
       if (event.data.type === 'frontendLoaded') {
         if (
           window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT &&
           window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT
         ) {
+          console.log('sending data to the extension');
           sendMessageToExtensionContentScript({
             action: 'extensionDataUpdated',
             payload: {

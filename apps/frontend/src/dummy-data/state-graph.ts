@@ -1,4 +1,4 @@
-import { Node } from '@peterbyun/recoil-inspector';
+import { FiberNode } from '@peterbyun/recoil-inspector';
 
 export const DUMMY_RECOIL_STATES = [
   {
@@ -66,9 +66,9 @@ export const DUMMY_STATE_GRAPH = {
       states: [1],
     },
   ],
-} as unknown as Node;
+} as unknown as FiberNode;
 
-const randomizeStateGraph = (node: Node): Node => {
+const randomizeStateGraph = (node: FiberNode): FiberNode => {
   const randomizedNode = { ...node };
 
   if (randomizedNode.children) {
@@ -102,7 +102,7 @@ const randomizeStateGraph = (node: Node): Node => {
 };
 
 export const DUMMY_STATE_GRAPH_HISTORY: {
-  [key: string]: Node;
+  [key: string]: FiberNode;
 } = {
   '1': randomizeStateGraph(DUMMY_STATE_GRAPH),
   '2': randomizeStateGraph(DUMMY_STATE_GRAPH),
