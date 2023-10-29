@@ -7,6 +7,7 @@ import { Tooltip, useTooltip } from '@visx/tooltip';
 import { useMemo } from 'react';
 
 import { ZoomContainer } from '../../../../components/state-inspector/svg/ZoomContainer';
+import { graphColors } from '../../../../styles/colors';
 import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,
@@ -21,9 +22,6 @@ import {
 } from './Node';
 import { RecoilStateNode } from './StateNode';
 import { RecoilStateTooltip } from './Tooltips';
-
-const lightpurple = '#374469';
-export const background = '#272b4d';
 
 export type TreeProps = {
   treeData: any;
@@ -43,17 +41,19 @@ export function ComponentTree({
   margin = DEFAULT_MARGIN,
 }: TreeProps) {
   const treeData = useMemo(() => hierarchy(treeDataProp), [treeDataProp]);
+
   const yMax = height - margin.top - margin.bottom;
   const xMax = width - margin.left - margin.right;
-
-  const isTreeVisible = width > 9 && treeDataProp;
 
   const recoilStateNodes = useMemo(() => {
     return convertRecoilStatesToTreeNodes(recoilStates, xMax, yMax);
   }, [recoilStates]);
 
+  // NOTE: Tooltip to show when a pointer is over a node.
   const { tooltipOpen, tooltipData, hideTooltip, showTooltip } =
     useTooltip<Pick<HierarchyNode, 'x' | 'y' | 'data'>>();
+
+  const isTreeVisible = width > 9 && treeDataProp;
 
   return isTreeVisible ? (
     <ZoomContainer
@@ -63,7 +63,6 @@ export function ComponentTree({
         tooltipOpen &&
         tooltipData && (
           <Tooltip
-            // TODO: Should offset the dragged position
             top={tooltipData.x}
             left={tooltipData.y}
             css={css`
@@ -95,11 +94,18 @@ export function ComponentTree({
       <MarkerArrow id="marker-arrow" fill="#fff" refX={2} size={10} />
 
       {/* NOTE: The background */}
-      <rect width={width} height={height} rx={14} fill={background} />
+      <rect
+        width={width}
+        height={height}
+        rx={14}
+        fill={graphColors.background}
+      />
 
+      {/* NOTE: Draws the React component and state tree */}
       <Tree<TreeNode> root={treeData} size={[yMax, xMax]}>
         {(tree) => (
           <Group top={margin.top} left={margin.left}>
+            {/* NOTE: Recoil state nodes */}
             {recoilStateNodes.map((state, i: number) => (
               <RecoilStateNode
                 key={`node-${i}-${state.data.name}-${state.x}-${state.y}`}
@@ -117,6 +123,7 @@ export function ComponentTree({
               />
             ))}
 
+            {/* NOTE: Links between React components */}
             {tree.links().map((link, i) => {
               if (link.source.depth === 0) {
                 link.source.y = ROOT_START_X;
@@ -126,7 +133,7 @@ export function ComponentTree({
                 <LinkHorizontal
                   key={`link-${i}-${link.source.id}-${link.target.id}}`}
                   data={link}
-                  stroke={lightpurple}
+                  stroke={graphColors.lightpurple}
                   strokeWidth="1"
                   fill="none"
                 />
@@ -147,7 +154,7 @@ export function ComponentTree({
                   }}
                   onMouseLeave={() => hideTooltip()}
                 />
-
+                {/* NOTE: Links between Recoil states and React components */}
                 {node.data.recoilStates?.map((recoilState, idx: number) => {
                   const recoilStatePosition = {
                     x: findRecoilStateTreeNodeWithRecoilState(

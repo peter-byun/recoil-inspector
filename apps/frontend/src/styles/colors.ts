@@ -12,3 +12,11 @@ export const colors = {
     border: '#7d7d7d',
   },
 } as const;
+
+export const graphColors = {
+  background: '#272b4d',
+  white: '#ffffff',
+  blue: '#03c0dc',
+  lightpurple: '#374469',
+  plum: '#c63af9',
+} as const;

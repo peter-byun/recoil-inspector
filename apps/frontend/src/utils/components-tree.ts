@@ -7,14 +7,12 @@ export const convertRecoilStatesToTreeNodes = (
 ) => {
   return recoilStates.map((state: RecoilStates[0], i: number) => {
     const halfOfStatesCount = Math.floor(recoilStates.length / 2);
-
     const NODE_GAP = 40;
-
-    const yMidPoint = yMax / 2 - halfOfStatesCount * NODE_GAP;
+    const yAxisMidPoint = yMax / 2 - halfOfStatesCount * NODE_GAP;
 
     const node = {
       x: -50,
-      y: yMidPoint + i * NODE_GAP,
+      y: yAxisMidPoint + i * NODE_GAP,
       data: {
         name: state.key,
         recoilStates: [state],

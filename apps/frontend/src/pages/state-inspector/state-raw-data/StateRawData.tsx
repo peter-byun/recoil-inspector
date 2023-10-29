@@ -12,20 +12,33 @@ interface StateRawDataProps {
 }
 
 export const StateRawData = ({ componentTree }: StateRawDataProps) => {
+  const [toast, setToast] = useState({
+    open: false,
+    text: '',
+  });
+
   const handleCopyClick = () => {
-    const connectionToExtensionProcess = chrome.runtime.connect();
+    try {
+      const connectionToExtensionProcess = chrome.runtime.connect();
+      const componentTreeText = JSON.stringify(componentTree);
 
-    connectionToExtensionProcess.postMessage({
-      action: 'frontendCopyToClipboardRequested',
-      tabId: chrome.devtools.inspectedWindow.tabId,
-      text: JSON.stringify(componentTree),
-    });
+      connectionToExtensionProcess.postMessage({
+        action: 'frontendCopyToClipboardRequested',
+        tabId: chrome.devtools.inspectedWindow.tabId,
+        text: componentTreeText,
+      });
 
-    setIsCopyToClipboardToastOpen(true);
+      setToast({
+        open: true,
+        text: 'Successfully copied data to the clipboard',
+      });
+    } catch (e) {
+      setToast({
+        open: true,
+        text: 'Failed to copy data to the clipboard',
+      });
+    }
   };
-
-  const [isCopyToClipboardToastOpen, setIsCopyToClipboardToastOpen] =
-    useState(false);
 
   const codeRef = useRef<HTMLDivElement>(null);
   useEffect(
@@ -63,10 +76,15 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
           </code>
 
           <Toast
-            title="Copied to clipboard"
-            description="The state raw data has been copied to your clipboard."
-            open={isCopyToClipboardToastOpen}
-            setOpen={setIsCopyToClipboardToastOpen}
+            title="Copy to clipboard"
+            description={toast.text}
+            open={toast.open}
+            setOpen={(nextOpen) => {
+              setToast({
+                ...toast,
+                open: nextOpen,
+              });
+            }}
           />
           <div
             css={css`

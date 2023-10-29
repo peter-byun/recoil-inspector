@@ -1,9 +1,6 @@
 import { Group } from '@visx/group';
 
-const lightpurple = '#374469';
-const plum = '#c63af9';
-const white = '#ffffff';
-export const background = '#272b4d';
+import { graphColors } from '../../../../styles/colors';
 
 type RecoilStateNodeProps = {
   node: {
@@ -44,8 +41,8 @@ export function RecoilStateNode({
         width={width}
         y={centerY}
         x={centerX}
-        fill={background}
-        stroke={plum}
+        fill={graphColors.background}
+        stroke={graphColors.plum}
         strokeWidth={1}
         rx={10}
         onMouseEnter={(e) => {
@@ -58,7 +55,7 @@ export function RecoilStateNode({
         fontSize={9}
         fontFamily="Arial"
         textAnchor="middle"
-        fill={white}
+        fill={graphColors.white}
         style={{ pointerEvents: 'none' }}
       >
         {node.data.name}

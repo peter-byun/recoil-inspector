@@ -11,23 +11,25 @@ interface StateGraphProps {
   recoilStates: RecoilStates;
 }
 
-const COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE = 0.6;
+const COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE_RATIO = 0.6;
 
 export const StateGraph = ({
   componentTree,
   recoilStates,
 }: StateGraphProps) => {
   const [width, setWidth] = useState(
-    window.innerWidth * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE
+    window.innerWidth * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE_RATIO
   );
   const [height, setHeight] = useState(
-    window.innerHeight * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE
+    window.innerHeight * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE_RATIO
   );
 
-  useEffect(() => {
+  useEffect(function resizeStateGraphOnWindowResize() {
     const resizeObserver = new ResizeObserver(() => {
-      setWidth(window.innerWidth * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE);
-      setHeight(window.innerHeight * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE);
+      setWidth(window.innerWidth * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE_RATIO);
+      setHeight(
+        window.innerHeight * COMPONENT_TREE_SIZE_OVER_WINDOW_SIZE_RATIO
+      );
     });
 
     resizeObserver.observe(document.body);

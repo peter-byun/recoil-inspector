@@ -7,7 +7,7 @@ export const useExtensionBridge = ({
   onDisconnectFromExtensionProcess,
 }: {
   onExtensionDataUpdated: (extensionData: unknown) => void;
-  onDisconnectFromExtensionProcess: () => void;
+  onDisconnectFromExtensionProcess?: () => void;
 }) => {
   const setupExtensionProcessEventListeners = () => {
     const connectionToExtensionProcess = chrome.runtime.connect();
@@ -36,7 +36,7 @@ export const useExtensionBridge = ({
     );
 
     connectionToExtensionProcess.onDisconnect.addListener(() => {
-      onDisconnectFromExtensionProcess();
+      onDisconnectFromExtensionProcess?.();
     });
   };
 

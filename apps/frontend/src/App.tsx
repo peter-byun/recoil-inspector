@@ -4,6 +4,17 @@ import { NavigationBar } from './components/layouts/NavigationBar';
 import { StateInspector } from './pages/state-inspector/StateInspector';
 import { colors } from './styles/colors';
 
+function App() {
+  return (
+    <div className="App" css={appCss}>
+      <Global styles={GlobalCss} />
+      <NavigationBar />
+      <StateInspector />
+      <div id="portal"></div>
+    </div>
+  );
+}
+
 const appCss = css`
   max-width: 100%;
   margin: 0 auto;
@@ -35,16 +46,5 @@ const GlobalCss = css`
     all: unset;
   }
 `;
-
-function App() {
-  return (
-    <div className="App" css={appCss}>
-      <Global styles={GlobalCss} />
-      <NavigationBar />
-      <StateInspector />
-      <div id="portal"></div>
-    </div>
-  );
-}
 
 export default App;

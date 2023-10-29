@@ -11,10 +11,10 @@ import {
 } from '../../dummy-data/state-graph';
 import { useExtensionBridge } from '../../hooks/useExtensionBridge';
 import { StateChange } from '../../types/state';
-import { StateGraph } from './components/StateGraph';
-import { StateInspectorToolbar } from './components/StateInspectorToolbar';
-import { StateJSON } from './components/StateJSON';
-import { StateRawData } from './components/StateRawData';
+import { StateInspectorToolbar } from './StateInspectorToolbar';
+import { StateGraph } from './state-graph/StateGraph';
+import { StateJSON } from './state-json/StateJSON';
+import { StateRawData } from './state-raw-data/StateRawData';
 
 type StateGraphHistory = {
   [key: string]: Node;
@@ -58,9 +58,6 @@ export const StateInspector = () => {
   }, [stateGraphHistory]);
 
   useExtensionBridge({
-    onDisconnectFromExtensionProcess: () => {
-      // setComponentTree({});
-    },
     onExtensionDataUpdated: (updatedData: any) => {
       if (!updatedData) {
         return;
@@ -113,7 +110,6 @@ export const StateInspector = () => {
   const [componentTreesToDiff, setComponentTreesToDiff] = useState<Node[]>([]);
 
   const handleStatesToDiffChange = (stateChanges: StateChange[]) => {
-    // In diff mode, we only support JSON visualization.
     setSelectedVisualizationType(VISUALIZATION_TYPES.JSON);
 
     setComponentTreesToDiff(

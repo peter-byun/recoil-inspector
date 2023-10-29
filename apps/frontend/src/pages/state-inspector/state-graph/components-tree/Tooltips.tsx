@@ -2,9 +2,6 @@ import { css } from '@emotion/react';
 
 import { RecoilStates } from '../../StateInspector';
 
-const lightpurple = '#374469';
-export const background = '#272b4d';
-
 export type TreeProps = {
   treeData: any;
   recoilStates: RecoilStates;
@@ -47,10 +44,12 @@ export function RecoilStateTooltip({
               <span>
                 {recoilState.key} : <strong> {recoilState.value}</strong>
               </span>
+
               <span>
                 State Type : <strong> {recoilState.stateType}</strong>
               </span>
             </div>
+
             {!isLastProperty && (
               <hr
                 css={css`
@@ -88,6 +87,7 @@ const ComponentNodeTooltip = (props: {
           Depends on : <strong> {props.recoilState.key}</strong>
         </span>
       </div>
+
       {!props.isLastProperty && (
         <hr
           css={css`
