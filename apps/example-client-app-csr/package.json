@@ -9,10 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "recoil-inspector": "*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recoil": "*"
+    "recoil": "*",
+    "recoil-inspector": "*"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
