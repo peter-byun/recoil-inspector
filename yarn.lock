@@ -1660,10 +1660,10 @@
   "resolved" "file:apps/example-client-app-csr"
   "version" "0.0.0"
   dependencies:
-    "@peterbyun/recoil-inspector" "*"
     "react" "^18.2.0"
     "react-dom" "^18.2.0"
     "recoil" "*"
+    "recoil-inspector" "*"
 
 "example-client-app@file:/Users/peter/repos/recoil-inspector-project/apps/example-client-app":
   "resolved" "file:apps/example-client-app"
@@ -1730,7 +1730,6 @@
   dependencies:
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11.10.5"
-    "@peterbyun/recoil-inspector" "*"
     "@radix-ui/react-icons" "^1.1.1"
     "@radix-ui/react-select" "latest"
     "@radix-ui/react-switch" "latest"
@@ -1749,6 +1748,7 @@
     "highlight.js" "^11.7.0"
     "react" "^18.2.0"
     "react-dom" "^18.2.0"
+    "recoil-inspector" "*"
 
 "fs-extra@^10.1.0":
   "version" "10.1.0"
@@ -2327,7 +2327,7 @@
 
 "recoil-inspector@*", "recoil-inspector@file:/Users/peter/repos/recoil-inspector-project/packages/npm-package":
   "resolved" "file:packages/npm-package"
-  "version" "0.2.5"
+  "version" "0.2.6"
   dependencies:
     "vite-plugin-dts" "^2.0.2"
 
