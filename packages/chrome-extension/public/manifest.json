@@ -1,6 +1,6 @@
 {
   "name": "Recoil Inspector",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "devtools_page": "./devtools.html",
   "description": "A stable, and easy-to-use recoil devtool.",
   "manifest_version": 3,

@@ -77,8 +77,6 @@ chrome.runtime.onMessage.addListener(
       message
     );
 
-    const connectionToExtensionProcess = chrome.runtime.connect();
-
     switch (action) {
       case 'extensionDataUpdated':
         if (sender?.tab?.id) {

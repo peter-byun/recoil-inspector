@@ -464,7 +464,7 @@
 
 "@peterbyun/recoil-inspector@*", "@peterbyun/recoil-inspector@file:/Users/peter/repos/recoil-inspector-project/packages/npm-package":
   "resolved" "file:packages/npm-package"
-  "version" "0.2.0"
+  "version" "0.2.4"
   dependencies:
     "vite-plugin-dts" "^2.0.2"
 

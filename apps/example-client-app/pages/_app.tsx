@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <RecoilRoot>
       <RecoilInspector />
-      <Component {...pageProps} />;
+      {/* <Component {...pageProps} />; */}
     </RecoilRoot>
   );
 }
