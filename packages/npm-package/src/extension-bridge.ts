@@ -5,11 +5,13 @@ export const sendMessageToExtensionContentScript = ({
   action: string;
   payload: any;
 }) => {
-  window.postMessage(
-    {
-      action,
-      payload,
-    },
-    '*'
-  );
+  if (typeof window !== 'undefined') {
+    window.postMessage(
+      {
+        action,
+        payload,
+      },
+      '*'
+    );
+  }
 };
