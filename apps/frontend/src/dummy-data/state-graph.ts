@@ -1,4 +1,4 @@
-import { FiberNode } from '@peterbyun/recoil-inspector';
+import { FiberNode } from 'recoil-inspector';
 
 export const DUMMY_RECOIL_STATES = [
   {

@@ -1,4 +1,4 @@
-import RecoilInspector from '@peterbyun/recoil-inspector';
+import RecoilInspector from 'recoil-inspector';
 import { RecoilRoot } from 'recoil';
 
 import { Adder } from './Adder';

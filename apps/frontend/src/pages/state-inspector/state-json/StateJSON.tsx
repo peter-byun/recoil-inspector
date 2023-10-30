@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { FiberNode } from '@peterbyun/recoil-inspector';
+import { FiberNode } from 'recoil-inspector';
 
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { JSONItem, JSONItemInDiffMode } from './JSONItem';

@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { FiberNode } from '@peterbyun/recoil-inspector';
 import { useEffect, useState } from 'react';
+import { FiberNode } from 'recoil-inspector';
 
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { RecoilStates } from '../StateInspector';

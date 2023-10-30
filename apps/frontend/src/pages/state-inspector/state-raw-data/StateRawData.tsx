@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import { FiberNode } from '@peterbyun/recoil-inspector';
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
+import { FiberNode } from 'recoil-inspector';
 
 import { Button } from '../../../components/base-ui/Button';
 import { Toast } from '../../../components/base-ui/Toast';

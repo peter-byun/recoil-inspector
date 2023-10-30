@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { FiberNode } from '@peterbyun/recoil-inspector';
 import { useState } from 'react';
+import { FiberNode } from 'recoil-inspector';
 
 import { colors } from '../../../styles/colors';
 

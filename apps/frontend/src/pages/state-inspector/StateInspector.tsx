@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
-import { FiberNode } from '@peterbyun/recoil-inspector';
 import { useMemo, useState } from 'react';
+import { FiberNode } from 'recoil-inspector';
 
 import { StateChangeHistory } from '../../components/state-inspector/state-change-history/StateChangeHistory';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';

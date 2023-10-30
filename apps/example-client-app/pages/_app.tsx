@@ -1,4 +1,4 @@
-import RecoilInspector from '@peterbyun/recoil-inspector';
+import RecoilInspector from 'recoil-inspector';
 import type { AppProps } from 'next/app';
 import { RecoilRoot } from 'recoil';
 
