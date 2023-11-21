@@ -6,7 +6,7 @@ import { Frontend } from './frontned/Frontend';
  * @description It should be a child component of the RecoilRoot component that you want to debug.
  * Your application's process.env.NODE_ENV value should be 'development' to enable the debugger.
  */
-export default function RecoilInspector() {
+export function RecoilInspector() {
   if (process.env.NODE_ENV !== 'development') {
     return null;
   }

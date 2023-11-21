@@ -32,7 +32,7 @@ type VisualizationType = {
   value: VisualizationTypeValues;
 };
 
-const DEBUG_MODE = window.location.port === '5173';
+const DEBUG_MODE = false;
 
 export const StateInspector = () => {
   const [componentTree, setComponentTree] = useState<any>(
@@ -68,7 +68,7 @@ export const StateInspector = () => {
       setStateGraphHistory((prevStateGraphHistory) => {
         const nextStateGraphHistory = { ...prevStateGraphHistory };
 
-        nextStateGraphHistory[updatedData.componentTreeRoot.id] = {
+        nextStateGraphHistory[updatedData.componentTreeRoot?.id] = {
           ...updatedData.componentTreeRoot,
           changedAt: new Date().toLocaleTimeString(),
         };
@@ -120,7 +120,7 @@ export const StateInspector = () => {
     setSelectedVisualizationType(VISUALIZATION_TYPES.JSON);
 
     setComponentTreesToDiff(
-      stateChanges.map((stateChange) => stateGraphHistory[stateChange.id])
+      stateChanges.map((stateChange) => stateGraphHistory[stateChange?.id])
     );
   };
 
@@ -169,9 +169,16 @@ export const StateInspector = () => {
 };
 
 const layoutCss = css`
+  position: fixed;
+  right: 0;
+  top: 0;
+
   display: grid;
   grid-template-columns: 30% 70%;
   grid-template-rows: 60px 90%;
   height: 80vh;
   grid-gap: 5px;
+
+  width: 50vw;
+  height: 100vh;
 `;

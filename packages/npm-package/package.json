@@ -7,20 +7,19 @@
     "type": "git",
     "url": "git+https://github.com/PeterByun/recoil-inspector-project.git"
   },
-  "type": "module",
-  "main": "./build/main.umd.cjs",
-  "module": "./build/main.js",
+  "main": "./build/index.umd.cjs",
+  "module": "./build/index.js",
   "exports": {
     ".": {
-      "import": "./build/main.js",
-      "require": "./build/main.umd.cjs"
+      "import": "./build/index.js",
+      "require": "./build/index.umd.cjs"
     }
   },
-  "typings": "./build/main.d.ts",
+  "typings": "./build/index.d.ts",
   "license": "MIT",
   "scripts": {
     "dev:standalone": "vite",
-    "dev": "vite build --watch && tsc",
+    "dev": "vite build && tsc",
     "build": "vite build && tsc",
     "preview": "vite preview"
   },
@@ -42,7 +41,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
+    "@emotion/styled": "^11.11.0",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-select": "latest",
     "@radix-ui/react-switch": "latest",

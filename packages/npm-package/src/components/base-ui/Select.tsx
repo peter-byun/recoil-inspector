@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+
 import { ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons';
 import * as BaseSelect from '@radix-ui/react-select';
 
@@ -53,7 +54,8 @@ export function Select<Item extends SelectItem>({
           overflow: hidden;
           background-color: white;
           border-radius: 6px;
-          box-shadow: 0px 10px 38px -10px rgba(22, 23, 24, 0.35),
+          box-shadow:
+            0px 10px 38px -10px rgba(22, 23, 24, 0.35),
             0px 10px 20px -15px rgba(22, 23, 24, 0.2);
           z-index: 1;
         `}

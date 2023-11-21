@@ -429,7 +429,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/styled@npm:^11.10.5":
+"@emotion/styled@npm:^11.11.0":
   version: 11.11.0
   resolution: "@emotion/styled@npm:11.11.0"
   dependencies:
@@ -5011,7 +5011,7 @@ prettier@latest:
   dependencies:
     "@emotion/babel-plugin": ^11.10.5
     "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
+    "@emotion/styled": ^11.11.0
     "@radix-ui/react-icons": ^1.1.1
     "@radix-ui/react-select": latest
     "@radix-ui/react-switch": latest

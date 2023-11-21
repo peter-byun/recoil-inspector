@@ -1,15 +1,27 @@
 import { Global, css } from '@emotion/react';
+import { useState } from 'react';
+import { Switch } from '../components/base-ui/Switch';
 
 import { NavigationBar } from '../components/layouts/NavigationBar';
 import { colors } from '../styles/colors';
 import { StateInspector } from './pages/state-inspector/StateInspector';
 
 export function Frontend() {
+  const [showFrontend, setShowFrontend] = useState(false);
+
   return (
     <div className="App" css={appCss}>
       <Global styles={GlobalCss} />
       <NavigationBar />
-      <StateInspector />
+
+      <Switch
+        checked={showFrontend}
+        label="RecoilInspector"
+        onCheckedChange={setShowFrontend}
+      />
+
+      {showFrontend ? <StateInspector /> : null}
+
       <div id="portal"></div>
     </div>
   );
