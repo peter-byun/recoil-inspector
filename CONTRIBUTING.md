@@ -52,7 +52,7 @@ To run all dev servers of apps and packages, run the following command:
 yarn run dev
 ```
 
-### Running a NPM script
+### Running an NPM script
 
 Note that npm-package's package name is "recoil-inspector", even though the directory is named "npm-package".
 So to run the dev server, run `yarn run dev --filter recoil-inspector`

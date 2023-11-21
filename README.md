@@ -6,16 +6,11 @@
 
 # Installation Guide
 
-1. Install the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US) from the Chrome web store.
-
-   1-2. Install Recoil Inspector devtool from the Chrome web store.
-   (Not yet available, but if you want you can try it out by building it from the source code. See the Contributing.md file.)
-
-2. Install the NPM package.
+1. Install the NPM package.
    ```zsh
    npm install recoil-inspector
    ```
-3. Import the package in your entry point like the below examples.
+2. Import the package in your entry point like the below examples.
 
    ```tsx
    // Client Side Rendering app using Vite's React template.
@@ -51,8 +46,6 @@
      );
    }
    ```
-
-4. Open up a Chrome devtool and start debugging!
 
 # Features
 

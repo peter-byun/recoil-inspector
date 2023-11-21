@@ -12,12 +12,13 @@ export default defineConfig({
   ],
   build: {
     outDir: './build',
+    emptyOutDir: true,
     lib: {
-      entry: [path.resolve(__dirname, './src/main.tsx')],
+      entry: [path.resolve(__dirname, './src/index.ts')],
       name: 'RecoilInspector',
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'recoil'],
+      external: ['React', 'react-dom', 'recoil'],
     },
   },
 });

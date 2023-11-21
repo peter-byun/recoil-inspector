@@ -1729,16 +1729,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/chrome@npm:*":
-  version: 0.0.252
-  resolution: "@types/chrome@npm:0.0.252"
-  dependencies:
-    "@types/filesystem": "*"
-    "@types/har-format": "*"
-  checksum: 38ca77dda1d28d2d659a40fdd1db7fdbbabcee33d8d6a6314917e7336ccb3fa6e292e9e9497dcc040608a71206df74799979922d7fda274932cd9053fc934b78
-  languageName: node
-  linkType: hard
-
 "@types/d3-array@npm:3.0.3":
   version: 3.0.3
   resolution: "@types/d3-array@npm:3.0.3"
@@ -1852,33 +1842,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/filesystem@npm:*":
-  version: 0.0.35
-  resolution: "@types/filesystem@npm:0.0.35"
-  dependencies:
-    "@types/filewriter": "*"
-  checksum: 42548874e3ca6479ee593c2a8ac2b4cc2e9ede1cff14e0fc12c89379dfb3de057e5aa5fe2e826221020f3e0190ce273026112e7dec94bc098a4a9cb656bbc156
-  languageName: node
-  linkType: hard
-
-"@types/filewriter@npm:*":
-  version: 0.0.32
-  resolution: "@types/filewriter@npm:0.0.32"
-  checksum: b131eb02cd3dd3bc08a1f94b8457c6c5a113ff0f08404c72da1922ef43689466da650bb82140d6982e4629972da679b117ab97865892d9bca7451edb11849483
-  languageName: node
-  linkType: hard
-
 "@types/geojson@npm:*":
   version: 7946.0.13
   resolution: "@types/geojson@npm:7946.0.13"
   checksum: b3b68457c89bc3f0445dc9eb54d07e6f89658672867c54989bc7f71f87d54e562195b291d43e1b84476493351271d7ccb9f5c6ab2012b29fbafbb0e8e43c4bca
-  languageName: node
-  linkType: hard
-
-"@types/har-format@npm:*":
-  version: 1.2.15
-  resolution: "@types/har-format@npm:1.2.15"
-  checksum: e3e8197e0ac74747736d13e0b54ec862e55ecf57cc962e1a24c801c7940b7b829d281dddc67f297877f1c4bc014b4ac29d35b2c6a9a1e6bc26bcff5fd7f835b0
   languageName: node
   linkType: hard
 
@@ -2540,16 +2507,6 @@ __metadata:
   checksum: c57cf9dd0791e2f18a5ee9c1a299ae6e801ff58fee96dc8bfd0dcb4738a6ce58dd252a3605b1c93c6418fe4f9d5093b28ffbf4d66648cb2a9c67eaef9679be2f
   languageName: node
   linkType: hard
-
-"chrome-extension@workspace:packages/chrome-extension":
-  version: 0.0.0-use.local
-  resolution: "chrome-extension@workspace:packages/chrome-extension"
-  dependencies:
-    "@types/chrome": "*"
-    typescript: ^4.9.3
-    vite: ^4.0.0
-  languageName: unknown
-  linkType: soft
 
 "classnames@npm:^2.3.1":
   version: 2.3.2
@@ -3489,42 +3446,6 @@ eslint-config-turbo@latest:
   checksum: 139d270bc82dc9e6f8bc045fe2aae4001dc2472157044fdfad376d0a3457f77857fa883c1c8b21b491c6caade9a926a4bed3d3d2e8d3c9202b151a4cbbd0bcd5
   languageName: node
   linkType: hard
-
-"frontend@workspace:apps/frontend":
-  version: 0.0.0-use.local
-  resolution: "frontend@workspace:apps/frontend"
-  dependencies:
-    "@emotion/babel-plugin": ^11.10.5
-    "@emotion/react": ^11.10.5
-    "@emotion/styled": ^11.10.5
-    "@radix-ui/react-icons": ^1.1.1
-    "@radix-ui/react-select": latest
-    "@radix-ui/react-switch": latest
-    "@radix-ui/react-toast": ^1.1.2
-    "@radix-ui/react-toggle": ^1.0.1
-    "@radix-ui/react-toolbar": ^1.0.2
-    "@types/react": ^18.0.26
-    "@types/react-dom": ^18.0.9
-    "@visx/clip-path": ^3.0.0
-    "@visx/curve": ^3.0.0
-    "@visx/gradient": ^2.17.0
-    "@visx/group": ^2.17.0
-    "@visx/hierarchy": ^2.17.0
-    "@visx/marker": ^3.0.0
-    "@visx/shape": ^3.0.0
-    "@visx/tooltip": ^3.1.2
-    "@visx/zoom": ^3.0.1
-    "@vitejs/plugin-react": ^3.0.0
-    eslint-config-custom: "*"
-    highlight.js: ^11.7.0
-    react: ^18.2.0
-    react-dom: ^18.2.0
-    recoil-inspector: "*"
-    tsconfig: "*"
-    typescript: ^4.9.3
-    vite: ^4.0.0
-  languageName: unknown
-  linkType: soft
 
 "fs-extra@npm:^10.1.0":
   version: 10.1.0
