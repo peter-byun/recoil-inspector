@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { colors } from '../../../styles/colors';
 import { scrollbarCss } from '../../../styles/scrollbar';
-import { StateChange } from '../../../types/state';
+import { StateChange } from 'recoil-inspector/src/types/state';
 import { StateChangeHistoryItem } from './StateChangHistoryItem';
 import { StateChangeForDisplay } from './state-change-history.types';
 import {

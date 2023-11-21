@@ -10,7 +10,7 @@ import {
   DUMMY_STATE_GRAPH_HISTORY,
 } from '../../dummy-data/state-graph';
 import { useExtensionBridge } from '../../hooks/useExtensionBridge';
-import { StateChange } from '../../types/state';
+import { StateChange } from 'recoil-inspector/src/types/state';
 import { StateInspectorToolbar } from './StateInspectorToolbar';
 import { StateGraph } from './state-graph/StateGraph';
 import { StateJSON } from './state-json/StateJSON';

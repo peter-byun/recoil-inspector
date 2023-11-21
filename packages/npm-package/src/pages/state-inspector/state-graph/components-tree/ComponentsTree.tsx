@@ -11,7 +11,7 @@ import { graphColors } from '../../../../styles/colors';
 import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,
-} from '../../../../utils/components-tree';
+} from 'recoil-inspector/src/utils/components-tree';
 import { RecoilStates } from '../../StateInspector';
 import {
   HierarchyNode,

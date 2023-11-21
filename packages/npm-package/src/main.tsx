@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useRecoilTransactionObserver_UNSTABLE } from 'recoil';
+import App from './App';
 
 import { sendMessageToExtensionContentScript } from './extension-bridge';
 import {
@@ -72,7 +73,15 @@ export default function RecoilInspector() {
     });
   }, []);
 
-  return null;
+  return (
+    <div id="recoil-inspector-root">
+      <App />
+      <link
+        rel="stylesheet"
+        href="./src/libs/highlight.js/11.7.0/github.min.css"
+      />
+    </div>
+  );
 }
 
 interface UseOnFiberRootMountProps {

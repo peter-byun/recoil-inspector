@@ -1,4 +1,4 @@
-import { RecoilStates } from '../pages/state-inspector/StateInspector';
+import { RecoilStates } from '../../../../apps/frontend/src/pages/state-inspector/StateInspector';
 
 export const convertRecoilStatesToTreeNodes = (
   recoilStates: RecoilStates,

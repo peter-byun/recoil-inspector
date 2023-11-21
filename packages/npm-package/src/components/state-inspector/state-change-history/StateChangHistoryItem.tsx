@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
 import { colors } from '../../../styles/colors';
-import { StateChange } from '../../../types/state';
+import { StateChange } from 'recoil-inspector/src/types/state';
 import { OnPressedChange, Toggle } from '../../base-ui/Toggle';
 
 interface StateChangedProps {
