@@ -6,3 +6,5 @@ It's primary functions are:
 1. Listen to state changes.
 2. Transforms the state change data to a tree.
 3. Send the transformed data to the extension.
+
+Check [the GitHub repository](https://github.com/PeterByun/recoil-inspector-project) for more information.
