@@ -18,6 +18,11 @@ export function Frontend() {
         checked={showFrontend}
         label="RecoilInspector"
         onCheckedChange={setShowFrontend}
+        css={css`
+          position: fixed;
+          left: 0;
+          bottom: 0;
+        `}
       />
 
       {showFrontend ? <StateInspector /> : null}

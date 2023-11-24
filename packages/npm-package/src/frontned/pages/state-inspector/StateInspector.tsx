@@ -172,7 +172,7 @@ export const StateInspector = () => {
 
 const layoutCss = css`
   position: fixed;
-  right: 0;
+  left: 0;
   top: 0;
 
   display: grid;
@@ -181,6 +181,6 @@ const layoutCss = css`
   height: 80vh;
   grid-gap: 5px;
 
-  width: 50vw;
-  height: 100vh;
+  width: 100vw;
+  height: 50vh;
 `;
