@@ -1,7 +1,7 @@
 {
   "name": "recoil-inspector-project",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "workspaces": [
     "apps/*",
     "packages/*"
