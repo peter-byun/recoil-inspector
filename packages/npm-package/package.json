@@ -19,7 +19,7 @@
   "license": "MIT",
   "scripts": {
     "dev:standalone": "vite",
-    "dev": "vite build && tsc",
+    "dev": "tsc && vite build --watch",
     "build": "vite build && tsc",
     "preview": "vite preview"
   },

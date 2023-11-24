@@ -109,6 +109,7 @@ function transformFiberRootToComponentTree(fiberRoot: any) {
 
   convertFiberToDebuggerComponentTree(fiberRoot, componentTreeRoot);
 
+  console.log({ componentTreeRoot });
   window.__RECOIL_INSPECTOR_COMPONENT_TREE_ROOT = componentTreeRoot;
 }
 

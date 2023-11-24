@@ -5,6 +5,10 @@ import {
 } from './JSONItemProperties';
 
 export const JSONItem = (item: FiberNode) => {
+  if (!item) {
+    return null;
+  }
+
   return (
     <>
       <JSONItemProperties item={item} />
@@ -14,9 +18,9 @@ export const JSONItem = (item: FiberNode) => {
           <details>
             <summary>children</summary>
             <ul>
-              {item.children.map((child) => {
+              {item.children.map((child, idx) => {
                 return (
-                  <li key={child.name}>
+                  <li key={child.name + idx}>
                     <ul>{JSONItem(child)}</ul>
                   </li>
                 );
@@ -47,9 +51,9 @@ export const JSONItemInDiffMode = (
           <details>
             <summary>children</summary>
             <ul>
-              {mergedChildren.map((mergedChild) => {
+              {mergedChildren.map((mergedChild, idx) => {
                 return (
-                  <li key={mergedChild.name}>
+                  <li key={mergedChild.name + idx}>
                     <ul>
                       {JSONItemInDiffMode([
                         mergedChild.prevValue,

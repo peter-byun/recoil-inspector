@@ -57,10 +57,12 @@ export const StateInspector = () => {
   }, [stateGraphHistory]);
 
   useEffect(() => {
-    function onExtensionDataUpdated(updatedData: any) {
-      if (!updatedData) {
+    function onExtensionDataUpdated(message: any) {
+      if (!message || message.data.action !== 'extensionDataUpdated') {
         return;
       }
+
+      const updatedData = message.data.payload;
 
       setComponentTree(updatedData.componentTreeRoot);
       setRecoilStates(updatedData.recoilStates);

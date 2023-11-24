@@ -7,7 +7,13 @@ const STATEFUL_HOOK_NAMES = {
 
 const statefulHookNames: string[] = Object.values(STATEFUL_HOOK_NAMES);
 
-const NON_USER_COMPONENT_NAMES = ['Batcher'];
+const NON_USER_COMPONENT_NAMES = [
+  'Batcher',
+  'Frontend',
+  'StateInspector',
+  'ClientStatesParser',
+  'StateChangeHistory',
+];
 
 export function checkIfFiberNodeIsUserComponent(fiber: Fiber) {
   return !NON_USER_COMPONENT_NAMES.includes(fiber.elementType.name);

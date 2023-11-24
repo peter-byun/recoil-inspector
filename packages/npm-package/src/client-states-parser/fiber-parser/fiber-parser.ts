@@ -21,7 +21,10 @@ export const convertFiberToDebuggerComponentTree = (
   fiber: Fiber,
   parentNode: FiberNode
 ) => {
-  const isNotDebuggerState = fiber.elementType?.name !== 'RecoilInspector';
+  const isNotDebuggerState =
+    fiber.elementType?.name !== 'RecoilInspector' &&
+    fiber?.stateNode?.id !== 'recoil-inspector-root';
+
   const isFiberNodeComponent =
     checkIfFiberNodeHasState(fiber) &&
     checkIfFiberNodeIsUserComponent(fiber) &&
@@ -50,7 +53,7 @@ export const convertFiberToDebuggerComponentTree = (
     parentNode.children.push(currentNode);
   }
 
-  if (fiber.child) {
+  if (fiber.child && isNotDebuggerState) {
     const parentOfNextCurrentNode = currentNode ? currentNode : parentNode;
     convertFiberToDebuggerComponentTree(fiber.child, parentOfNextCurrentNode);
   }

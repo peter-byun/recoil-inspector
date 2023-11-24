@@ -12,7 +12,7 @@ export default defineConfig({
   ],
   build: {
     outDir: './build',
-    emptyOutDir: true,
+    emptyOutDir: false,
     lib: {
       entry: [path.resolve(__dirname, './src/index.ts')],
       name: 'RecoilInspector',

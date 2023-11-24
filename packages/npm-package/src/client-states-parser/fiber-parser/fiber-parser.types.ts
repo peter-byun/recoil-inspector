@@ -9,6 +9,7 @@ export type FiberNode = {
 };
 
 export type Fiber = {
+  stateNode?: any;
   type?: string;
   elementType: {
     name: string;

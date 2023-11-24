@@ -4,14 +4,19 @@ import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-p
 import { colors } from '../../../../styles/colors';
 
 export const JSONItemProperties = ({ item }: { item: FiberNode }) => {
+  if (!item) {
+    return null;
+  }
+
   return (
     <>
       {item &&
         Object.entries(item)
           .filter(([key]) => key !== 'children')
-          .map(([key, value]) => (
-            <li key={key}>
-              {`${key} :`} <JSONItemPropertyValue value={value} />
+          .map(([key, value], idx) => (
+            <li key={key + value + idx}>
+              {`${key} :`}{' '}
+              <JSONItemPropertyValue value={value} key={key + value + idx} />
             </li>
           ))}
     </>
@@ -45,7 +50,6 @@ export const JSONItemPropertiesInDiffMode = ({
       marker: 'added' | 'removed' | 'unchanged' | 'changed';
     },
   ][];
-
   const mergedItemWithDiffMarkers: JSONItemEntriesWithDiffMarkers =
     Object.entries(mergedItem).map((entry) => {
       const [key, value] = entry;
@@ -69,10 +73,14 @@ export const JSONItemPropertiesInDiffMode = ({
   return (
     <>
       {mergedItemWithDiffMarkers
-        .filter(([key]) => key !== 'children')
-        .map(([key, { value, marker }]) => (
-          <li key={key} css={getJSONItemCssByDiffMarker(marker)}>
-            {`${key} :`} <JSONItemPropertyValue value={value} />
+        .filter(([key]) => key && key !== 'children')
+        .map(([key, { value, marker }], idx) => (
+          <li
+            key={`${key + value}${idx}`}
+            css={getJSONItemCssByDiffMarker(marker)}
+          >
+            {`${key} :`}{' '}
+            <JSONItemPropertyValue value={value} key={`${key + value}${idx}`} />
           </li>
         ))}
     </>
@@ -80,15 +88,18 @@ export const JSONItemPropertiesInDiffMode = ({
 };
 
 type NodeValues = FiberNode[keyof FiberNode];
-
 const JSONItemPropertyValue = ({ value }: { value: NodeValues }) => {
-  const stringifiedValue = JSON.stringify(value);
+  const [showFullValue, setShowFullValue] = useState<boolean>(false);
+
+  const stringifiedValue = JSON.stringify(value) ?? '';
+
+  if (!stringifiedValue) {
+    return null;
+  }
 
   if (stringifiedValue.length < 25) {
     return <span>{stringifiedValue}</span>;
   }
-
-  const [showFullValue, setShowFullValue] = useState<boolean>(false);
 
   return (
     <>
