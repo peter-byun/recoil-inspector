@@ -15,7 +15,7 @@
    ```tsx
    // Client Side Rendering app using Vite's React template.
    import { RecoilRoot } from 'recoil';
-   import RecoilInspector from 'recoil-inspector';
+   import { RecoilInspector } from 'recoil-inspector';
 
    function App() {
      return (
@@ -35,7 +35,7 @@
    // Server Side Rendering app using Next.js.
    import type { AppProps } from 'next/app';
    import { RecoilRoot } from 'recoil';
-   import RecoilInspector from 'recoil-inspector';
+   import { RecoilInspector } from 'recoil-inspector';
 
    export default function App({ Component, pageProps }: AppProps) {
      return (
