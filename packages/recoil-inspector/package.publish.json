@@ -1,7 +1,7 @@
 {
   "name": "recoil-inspector",
   "description": "A reliable recoil dev tool.",
-  "version": "0.2.11",
+  "version": "0.2.13",
   "author": "Peter Byun <peter1035k@gmail.com>",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "license": "MIT",
   "scripts": {
     "dev:standalone": "vite",
-    "dev": "tsc && vite build --watch",
+    "dev": "vite build && tsc",
     "build": "vite build && tsc",
     "preview": "vite preview"
   },
@@ -64,9 +64,5 @@
     "url": "https://github.com/PeterByun/recoil-inspector-project/issues"
   },
   "homepage": "https://github.com/PeterByun/recoil-inspector-project#readme",
-  "keywords": [
-    "recoil",
-    "debugger",
-    "devtool"
-  ]
+  "keywords": ["recoil", "debugger", "devtool"]
 }

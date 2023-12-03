@@ -26,9 +26,10 @@ export function RecoilStateTooltip({
           <ComponentNodeTooltip
             recoilState={recoilState}
             isLastProperty={isLastProperty}
+            key={`${recoilState.key}-${recoilState.value}-${idx}`}
           />
         ) : (
-          <div key={`${recoilState.key}-${recoilState.value}`}>
+          <div key={`${recoilState.key}-${recoilState.value}-${idx}`}>
             <div
               css={css`
                 display: flex;
@@ -70,7 +71,7 @@ const ComponentNodeTooltip = (props: {
   isLastProperty: boolean;
 }) => {
   return (
-    <div key={`${props.recoilState.key}-${props.recoilState.value}`}>
+    <div>
       <div
         css={css`
           display: flex;

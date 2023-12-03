@@ -54,8 +54,7 @@ yarn run dev
 
 ### Running an NPM script
 
-Note that npm-package's package name is "recoil-inspector", even though the directory is named "npm-package".
-So to run the dev server, run `yarn run dev --filter recoil-inspector`
+Ro run the dev server, run `yarn run dev --filter recoil-inspector`
 
 ```
 turbo run <NPM script> --filter=<sub-package name>
@@ -93,7 +92,7 @@ yarn workspace web upgrade react
 ### Publish a new NPM package version
 
 ```bash
-cd ./packages/npm-package
+cd ./packages/recoil-inspector
 npm version patch
 npm publish
 ```

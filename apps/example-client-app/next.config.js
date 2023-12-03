@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-}
+  transpilePackages: ['recoil-inspector'],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

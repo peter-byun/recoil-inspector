@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
-import { Button } from '@radix-ui/react-toolbar';
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
+import { Button } from '../../../../components/base-ui/Button';
 import { Toast } from '../../../../components/base-ui/Toast';
 import { StatePanelLayout } from '../../../../components/layouts/StatePanelLayout';
 import { copyToClipboard } from '../../../utils/copy-to-clipboard';
@@ -38,7 +38,7 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
   const codeRef = useRef<HTMLDivElement>(null);
   useEffect(
     function highlightSyntax() {
-      window && codeRef.current && hljs.highlightElement(codeRef.current);
+      codeRef.current && hljs.highlightElement(codeRef.current);
     },
     [codeRef]
   );
