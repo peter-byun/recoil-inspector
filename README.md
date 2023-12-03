@@ -2,6 +2,7 @@
 
 Ever wondered which components are subscribing which states, or had hard time debugging how Recoil states change? <br/>
 Recoil Inspector is here for you. <br/>
+It is activated only when `process.env.NODE_ENV` is `development`, and debugger code is lazily loaded only when it is enabled to avoid increasing your application's bundle size.
 
 ---
 
