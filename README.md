@@ -1,4 +1,4 @@
-# Recoil Inspector 🔍
+# Recoil Inspector 🔍 &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
 Ever wondered which components are subscribing which states, or had hard time debugging how Recoil states change? <br/>
 Recoil Inspector is here for you. <br/>
