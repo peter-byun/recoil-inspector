@@ -15,23 +15,22 @@ Recoil Inspector is here for you. <br/>
 
 # What it does
 
+** Demo **
+
+https://github.com/PeterByun/recoil-inspector-project/assets/47588056/e35d64e9-136f-47ad-867e-45daf081bce6
+
+
+
 ### State and Components Visualization
 
-Observe which components are referencing which Recoil states, and their data.
+See which components are referencing which Recoil states and props.
 
 <br/>
 
 ### State Changes History
 
-Record every Recoil state changes to see when the data have changed by which component.
-
-<br/>
-
-### State Change Diff
-
-Diff Recoil state changes to see which part of data have updated.
-
-<br/>
+See how states have been changed over time. </br>
+You can compare two changes to see exactly which properties have been updated, deleted, or added.
 
 ---
 
