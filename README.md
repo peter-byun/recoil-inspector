@@ -3,7 +3,9 @@
 Ever wondered which components are subscribing which states, or had hard time debugging how Recoil states change? <br/>
 Recoil Inspector is here for you. <br/>
 
-### Table of Contents
+---
+
+# Table of Contents
 
 - What it does
 - Installation Guide
