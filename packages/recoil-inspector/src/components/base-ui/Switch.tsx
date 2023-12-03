@@ -27,7 +27,7 @@ export const Switch = ({
         css={css`
           padding-right: 15px;
           color: white;
-          font-size: 10px;
+          font-size: 13px;
           line-height: 1;
         `}
       >

@@ -104,7 +104,7 @@ const SelectTrigger = styled(BaseSelect.Trigger)`
   justify-content: center;
   border-radius: 4px;
   padding: 0 15px;
-  font-size: 11px;
+  font-size: 13px;
   line-height: 1;
   height: 25px;
   gap: 5px;

@@ -46,7 +46,7 @@ export function StateInspectorToolbar<Item extends SelectItem>({
     >
       <label
         css={css`
-          font-size: 11px;
+          font-size: 13px;
           color: ${colors.dark.fontColor};
         `}
       >

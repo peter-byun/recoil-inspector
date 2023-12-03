@@ -181,6 +181,7 @@ const layoutCss = css`
   height: 80vh;
   grid-gap: 5px;
 
-  width: 100vw;
+  width: 98vw;
   height: 50vh;
+  margin: 5px 5px 0 5px;
 `;

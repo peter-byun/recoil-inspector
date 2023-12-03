@@ -7,7 +7,7 @@ export const colors = {
     secondary1: '#515162',
     secondary2: '#636377',
     lightGray: '#a7a7a7',
-    surface1: '#5c677f',
+    surface1: '#2b313d',
     surface2: '#545e77',
     focus: '#616161c6',
     border: '#7d7d7d',
