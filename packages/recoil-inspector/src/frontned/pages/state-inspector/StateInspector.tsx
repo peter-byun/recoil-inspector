@@ -19,6 +19,10 @@ type StateGraphHistory = {
   [key: string]: FiberNode;
 };
 
+type RecoilStatesHistory = {
+  [key: string]: RecoilStates;
+};
+
 export type RecoilStates = {
   key: string;
   value: any;
@@ -34,18 +38,20 @@ type VisualizationType = {
 
 const DEBUG_MODE = false;
 
-export const StateInspector = () => {
+export const StateInspector = ({ show }: { show: boolean }) => {
   const [componentTree, setComponentTree] = useState<any>(
     DEBUG_MODE ? DUMMY_STATE_GRAPH : null
   );
   const [recoilStates, setRecoilStates] = useState<any>(
     DEBUG_MODE ? DUMMY_RECOIL_STATES : null
   );
+  const [recoilStatesHistory, setRecoilStatesHistory] =
+    useState<RecoilStatesHistory>({});
   const [stateGraphHistory, setStateGraphHistory] = useState<StateGraphHistory>(
     DEBUG_MODE ? DUMMY_STATE_GRAPH_HISTORY : {}
   );
   const stateChangeHistory = useMemo(() => {
-    return Object.entries(stateGraphHistory).map(
+    return Object.entries(stateGraphHistory)?.map(
       ([id, stateChange]: [id: string, stateChange: StateGraphHistory[0]]) => {
         return {
           id,
@@ -64,18 +70,31 @@ export const StateInspector = () => {
 
       const updatedData = message.data.payload;
 
+      if (!updatedData.componentTreeRoot || !updatedData.recoilStates) {
+        return;
+      }
+
       setComponentTree(updatedData.componentTreeRoot);
       setRecoilStates(updatedData.recoilStates);
 
       setStateGraphHistory((prevStateGraphHistory) => {
-        const nextStateGraphHistory = { ...prevStateGraphHistory };
+        const nextHistory = { ...prevStateGraphHistory };
 
-        nextStateGraphHistory[updatedData.componentTreeRoot?.id] = {
+        nextHistory[updatedData.componentTreeRoot?.id] = {
           ...updatedData.componentTreeRoot,
           changedAt: new Date().toLocaleTimeString(),
         };
 
-        return nextStateGraphHistory;
+        return nextHistory;
+      });
+      setRecoilStatesHistory((prevRecoilStatesHistory) => {
+        const nextHistory = { ...prevRecoilStatesHistory };
+
+        nextHistory[updatedData.componentTreeRoot?.id] = [
+          ...updatedData.recoilStates,
+        ];
+
+        return nextHistory;
       });
     }
 
@@ -97,6 +116,7 @@ export const StateInspector = () => {
 
   const handleSelectedStateChangeFromHistory = (stateChange: StateChange) => {
     setComponentTree(stateGraphHistory[stateChange.id]);
+    setRecoilStates(recoilStatesHistory[stateChange.id]);
   };
 
   const [isDiffOn, setIsDiffOn] = useState<boolean>(false);
@@ -130,43 +150,45 @@ export const StateInspector = () => {
     selectedVisualizationType.value === VISUALIZATION_TYPES.GRAPH.value;
 
   return (
-    <>
-      <div css={layoutCss}>
-        <StateChangeHistory
-          stateChangeHistory={stateChangeHistory}
-          maxSelectableItem={2}
-          onSelectedStateChange={handleSelectedStateChangeFromHistory}
-          isDiffOn={isDiffOn}
-          onDiffStatesChange={handleStatesToDiffChange}
-        ></StateChangeHistory>
+    <div
+      css={[
+        layoutCss,
+        css`
+          visibility: ${show ? 'visible' : 'hidden'};
+        `,
+      ]}
+    >
+      <StateChangeHistory
+        stateChangeHistory={stateChangeHistory}
+        maxSelectableItem={2}
+        onSelectedStateChange={handleSelectedStateChangeFromHistory}
+        isDiffOn={isDiffOn}
+        onDiffStatesChange={handleStatesToDiffChange}
+      ></StateChangeHistory>
 
-        <StateInspectorToolbar<VisualizationType>
-          items={Object.values(VISUALIZATION_TYPES)}
-          selectedItem={selectedVisualizationType}
-          onItemSelected={handleVisualizationTypeSelected}
+      <StateInspectorToolbar<VisualizationType>
+        items={Object.values(VISUALIZATION_TYPES)}
+        selectedItem={selectedVisualizationType}
+        onItemSelected={handleVisualizationTypeSelected}
+        isDiffOn={isDiffOn}
+        onIsDiffOnChange={handleIsDiffOnChange}
+      />
+
+      {selectedVisualizationType.value === VISUALIZATION_TYPES.JSON.value && (
+        <StateJSON
+          componentTree={componentTree}
           isDiffOn={isDiffOn}
-          onIsDiffOnChange={handleIsDiffOnChange}
+          componentTreesToDiff={componentTreesToDiff}
         />
-
-        {selectedVisualizationType.value === VISUALIZATION_TYPES.JSON.value && (
-          <StateJSON
-            componentTree={componentTree}
-            isDiffOn={isDiffOn}
-            componentTreesToDiff={componentTreesToDiff}
-          />
-        )}
-        {shouldShowGraph ? (
-          <StateGraph
-            componentTree={componentTree}
-            recoilStates={recoilStates}
-          />
-        ) : null}
-        {selectedVisualizationType.value ===
-          VISUALIZATION_TYPES.RAW_DATA.value && (
-          <StateRawData componentTree={componentTree} />
-        )}
-      </div>
-    </>
+      )}
+      {shouldShowGraph ? (
+        <StateGraph componentTree={componentTree} recoilStates={recoilStates} />
+      ) : null}
+      {selectedVisualizationType.value ===
+        VISUALIZATION_TYPES.RAW_DATA.value && (
+        <StateRawData componentTree={componentTree} />
+      )}
+    </div>
   );
 };
 

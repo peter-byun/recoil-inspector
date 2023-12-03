@@ -63,7 +63,7 @@ export function Frontend() {
         />
       </button>
 
-      {showFrontend ? <StateInspector /> : null}
+      <StateInspector show={showFrontend} />
       <div id="portal"></div>
     </div>
   );
