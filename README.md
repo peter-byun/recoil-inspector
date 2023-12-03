@@ -17,9 +17,7 @@ Recoil Inspector is here for you. <br/>
 
 ** Demo **
 
-https://github.com/PeterByun/recoil-inspector-project/assets/47588056/e35d64e9-136f-47ad-867e-45daf081bce6
-
-
+https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1771-423b-a733-bd2427355b3c
 
 ### State and Components Visualization
 
