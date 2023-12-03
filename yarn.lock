@@ -2275,7 +2275,7 @@
 
 "recoil-inspector@*", "recoil-inspector@file:/Users/peter/repos/recoil-inspector-project/packages/recoil-inspector":
   "resolved" "file:packages/recoil-inspector"
-  "version" "0.2.15"
+  "version" "0.2.18"
   dependencies:
     "@emotion/react" "^11.10.5"
     "@emotion/styled" "^11.11.0"
