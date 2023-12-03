@@ -9,7 +9,7 @@ Recoil Inspector is here for you. <br/>
 - Installation Guide
 - Acknowledgement
 
-## <br/>
+---
 
 # What it does
 
