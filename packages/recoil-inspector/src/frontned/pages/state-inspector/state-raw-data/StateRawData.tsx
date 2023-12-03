@@ -53,7 +53,7 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
             align-items: center;
             justify-content: center;
             width: 90%;
-            height: 100%;
+            height: 95%;
             padding: 10px;
           `}
         >
@@ -89,6 +89,7 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
               justify-content: center;
               width: 100%;
               height: 10%;
+              margin: 10px 0 0 0;
             `}
           >
             <Button onClick={handleCopyClick}>Copy To Clipboard</Button>

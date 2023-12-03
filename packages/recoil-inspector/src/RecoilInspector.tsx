@@ -16,10 +16,6 @@ export function RecoilInspector() {
       <ClientStatesParser />
 
       <Frontend />
-      <link
-        rel="stylesheet"
-        href="./src/libs/highlight.js/11.7.0/github.min.css"
-      />
     </div>
   );
 }

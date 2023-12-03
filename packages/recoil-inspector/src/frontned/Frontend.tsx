@@ -6,6 +6,8 @@ import { colors } from '../styles/colors';
 import { StateInspector } from './pages/state-inspector/StateInspector';
 import RecoilInspectorLogo from '../../public/recoil-inspector-logo.svg';
 
+import './libs/highlight.js/11.7.0/github.min.css';
+
 export function Frontend() {
   const [showFrontend, setShowFrontend] = useState(false);
   const toggleFrontend = () => {
