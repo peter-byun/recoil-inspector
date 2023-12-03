@@ -1,18 +1,18 @@
 {
   "name": "recoil-inspector",
   "description": "A reliable recoil dev tool.",
-  "version": "0.2.18",
+  "version": "0.2.19",
   "author": "Peter Byun <peter1035k@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/PeterByun/recoil-inspector-project.git"
   },
-  "main": "./src/index.ts",
-  "module": "./src/index.ts",
+  "main": "./build/index.umd.cjs",
+  "module": "./build/index.js",
   "exports": {
     ".": {
-      "import": "./src/index.ts",
-      "require": "./src/index.ts"
+      "import": "./build/index.js",
+      "require": "./build/index.umd.cjs"
     }
   },
   "typings": "./build/index.d.ts",
