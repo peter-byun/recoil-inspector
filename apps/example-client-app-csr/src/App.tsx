@@ -10,7 +10,9 @@ function App() {
   return (
     <RecoilRoot>
       <div className="App">
-        <RecoilInspector />
+        <RecoilInspector 
+          disabled
+        />
         <Counter />
         <CounterSecond />
         <Adder />

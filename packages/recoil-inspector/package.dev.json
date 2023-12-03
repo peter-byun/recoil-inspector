@@ -1,7 +1,8 @@
 {
   "name": "recoil-inspector",
   "description": "A reliable recoil dev tool.",
-  "version": "0.2.13",
+  "version": "0.2.18",
+
   "author": "Peter Byun <peter1035k@gmail.com>",
   "repository": {
     "type": "git",
