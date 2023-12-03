@@ -15,15 +15,15 @@ Recoil Inspector is here for you. <br/>
 
 # What it does 🎯
 
-**Demo 📼**
+## Demo 📼
 
 https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1771-423b-a733-bd2427355b3c
+
+## Features 🔧
 
 ### State and Components Visualization
 
 See which components are referencing which Recoil states and props.
-
-<br/>
 
 ### State Changes History
 
