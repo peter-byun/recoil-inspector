@@ -85,4 +85,4 @@ Diff Recoil state changes to see which part of data have updated.
 
 # Acknowledgement
 
-This project is inspired by many other devtools, including Redux DevTools, React Developer Tools, Recoil Dev Tools, and Recoilize.
+This project is inspired by many other great devtools, including Redux DevTools, React Developer Tools, Recoil Dev Tools, and Recoilize.
