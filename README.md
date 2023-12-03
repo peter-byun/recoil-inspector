@@ -13,9 +13,9 @@ Recoil Inspector is here for you. <br/>
 
 ---
 
-# What it does
+# What it does 🎯
 
-**Demo**
+**Demo 📼**
 
 https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1771-423b-a733-bd2427355b3c
 
@@ -32,7 +32,7 @@ You can compare two changes to see exactly which properties have been updated, d
 
 ---
 
-# Installation Guide
+# Installation Guide 💿
 
 1. Install the [React Devtool extension](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US&utm_source=ext_sidebar) if you have not already.
 
