@@ -13,7 +13,7 @@ yarn run dev
 If you want to run the frontend dev server, run the below command.
 
 ```
-turbo run dev:standalone --filter=frontend
+yarn run dev --filter example-client-app-csr --filter recoil-inspector
 ```
 
 > Note that you need to re-run the dev script after changing the npm-package. It's not optimal, but we will fix it soon.
@@ -34,7 +34,6 @@ To build all apps and packages, run the following command:
 
 ```
 yarn run build
-
 ```
 
 If you want to ignore cached build result, use the --force flag.
@@ -68,13 +67,11 @@ turbo run <NPM script> --filter=<sub-package name>
 yarn workspace <workspace> add <package>
 # An example:
 yarn workspace web add react
-
 ```
 
 ### Remove a package from a workspace
 
 ```sh
-
 yarn workspace <workspace> remove <package>
 # An example:
 yarn workspace web remove react
@@ -86,13 +83,10 @@ yarn workspace web remove react
 yarn workspace <workspace> upgrade <package>
 # An example:
 yarn workspace web upgrade react
-
 ```
 
 ### Publish a new NPM package version
-
+At the project root directory, run the below command.
 ```bash
-cd ./packages/recoil-inspector
-npm version patch
-npm publish
+sh publish-npm-package.sh
 ```
