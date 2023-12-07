@@ -1,6 +1,3 @@
-rm packages/recoil-inspector/package.json 
-cp packages/recoil-inspector/package.publish.json packages/recoil-inspector/package.json
-
 yarn install
 yarn run build --filter recoil-inspector
 

@@ -9,7 +9,7 @@ export const sendMessageToFrontend = ({
     window.postMessage(
       {
         action,
-        payload,
+        payload: JSON.parse(JSON.stringify(payload)),
       },
       '*'
     );

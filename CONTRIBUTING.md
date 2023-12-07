@@ -86,7 +86,9 @@ yarn workspace web upgrade react
 ```
 
 ### Publish a new NPM package version
+
 At the project root directory, run the below command.
+
 ```bash
 sh publish-npm-package.sh
 ```

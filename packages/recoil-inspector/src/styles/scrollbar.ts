@@ -1,24 +1,14 @@
-import { css } from '@emotion/react';
-
-import { colors } from './colors';
-
 const SCROLL_BAR_BORDER_RADIUS = '6px';
 
-export const scrollbarCss = css`
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #929292;
-    border-radius: ${SCROLL_BAR_BORDER_RADIUS};
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #a6a6a6;
-  }
-
-  ::-webkit-scrollbar-track {
-    background-color: ${colors.dark.lightGray};
-    border-radius: ${SCROLL_BAR_BORDER_RADIUS};
-  }
-`;
+export const scrollbarCss = {
+  WebkitScrollbar: {
+    width: '5px',
+  },
+  WebkitScrollbarThumb: {
+    backgroundColor: '#929292',
+    borderRadius: SCROLL_BAR_BORDER_RADIUS,
+  },
+  'WebkitScrollbarThumb:hover': {
+    backgroundColor: '#a6a6a6',
+  },
+};

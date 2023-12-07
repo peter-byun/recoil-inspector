@@ -3,22 +3,17 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [
-    react({
-      babel: {
-        plugins: ['@emotion/babel-plugin'],
-      },
-    }),
-  ],
+  plugins: [react()],
   build: {
     outDir: './build',
-    emptyOutDir: false,
+    emptyOutDir: true,
+    minify: false,
     lib: {
       entry: [path.resolve(__dirname, './src/index.ts')],
       name: 'RecoilInspector',
     },
     rollupOptions: {
-      external: ['React', 'react-dom', 'recoil'],
+      external: ['react-dom', 'recoil', 'react'],
     },
   },
 });

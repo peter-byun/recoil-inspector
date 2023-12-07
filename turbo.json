@@ -3,7 +3,6 @@
   "pipeline": {
     "dev": {
       "cache": false,
-      "dependsOn": ["^dev"],
       "outputs": ["dist/**", "build/**"]
     },
     "dev:standalone": {

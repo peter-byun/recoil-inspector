@@ -1,4 +1,3 @@
-import { SerializedStyles, css } from '@emotion/react';
 import { ReactNode } from 'react';
 
 import { colors } from '../../styles/colors';
@@ -6,32 +5,29 @@ import { scrollbarCss } from '../../styles/scrollbar';
 
 interface StatePanelLayout {
   children: ReactNode;
-  containerCss?: SerializedStyles;
+  containerCss?: React.CSSProperties;
 }
 
 export const StatePanelLayout = ({
   children,
   containerCss,
 }: StatePanelLayout) => {
-  return (
-    <section
-      css={[
-        css`
-          background-color: ${colors.dark.surface1};
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: flex-start;
-          overflow-x: auto;
-          padding: 10px;
-          border-radius: 5px;
+  const containerStyles = [
+    {
+      backgroundColor: colors.dark.surface1,
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      overflowX: 'auto',
+      padding: '10px',
+      borderRadius: '5px',
+    },
+    scrollbarCss, // Assuming scrollbarCss is another CSS object
+    containerCss, // Assuming containerCss is another CSS object
+  ];
 
-          ${scrollbarCss}
-        `,
-        containerCss,
-      ]}
-    >
-      {children}
-    </section>
+  return (
+    <section style={Object.assign({}, ...containerStyles)}>{children}</section>
   );
 };

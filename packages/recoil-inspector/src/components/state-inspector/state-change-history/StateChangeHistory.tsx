@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { colors } from '../../../styles/colors';
@@ -155,27 +154,40 @@ export const StateChangeHistory = ({
     });
   }, [stateChangeHistoryForDisplay]);
 
+  const containerCss = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    gridColumn: '1/1',
+    gridRow: '1/3',
+    backgroundColor: colors.dark.surface1,
+    borderRadius: '5px',
+    overflowY: 'auto',
+    ...scrollbarCss, // Assuming scrollbarCss is another CSS object
+  } as const;
+
   return (
-    <section css={containerCss}>
+    <section style={containerCss}>
       <h3
-        css={css`
-          background: ${colors.dark.surface1};
-          width: 100%;
-          padding: 18px 0px;
-          border-radius: 5px;
-          margin: 0px;
-          font-size: 16px;
-          font-weight: normal;
-          text-align: center;
-        `}
+        style={{
+          background: colors.dark.surface1,
+          width: '100%',
+          padding: '18px 0px',
+          borderRadius: '5px',
+          margin: '0px',
+          fontSize: '16px',
+          fontWeight: 'normal',
+          textAlign: 'center',
+        }}
       >
         State Change History
       </h3>
       <hr
-        css={css`
-          width: 90%;
-          margin: 0;
-        `}
+        style={{
+          width: '90%',
+          margin: '0',
+        }}
       />
       {stateChangeHistoryForDisplaySortedByChangedAtInDesc.map(
         (stateChange, idx) => (
@@ -191,20 +203,3 @@ export const StateChangeHistory = ({
     </section>
   );
 };
-
-const containerCss = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-
-  grid-column: 1/1;
-  grid-row: 1/3;
-
-  background-color: ${colors.dark.surface1};
-  border-radius: 5px;
-
-  overflow-y: auto;
-
-  ${scrollbarCss}
-`;

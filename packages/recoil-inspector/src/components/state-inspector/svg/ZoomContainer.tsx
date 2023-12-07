@@ -1,4 +1,3 @@
-import { css } from '@emotion/react';
 import { RectClipPath } from '@visx/clip-path';
 import { Zoom } from '@visx/zoom';
 
@@ -38,9 +37,9 @@ export const ZoomContainer = ({
     >
       {(zoom) => (
         <div
-          css={css`
-            position: relative;
-          `}
+          style={{
+            position: 'relative',
+          }}
         >
           <svg
             width={width}
@@ -73,14 +72,14 @@ export const ZoomContainer = ({
             <g transform={zoom.toString()}>{children}</g>
           </svg>
           <div
-            css={css`
-              position: absolute;
-              top: 15px;
-              right: 15px;
-              display: flex;
-              flex-direction: row;
-              gap: 5px;
-            `}
+            style={{
+              position: 'absolute',
+              top: '15px',
+              right: '15px',
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '5px',
+            }}
           >
             <Button
               onClick={zoom.center}
