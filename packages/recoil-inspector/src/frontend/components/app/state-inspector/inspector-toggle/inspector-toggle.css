@@ -1,14 +1,14 @@
 /* Reset button styles */
-.button {
+.inspector-toggle-button {
   all: unset;
 }
 
 /* Button styles */
-.button {
+.inspector-toggle-button {
   background-color: #ececec;
   position: fixed;
-  left: 4px;
-  bottom: 4px;
+  left: 6px;
+  bottom: 6px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -21,12 +21,12 @@
   transition: box-shadow 0.2s ease-out;
 }
 
-.button:active,
-.button:focus {
+.inspector-toggle-button:active,
+.inspector-toggle-button:focus {
   outline: none;
 }
 
-.button:hover {
+.inspector-toggle-button:hover {
   cursor: pointer;
 
   box-shadow:

@@ -3,12 +3,14 @@
 import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
-import { Button } from '../../../components/base-ui/Button';
-import { Toast } from '../../../components/base-ui/Toast';
-import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
+
+import { StatePanelLayout } from '../../../components/app/layouts/StatePanelLayout';
 import { copyToClipboard } from '../../../utils/copy-to-clipboard';
 
 import './styles/codeblock.css';
+import { Button } from '../../../components/base/button/Button';
+import { Toast } from '../../../components/base/toast/Toast';
+import { FRONTEND_CONTAINER_ID } from '../../../Frontend';
 
 interface StateRawDataProps {
   componentTree: FiberNode;
@@ -74,10 +76,13 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
           </code>
 
           <Toast
-            title="Copy to clipboard"
-            description={toast.text}
-            open={toast.open}
-            setOpen={(nextOpen) => {
+            containerId={FRONTEND_CONTAINER_ID}
+            alertData={{
+              isAlertOpen: toast.open,
+              title: 'Copy to clipboard',
+              message: toast.text,
+            }}
+            setIsAlertOpen={(nextOpen: boolean) => {
               setToast({
                 ...toast,
                 open: nextOpen,

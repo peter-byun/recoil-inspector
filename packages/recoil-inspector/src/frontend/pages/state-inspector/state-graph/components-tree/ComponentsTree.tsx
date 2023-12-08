@@ -1,3 +1,5 @@
+'use client';
+
 import { Group } from '@visx/group';
 import { Tree, hierarchy } from '@visx/hierarchy';
 import { MarkerArrow } from '@visx/marker';
@@ -8,7 +10,7 @@ import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,
 } from '../../../../../client-states-parser/utils/components-tree';
-import { ZoomContainer } from '../../../../components/state-inspector/svg/ZoomContainer';
+import { ZoomContainer } from '../../../../components/app/state-inspector/zoom-container/ZoomContainer';
 import { graphColors } from '../../../../constants/styles/colors';
 import { RecoilStates } from '../../StateInspector';
 import {

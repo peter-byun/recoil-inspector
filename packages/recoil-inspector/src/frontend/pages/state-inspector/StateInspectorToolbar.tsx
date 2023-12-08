@@ -1,25 +1,22 @@
-import * as Toolbar from '@radix-ui/react-toolbar';
-import Select, { SelectItem } from '../../components/base-ui/select/Select';
+import Select, { SelectItem } from '../../components/base/select/Select';
 
-import Switch from '../../components/base-ui/switch/Switch';
+import Switch from '../../components/base/switch/Switch';
 import { colors } from '../../constants/styles/colors';
 
-type ToolBarItem = SelectItem<string>;
-
-export function StateInspectorToolbar({
+export function StateInspectorToolbar<ItemValue>({
   items,
   selectedItem,
   onItemSelected,
   isDiffOn,
   onIsDiffOnChange,
 }: {
-  items: ToolBarItem[];
-  selectedItem: ToolBarItem;
-  onItemSelected: (selectedItem: ToolBarItem) => void;
+  items: SelectItem<ItemValue>[];
+  selectedItem: SelectItem<ItemValue>;
+  onItemSelected: (selectedItem: SelectItem<ItemValue>) => void;
   isDiffOn: boolean;
   onIsDiffOnChange: (isDiffOn: boolean) => void;
 }) {
-  const handleSelectedItemChange = (selectedItem: ToolBarItem) => {
+  const handleSelectedItemChange = (selectedItem: SelectItem<ItemValue>) => {
     onItemSelected(selectedItem);
   };
 
@@ -28,7 +25,7 @@ export function StateInspectorToolbar({
   };
 
   return (
-    <Toolbar.Root
+    <nav
       aria-label="State Inspector Toolbar"
       style={{
         backgroundColor: colors.dark.surface1,
@@ -51,7 +48,7 @@ export function StateInspectorToolbar({
       >
         Visualization Type
       </label>
-      <Select<ToolBarItem>
+      <Select<SelectItem<ItemValue>>
         items={items}
         onItemChange={handleSelectedItemChange}
         placeholder="Select the visualization type."
@@ -65,6 +62,6 @@ export function StateInspectorToolbar({
         label="State Diff Mode"
         size="sm"
       />
-    </Toolbar.Root>
+    </nav>
   );
 }

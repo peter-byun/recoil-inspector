@@ -1,0 +1,34 @@
+.toast-dialog {
+  background: #2c2c2cc4;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100vw;
+  height: 100vh;
+}
+
+.toast-container {
+  background-color: white;
+  position: fixed;
+  flex-direction: column;
+  left: 50%;
+  top: 50%;
+  width: fit-content;
+  min-width: 35vw;
+  height: fit-content;
+  padding: 25px;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.toast-button-group {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: center;
+  justify-content: space-evenly;
+}

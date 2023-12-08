@@ -1,3 +1,5 @@
+'use client';
+
 import { lazy } from 'react';
 
 const ClientStatesParser = lazy(

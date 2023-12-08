@@ -11,15 +11,18 @@
 }
 
 .switch-input + label {
-  width: 3rem;
-  height: 2rem;
+  width: 50px;
+  height: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   background-color: lightgray;
   border-radius: 5rem;
-  padding-left: 0.5rem;
+  padding-left: 2px;
+
+  margin-left: 5px;
+
   cursor: pointer;
 }
 .switch-input:hover + label {
@@ -27,17 +30,17 @@
 }
 
 .switch-input:checked + label {
-  background-color: #37b7e2;
+  background-color: #0098ff;
 }
 
 .switch-input:checked + label > span {
-  transform: translateX(1rem);
+  transform: translateX(18px);
 }
 
 .switch-circle {
   background-color: white;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 25px;
+  height: 25px;
   position: absolute;
   border: 1px solid lightgray;
   border-radius: 100%;

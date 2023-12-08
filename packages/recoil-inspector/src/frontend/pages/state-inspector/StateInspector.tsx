@@ -9,7 +9,7 @@ import { StateJSON } from './state-json/StateJSON';
 import { StateRawData } from './state-raw-data/StateRawData';
 import { FiberNode } from '../../../client-states-parser/fiber-parser/fiber-parser.types';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';
-import { StateChangeHistory } from '../../components/state-inspector/state-change-history/StateChangeHistory';
+import { StateChangeHistory } from '../../components/app/state-inspector/state-change-history/StateChangeHistory';
 
 type StateGraphHistory = {
   [key: string]: FiberNode;
@@ -97,10 +97,13 @@ export const StateInspector = ({ show }: { show: boolean }) => {
   const [selectedVisualizationType, setSelectedVisualizationType] =
     useState<VisualizationType>(VISUALIZATION_TYPES.JSON);
 
-  const handleVisualizationTypeSelected = (
-    selectedVisualizationTypeItem: VisualizationType
-  ) => {
-    setSelectedVisualizationType(selectedVisualizationTypeItem);
+  const handleVisualizationTypeSelected = (selectedVisualizationTypeItem: {
+    name: string;
+    value: string;
+  }) => {
+    setSelectedVisualizationType(
+      selectedVisualizationTypeItem as VisualizationType
+    );
   };
 
   const handleSelectedStateChangeFromHistory = (stateChange: StateChange) => {
@@ -166,7 +169,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
         onDiffStatesChange={handleStatesToDiffChange}
       ></StateChangeHistory>
 
-      <StateInspectorToolbar<VisualizationType>
+      <StateInspectorToolbar<string>
         items={Object.values(VISUALIZATION_TYPES)}
         selectedItem={selectedVisualizationType}
         onItemSelected={handleVisualizationTypeSelected}

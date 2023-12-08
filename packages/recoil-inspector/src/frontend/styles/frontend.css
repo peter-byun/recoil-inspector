@@ -1,5 +1,5 @@
-.recoil-inspector-frontend {
-  color-scheme: light dark;
+#recoil-inspector-frontend {
+  color-scheme: light;
   font-family: Roboto, Inter, Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
   -webkit-font-smoothing: antialiased;

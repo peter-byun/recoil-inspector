@@ -1,7 +1,6 @@
 import { RectClipPath } from '@visx/clip-path';
 import { Zoom } from '@visx/zoom';
-
-import { Button } from '../../base-ui/Button';
+import { Button } from '../../../base/button/Button';
 
 const initialTransform = {
   scaleX: 1,
@@ -83,17 +82,19 @@ export const ZoomContainer = ({
           >
             <Button
               onClick={zoom.center}
-              level="secondary"
-              width="50"
-              height="20"
+              style={{
+                width: '50',
+                height: '20',
+              }}
             >
               Center
             </Button>
             <Button
               onClick={zoom.reset}
-              level="secondary"
-              width="50"
-              height="20"
+              style={{
+                width: '50',
+                height: '20',
+              }}
             >
               Reset
             </Button>

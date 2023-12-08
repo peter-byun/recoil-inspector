@@ -7,12 +7,22 @@ const STATEFUL_HOOK_NAMES = {
 
 const statefulHookNames: string[] = Object.values(STATEFUL_HOOK_NAMES);
 
-const NON_USER_COMPONENT_NAMES = [
-  'Batcher',
+const NEXT_JS_FRAMEWORK_COMPONENT_NAMES = [
+  'ErrorBoundary',
+  'HotReload',
+  'Router',
+];
+const RECOIL_INSPECTOR_COMPONENT_NAMES = [
   'Frontend',
   'StateInspector',
   'ClientStatesParser',
   'StateChangeHistory',
+];
+
+const NON_USER_COMPONENT_NAMES = [
+  'Batcher',
+  ...RECOIL_INSPECTOR_COMPONENT_NAMES,
+  ...NEXT_JS_FRAMEWORK_COMPONENT_NAMES,
 ];
 
 export function checkIfFiberNodeIsUserComponent(fiber: Fiber) {

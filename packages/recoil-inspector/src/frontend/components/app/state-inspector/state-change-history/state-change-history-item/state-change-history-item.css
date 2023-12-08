@@ -1,0 +1,11 @@
+.state-change-history-toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 0;
+
+  text-align: center;
+  cursor: pointer;
+}

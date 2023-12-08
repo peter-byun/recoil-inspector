@@ -1,10 +1,14 @@
+'use client';
+
 import { useState } from 'react';
 
 import { StateInspector } from './pages/state-inspector/StateInspector';
 
-import { InspectorToggle } from './components/frontend/InspectorToggle';
+import { InspectorToggle } from './components/app/state-inspector/inspector-toggle/InspectorToggle';
 
 import './styles/frontend.css';
+
+export const FRONTEND_CONTAINER_ID = 'recoil-inspector-frontend';
 
 export function Frontend() {
   const [showFrontend, setShowFrontend] = useState(false);
@@ -20,12 +24,10 @@ export function Frontend() {
   };
 
   return (
-    <div className="App recoil-inspector-frontend">
+    <div id={FRONTEND_CONTAINER_ID} className="App">
       <InspectorToggle onClick={toggleFrontend} />
 
       <StateInspector show={showFrontend} />
-
-      <div id="portal"></div>
     </div>
   );
 }
