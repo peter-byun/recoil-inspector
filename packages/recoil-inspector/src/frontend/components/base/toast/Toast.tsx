@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 import { Button } from '../button/Button';
 
 import './toast.css';
-import { FRONTEND_CONTAINER_ID } from '../../../Frontend';
 
 export type AlertData = {
   isAlertOpen: boolean;

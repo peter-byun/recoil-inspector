@@ -14,13 +14,21 @@ const Frontend = lazy(() =>
   })
 );
 
+type RecoilInspectorProps = {
+  enabled?: boolean;
+};
+
 /**
  * @description It should be a child component of the RecoilRoot component that you want to debug.
  * Your application's process.env.NODE_ENV value should be 'development' to enable the debugger.
  */
-export function RecoilInspector({ disabled }: { disabled?: boolean }) {
-  if (process.env.NODE_ENV !== 'development' || disabled) {
+export function RecoilInspector({ enabled }: RecoilInspectorProps) {
+  if (process.env.NODE_ENV !== 'development') {
     return null;
+  }
+
+  if (!enabled) {
+    return;
   }
 
   return (

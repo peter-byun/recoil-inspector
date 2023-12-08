@@ -25,7 +25,7 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1
 - <strong>State Changes History ⏺</strong>
   - See how states have been changed over time. You can compare two changes to see exactly which properties have been updated, deleted, or added.
 - <strong>Tree-shakable 🌳</strong>
-  - It is activated only when `process.env.NODE_ENV` is `development`, and debugger code is lazily loaded only when it is enabled to avoid increasing your application's bundle size.
+  - It is activated only when `process.env.NODE_ENV` is `development`, and to avoid increasing your application's bundle size, it is lazily loaded only when enabled.
 
 <a name="installation-guide"></a>
 
