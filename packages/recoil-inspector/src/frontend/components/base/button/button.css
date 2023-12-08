@@ -32,7 +32,6 @@
 
 .button:active {
   filter: brightness(0.8);
-  font-weight: bold;
 }
 
 .button:disabled {

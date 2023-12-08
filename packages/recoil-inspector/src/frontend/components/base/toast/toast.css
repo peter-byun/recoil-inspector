@@ -12,6 +12,7 @@
 
 .toast-container {
   background-color: white;
+  color: #2c2c2c;
   position: fixed;
   flex-direction: column;
   left: 50%;

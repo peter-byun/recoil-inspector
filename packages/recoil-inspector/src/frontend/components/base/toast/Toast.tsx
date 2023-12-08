@@ -27,14 +27,14 @@ export const Toast = (props: AlertProps) => {
         closeTimerRef.current = window.setTimeout(() => {
           props.setIsAlertOpen(false);
           closeTimerRef.current = 0;
-        }, 3000);
+        }, 1500);
       }
 
       return () => {
         closeTimerRef.current && clearTimeout(closeTimerRef.current);
       };
     },
-    [open]
+    [props.alertData.isAlertOpen]
   );
 
   const handleConfirmClick = () => {
@@ -76,8 +76,8 @@ export const Toast = (props: AlertProps) => {
         <p>{props.alertData.message}</p>
 
         <div className="toast-button-group">
-          <Button onClick={handleConfirmClick}>확인</Button>
-          <Button onClick={handleCloseClick}>닫기</Button>
+          <Button onClick={handleConfirmClick}>Confirm</Button>
+          <Button onClick={handleCloseClick}>Cancel</Button>
         </div>
       </div>
     </dialog>

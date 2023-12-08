@@ -43,6 +43,9 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1
 
 ```tsx
 // layout.ts
+// NOTE: "use client" will not be needed in the future. We will keep the "use client" directive in the RecoilInspector component.
+'use client';
+
 import { RecoilInspector } from 'recoil-inspector';
 export default function RootLayout({
   children,

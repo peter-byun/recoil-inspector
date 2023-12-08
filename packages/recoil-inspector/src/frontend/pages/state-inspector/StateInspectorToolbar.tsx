@@ -40,28 +40,49 @@ export function StateInspectorToolbar<ItemValue>({
         borderRadius: '5px',
       }}
     >
-      <label
+      <div
         style={{
-          fontSize: '13px',
-          color: colors.dark.fontColor,
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'flex-start',
         }}
       >
-        Visualization Type
-      </label>
-      <Select<SelectItem<ItemValue>>
-        items={items}
-        onItemChange={handleSelectedItemChange}
-        placeholder="Select the visualization type."
-        defaultSelectedItem={selectedItem}
-        disabled={isDiffOn}
-      />
+        <label
+          style={{
+            fontSize: '13px',
+            color: colors.dark.fontColor,
+            marginRight: '5px',
+          }}
+        >
+          Visualization Type
+        </label>
+        <Select<SelectItem<ItemValue>>
+          items={items}
+          onItemChange={handleSelectedItemChange}
+          placeholder="Select the visualization type."
+          defaultSelectedItem={selectedItem}
+          disabled={isDiffOn}
+        />
+      </div>
 
-      <Switch
-        checked={isDiffOn}
-        onChange={handleDiffCheckedChange}
-        label="State Diff Mode"
-        size="sm"
-      />
+      <span
+        style={{
+          background: '#cacaca',
+          width: '1px',
+          height: '90%',
+          margin: '0 5px',
+        }}
+      ></span>
+
+      <div>
+        <Switch
+          checked={isDiffOn}
+          onChange={handleDiffCheckedChange}
+          label="State Diff Mode"
+          size="sm"
+        />
+      </div>
     </nav>
   );
 }
