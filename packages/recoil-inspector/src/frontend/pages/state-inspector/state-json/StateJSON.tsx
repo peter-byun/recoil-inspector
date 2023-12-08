@@ -1,5 +1,5 @@
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
-import { StatePanelLayout } from '../../../../components/layouts/StatePanelLayout';
+import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { JSONItem, JSONItemInDiffMode } from './JSONItem';
 
 interface StateJSONProps {

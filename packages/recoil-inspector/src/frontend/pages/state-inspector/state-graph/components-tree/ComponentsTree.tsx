@@ -8,8 +8,8 @@ import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,
 } from '../../../../../client-states-parser/utils/components-tree';
-import { ZoomContainer } from '../../../../../components/state-inspector/svg/ZoomContainer';
-import { graphColors } from '../../../../../styles/colors';
+import { ZoomContainer } from '../../../../components/state-inspector/svg/ZoomContainer';
+import { graphColors } from '../../../../constants/styles/colors';
 import { RecoilStates } from '../../StateInspector';
 import {
   HierarchyNode,

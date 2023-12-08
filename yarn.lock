@@ -812,7 +812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13, @jridgewell/sourcemap-codec@npm:^1.4.14":
+"@jridgewell/sourcemap-codec@npm:^1.4.10, @jridgewell/sourcemap-codec@npm:^1.4.13, @jridgewell/sourcemap-codec@npm:^1.4.14, @jridgewell/sourcemap-codec@npm:^1.4.15":
   version: 1.4.15
   resolution: "@jridgewell/sourcemap-codec@npm:1.4.15"
   checksum: b881c7e503db3fc7f3c1f35a1dd2655a188cc51a3612d76efc8a6eb74728bef5606e6758ee77423e564092b4a518aba569bbb21c9bac5ab7a35b0c6ae7e344c8
@@ -3089,9 +3089,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.4.601":
-  version: 1.4.607
-  resolution: "electron-to-chromium@npm:1.4.607"
-  checksum: cc31233eaf2a6bb6268f97365861a4411db6823bec59126658245d4aec742cfeacb09135ada6321d27cfe74f1b72f04ff53cf2f5ac675c1b81deab035f97ab28
+  version: 1.4.608
+  resolution: "electron-to-chromium@npm:1.4.608"
+  checksum: 1c937468d7c637131100e24888768333cee690c6a5b54d2044a2ff3363a7c6aeeed581923e57242a0fc812c3bd6df896834fe9817bbee4ca2eb97e17334bbf4a
   languageName: node
   linkType: hard
 
@@ -4952,12 +4952,10 @@ eslint-config-turbo@latest:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:^10.0.1, lru-cache@npm:^6.0.0, lru-cache@npm:^9.1.1 || ^10.0.0":
-  version: 6.0.0
-  resolution: "lru-cache@npm:6.0.0"
-  dependencies:
-    yallist: ^4.0.0
-  checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
+"lru-cache@npm:^10.0.1, lru-cache@npm:^9.1.1 || ^10.0.0":
+  version: 10.1.0
+  resolution: "lru-cache@npm:10.1.0"
+  checksum: 58056d33e2500fbedce92f8c542e7c11b50d7d086578f14b7074d8c241422004af0718e08a6eaae8705cee09c77e39a61c1c79e9370ba689b7010c152e6a76ab
   languageName: node
   linkType: hard
 
@@ -4967,6 +4965,15 @@ eslint-config-turbo@latest:
   dependencies:
     yallist: ^3.0.2
   checksum: c154ae1cbb0c2206d1501a0e94df349653c92c8cbb25236d7e85190bcaf4567a03ac6eb43166fabfa36fd35623694da7233e88d9601fbf411a9a481d85dbd2cb
+  languageName: node
+  linkType: hard
+
+"lru-cache@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "lru-cache@npm:6.0.0"
+  dependencies:
+    yallist: ^4.0.0
+  checksum: f97f499f898f23e4585742138a22f22526254fdba6d75d41a1c2526b3b6cc5747ef59c5612ba7375f42aca4f8461950e925ba08c991ead0651b4918b7c978297
   languageName: node
   linkType: hard
 
@@ -4985,6 +4992,15 @@ eslint-config-turbo@latest:
   dependencies:
     "@jridgewell/sourcemap-codec": ^1.4.13
   checksum: 19e5398fcfc44804917127c72ad622c68a19a0a10cbdb8d4f9f9417584a087fe9e117140bfb2463d86743cf1ed9cf4182ae0b0ad1a7536f7fdda257ee4449ffb
+  languageName: node
+  linkType: hard
+
+"magic-string@npm:^0.30.2":
+  version: 0.30.5
+  resolution: "magic-string@npm:0.30.5"
+  dependencies:
+    "@jridgewell/sourcemap-codec": ^1.4.15
+  checksum: da10fecff0c0a7d3faf756913ce62bd6d5e7b0402be48c3b27bfd651b90e29677e279069a63b764bcdc1b8ecdcdb898f29a5c5ec510f2323e8d62ee057a6eb18
   languageName: node
   linkType: hard
 
@@ -5544,16 +5560,7 @@ eslint-config-turbo@latest:
   languageName: node
   linkType: hard
 
-prettier@latest:
-  version: 3.0.3
-  resolution: "prettier@npm:3.0.3"
-  bin:
-    prettier: bin/prettier.cjs
-  checksum: e10b9af02b281f6c617362ebd2571b1d7fc9fb8a3bd17e371754428cda992e5e8d8b7a046e8f7d3e2da1dcd21aa001e2e3c797402ebb6111b5cd19609dd228e0
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^3.1.0":
+"prettier@latest, prettier@npm:^3.1.0":
   version: 3.1.0
   resolution: "prettier@npm:3.1.0"
   bin:
@@ -5753,6 +5760,7 @@ prettier@latest:
     typescript: ^4.9.3
     vite: ^4.0.0
     vite-plugin-dts: ^2.0.2
+    vite-plugin-lib-inject-css: ^1.3.0
   peerDependencies:
     react: "*"
     react-dom: "*"
@@ -6449,58 +6457,58 @@ prettier@latest:
   languageName: node
   linkType: hard
 
-"turbo-darwin-64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-darwin-64@npm:1.11.0"
+"turbo-darwin-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-64@npm:1.10.16"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-darwin-arm64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-darwin-arm64@npm:1.11.0"
+"turbo-darwin-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-darwin-arm64@npm:1.10.16"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-linux-64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-linux-64@npm:1.11.0"
+"turbo-linux-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-64@npm:1.10.16"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-linux-arm64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-linux-arm64@npm:1.11.0"
+"turbo-linux-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-linux-arm64@npm:1.10.16"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo-windows-64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-windows-64@npm:1.11.0"
+"turbo-windows-64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-64@npm:1.10.16"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"turbo-windows-arm64@npm:1.11.0":
-  version: 1.11.0
-  resolution: "turbo-windows-arm64@npm:1.11.0"
+"turbo-windows-arm64@npm:1.10.16":
+  version: 1.10.16
+  resolution: "turbo-windows-arm64@npm:1.10.16"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"turbo@npm:latest":
-  version: 1.11.0
-  resolution: "turbo@npm:1.11.0"
+turbo@latest:
+  version: 1.10.16
+  resolution: "turbo@npm:1.10.16"
   dependencies:
-    turbo-darwin-64: 1.11.0
-    turbo-darwin-arm64: 1.11.0
-    turbo-linux-64: 1.11.0
-    turbo-linux-arm64: 1.11.0
-    turbo-windows-64: 1.11.0
-    turbo-windows-arm64: 1.11.0
+    turbo-darwin-64: 1.10.16
+    turbo-darwin-arm64: 1.10.16
+    turbo-linux-64: 1.10.16
+    turbo-linux-arm64: 1.10.16
+    turbo-windows-64: 1.10.16
+    turbo-windows-arm64: 1.10.16
   dependenciesMeta:
     turbo-darwin-64:
       optional: true
@@ -6516,7 +6524,7 @@ prettier@latest:
       optional: true
   bin:
     turbo: bin/turbo
-  checksum: b274f31fe488287bbef3cd76edd5980497d034f70c0a8ffd3225baae5729e3d1b436fdbd7b567e574916e3a27b74a9a92855d4e0f2bd957e2cbf0f166a25cdb4
+  checksum: 69d1892593449b264e0bd48b851317a743016ab62cf470e7293b2cc3781240e863c48232c89f65a5a4ce97eb791ca550b201593449350da073db07703a19cfa5
   languageName: node
   linkType: hard
 
@@ -6779,6 +6787,18 @@ prettier@latest:
   peerDependencies:
     vite: ">=2.9.0"
   checksum: b4247d9f7800bd72addd62fb07fbd3f5a1535a6de771420e4ed896fb5db156335b2abf810091ecd998ac05d6ebbd857a186ec3d468216f0bc6e54064c4886b31
+  languageName: node
+  linkType: hard
+
+"vite-plugin-lib-inject-css@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "vite-plugin-lib-inject-css@npm:1.3.0"
+  dependencies:
+    magic-string: ^0.30.2
+    picocolors: ^1.0.0
+  peerDependencies:
+    vite: "*"
+  checksum: 5a6cc49c7b23a86024b433cd4523516db975272ac6c755072d92e0c1be4808b22a36b726c64dcfc528b6f6a2d0d5e892a2b3f5eeba8c7ee6be791739d8202306
   languageName: node
   linkType: hard
 

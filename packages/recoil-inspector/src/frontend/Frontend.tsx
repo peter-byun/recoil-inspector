@@ -1,8 +1,10 @@
 import { useState } from 'react';
 
 import { StateInspector } from './pages/state-inspector/StateInspector';
-import { RecoilInspectorLogo } from './RecoilInspectorLogo';
-import { appStyle, buttonStyle } from './styles/frontend';
+
+import { InspectorToggle } from './components/frontend/InspectorToggle';
+
+import './styles/frontend.css';
 
 export function Frontend() {
   const [showFrontend, setShowFrontend] = useState(false);
@@ -13,16 +15,16 @@ export function Frontend() {
         type: 'frontendLoaded',
       });
     }
+
     setShowFrontend(!showFrontend);
   };
 
   return (
-    <div className="App recoil-inspector-frontend" style={appStyle}>
-      <button onClick={toggleFrontend} style={buttonStyle}>
-        <RecoilInspectorLogo />
-      </button>
+    <div className="App recoil-inspector-frontend">
+      <InspectorToggle onClick={toggleFrontend} />
 
       <StateInspector show={showFrontend} />
+
       <div id="portal"></div>
     </div>
   );

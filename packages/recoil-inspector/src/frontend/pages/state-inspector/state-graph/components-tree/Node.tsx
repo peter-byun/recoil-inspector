@@ -1,6 +1,6 @@
 import { Group } from '@visx/group';
 import { HierarchyPointNode } from '@visx/hierarchy/lib/types';
-import { graphColors } from '../../../../../styles/colors';
+import { graphColors } from '../../../../constants/styles/colors';
 
 import { RecoilStates } from '../../StateInspector';
 

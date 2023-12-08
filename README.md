@@ -2,36 +2,32 @@
 
 Ever wondered which components are subscribing which states, or had hard time debugging how Recoil states change? <br/>
 Recoil Inspector is here for you. <br/>
-It is activated only when `process.env.NODE_ENV` is `development`, and debugger code is lazily loaded only when it is enabled to avoid increasing your application's bundle size.
 
----
+## Contents
 
-# Table of Contents
+- [Demo](#demo)
+- [Features](#features)
+- [Installation Guide](#installation-guide)
+- [Acknowledgement](#acknowledgement)
 
-- What it does
-- Installation Guide
-- Acknowledgement
-
----
-
-# What it does 🎯
+<a name="demo"></a>
 
 ## Demo 📼
 
 https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1771-423b-a733-bd2427355b3c
 
-## Features 🔧
+<a name="features"></a>
 
-### State and Components Visualization
+## Features ⚡️
 
-See which components are referencing which Recoil states and props.
+- <strong>State and Components Visualization ⚛️</strong>
+  - See which components are referencing which Recoil states and props.
+- <strong>State Changes History ⏺</strong>
+  - See how states have been changed over time. You can compare two changes to see exactly which properties have been updated, deleted, or added.
+- <strong>Tree-shakable 🌳</strong>
+  - It is activated only when `process.env.NODE_ENV` is `development`, and debugger code is lazily loaded only when it is enabled to avoid increasing your application's bundle size.
 
-### State Changes History
-
-See how states have been changed over time. </br>
-You can compare two changes to see exactly which properties have been updated, deleted, or added.
-
----
+<a name="installation-guide"></a>
 
 # Installation Guide 💿
 
@@ -43,44 +39,31 @@ You can compare two changes to see exactly which properties have been updated, d
    ```
 3. Import the package in your entry point like the below examples.
 
-   ```tsx
-   // Vite Client Side Rending Example
-   import { RecoilRoot } from 'recoil';
-   import { RecoilInspector } from 'recoil-inspector';
+<strong>Next.js App Router</strong>
 
-   function App() {
-     return (
-       <RecoilRoot>
-         <div className="App">
-           {/* Add the below line inside a <RecoilRoot> */}
-           <RecoilInspector />
-         </div>
-       </RecoilRoot>
-     );
-   }
+```tsx
+// layout.ts
+import { RecoilInspector } from 'recoil-inspector';
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html>
+      <RecoilRoot>
+        <body>
+          <RecoilInspector />
+          {children}
+        </body>
+      </RecoilRoot>
+    </html>
+  );
+}
+```
 
-   export default App;
-   ```
+<a name="acknowledgement"></a>
 
-   ```tsx
-   // Next.js Server Side Rending Example
-   import type { AppProps } from 'next/app';
-   import { RecoilRoot } from 'recoil';
-   import { RecoilInspector } from 'recoil-inspector';
-
-   export default function App({ Component, pageProps }: AppProps) {
-     return (
-       <RecoilRoot>
-         {/* Add the below line inside a <RecoilRoot> */}
-         <RecoilInspector />
-         <Component {...pageProps} />;
-       </RecoilRoot>
-     );
-   }
-   ```
-
----
-
-# Acknowledgement
+## Acknowledgement
 
 This project is inspired by many other great devtools, including Redux DevTools, React Developer Tools, Recoil Dev Tools, and Recoilize.

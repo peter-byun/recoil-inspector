@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
-import { StatePanelLayout } from '../../../../components/layouts/StatePanelLayout';
+import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 
 import { RecoilStates } from '../StateInspector';
 import { ComponentTree } from './components-tree/ComponentsTree';

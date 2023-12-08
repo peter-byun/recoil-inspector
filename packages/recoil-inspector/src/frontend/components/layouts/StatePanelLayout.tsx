@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import { colors } from '../../styles/colors';
-import { scrollbarCss } from '../../styles/scrollbar';
+import { colors } from '../../constants/styles/colors';
+import { scrollbarCss } from '../../constants/styles/scrollbar';
 
 interface StatePanelLayout {
   children: ReactNode;

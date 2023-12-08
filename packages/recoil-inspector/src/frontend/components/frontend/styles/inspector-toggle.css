@@ -1,0 +1,36 @@
+/* Reset button styles */
+.button {
+  all: unset;
+}
+
+/* Button styles */
+.button {
+  background-color: #ececec;
+  position: fixed;
+  left: 4px;
+  bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  appearance: none;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  cursor: pointer;
+
+  box-shadow:
+    0 0 10px 2px #0098ff,
+    0 0 0px 0px #0098ff,
+    0 0 10px 2px #0098ff;
+}

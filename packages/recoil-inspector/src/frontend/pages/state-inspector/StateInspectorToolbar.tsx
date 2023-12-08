@@ -1,22 +1,25 @@
 import * as Toolbar from '@radix-ui/react-toolbar';
-import { Select, SelectItem } from '../../../components/base-ui/Select';
-import { Switch } from '../../../components/base-ui/Switch';
-import { colors } from '../../../styles/colors';
+import Select, { SelectItem } from '../../components/base-ui/select/Select';
 
-export function StateInspectorToolbar<Item extends SelectItem>({
+import Switch from '../../components/base-ui/switch/Switch';
+import { colors } from '../../constants/styles/colors';
+
+type ToolBarItem = SelectItem<string>;
+
+export function StateInspectorToolbar({
   items,
   selectedItem,
   onItemSelected,
   isDiffOn,
   onIsDiffOnChange,
 }: {
-  items: Item[];
-  selectedItem: Item;
-  onItemSelected: (selectedItem: Item) => void;
+  items: ToolBarItem[];
+  selectedItem: ToolBarItem;
+  onItemSelected: (selectedItem: ToolBarItem) => void;
   isDiffOn: boolean;
   onIsDiffOnChange: (isDiffOn: boolean) => void;
 }) {
-  const handleSelectedItemChange = (selectedItem: Item) => {
+  const handleSelectedItemChange = (selectedItem: ToolBarItem) => {
     onItemSelected(selectedItem);
   };
 
@@ -48,18 +51,19 @@ export function StateInspectorToolbar<Item extends SelectItem>({
       >
         Visualization Type
       </label>
-      <Select<Item>
+      <Select<ToolBarItem>
         items={items}
-        selectedItem={selectedItem}
-        onSelectedItemChange={handleSelectedItemChange}
+        onItemChange={handleSelectedItemChange}
         placeholder="Select the visualization type."
+        defaultSelectedItem={selectedItem}
         disabled={isDiffOn}
       />
 
       <Switch
         checked={isDiffOn}
-        onCheckedChange={handleDiffCheckedChange}
+        onChange={handleDiffCheckedChange}
         label="State Diff Mode"
+        size="sm"
       />
     </Toolbar.Root>
   );

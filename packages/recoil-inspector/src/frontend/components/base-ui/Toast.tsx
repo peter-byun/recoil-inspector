@@ -1,7 +1,7 @@
 import * as ToastBase from '@radix-ui/react-toast';
 import * as React from 'react';
 
-import { colors } from '../../styles/colors';
+import { colors } from '../../constants/styles/colors';
 
 interface ToastProps {
   title: string;

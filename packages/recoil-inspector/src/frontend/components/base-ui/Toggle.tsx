@@ -2,7 +2,7 @@ import { Interpolation, Theme } from '@emotion/react';
 import * as ToggleBase from '@radix-ui/react-toggle';
 import { ReactNode } from 'react';
 
-import { colors } from '../../styles/colors';
+import { colors } from '../../constants/styles/colors';
 
 export type OnPressedChange = (isToggleOn: boolean) => void;
 

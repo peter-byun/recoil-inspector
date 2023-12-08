@@ -8,13 +8,8 @@ import { StateGraph } from './state-graph/StateGraph';
 import { StateJSON } from './state-json/StateJSON';
 import { StateRawData } from './state-raw-data/StateRawData';
 import { FiberNode } from '../../../client-states-parser/fiber-parser/fiber-parser.types';
-import {
-  DUMMY_RECOIL_STATES,
-  DUMMY_STATE_GRAPH,
-  DUMMY_STATE_GRAPH_HISTORY,
-} from '../../dummy-data/state-graph';
-import { VISUALIZATION_TYPES } from '../../../constants/visualization';
-import { StateChangeHistory } from '../../../components/state-inspector/state-change-history/StateChangeHistory';
+import { VISUALIZATION_TYPES } from '../../constants/visualization';
+import { StateChangeHistory } from '../../components/state-inspector/state-change-history/StateChangeHistory';
 
 type StateGraphHistory = {
   [key: string]: FiberNode;
@@ -23,33 +18,26 @@ type StateGraphHistory = {
 type RecoilStatesHistory = {
   [key: string]: RecoilStates;
 };
-
 export type RecoilStates = {
   key: string;
   value: any;
   stateType: 'atom' | 'selector';
 }[];
 
-type VisualizationTypeNames = 'JSON' | 'Graph' | 'Raw Data';
-type VisualizationTypeValues = 'rawData' | 'json' | 'graph';
 type VisualizationType = {
   name: VisualizationTypeNames;
   value: VisualizationTypeValues;
 };
-
-const DEBUG_MODE = false;
+type VisualizationTypeNames = 'JSON' | 'Graph' | 'Raw Data';
+type VisualizationTypeValues = 'rawData' | 'json' | 'graph';
 
 export const StateInspector = ({ show }: { show: boolean }) => {
-  const [componentTree, setComponentTree] = useState<any>(
-    DEBUG_MODE ? DUMMY_STATE_GRAPH : null
-  );
-  const [recoilStates, setRecoilStates] = useState<any>(
-    DEBUG_MODE ? DUMMY_RECOIL_STATES : null
-  );
+  const [componentTree, setComponentTree] = useState<any>(null);
+  const [recoilStates, setRecoilStates] = useState<any>(null);
   const [recoilStatesHistory, setRecoilStatesHistory] =
     useState<RecoilStatesHistory>({});
   const [stateGraphHistory, setStateGraphHistory] = useState<StateGraphHistory>(
-    DEBUG_MODE ? DUMMY_STATE_GRAPH_HISTORY : {}
+    {}
   );
   const stateChangeHistory = useMemo(() => {
     return Object.entries(stateGraphHistory)?.map(

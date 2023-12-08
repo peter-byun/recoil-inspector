@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
-import { colors } from '../../../../styles/colors';
+import { colors } from '../../../constants/styles/colors';
 
 export const JSONItemProperties = ({ item }: { item: FiberNode }) => {
   if (!item) {

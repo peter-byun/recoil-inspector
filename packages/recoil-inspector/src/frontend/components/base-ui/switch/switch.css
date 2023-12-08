@@ -1,0 +1,45 @@
+.switch-input {
+  position: absolute;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  cursor: pointer;
+}
+
+.switch-input + label {
+  width: 3rem;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: lightgray;
+  border-radius: 5rem;
+  padding-left: 0.5rem;
+  cursor: pointer;
+}
+.switch-input:hover + label {
+  filter: brightness(1.1);
+}
+
+.switch-input:checked + label {
+  background-color: #37b7e2;
+}
+
+.switch-input:checked + label > span {
+  transform: translateX(1rem);
+}
+
+.switch-circle {
+  background-color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  border: 1px solid lightgray;
+  border-radius: 100%;
+  transition: transform 0.2s cubic-bezier(0.42, 0, 0.22, 1.4);
+}
