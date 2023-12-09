@@ -26,7 +26,7 @@ export function RecoilStateNode({
       };
     }
   ) => void;
-  onMouseLeave: () => void;
+  onMouseLeave?: () => void;
 }) {
   const width = 40;
   const height = 20;

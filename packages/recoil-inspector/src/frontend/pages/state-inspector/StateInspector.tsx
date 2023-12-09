@@ -150,7 +150,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     gridTemplateRows: '60px 90%',
     gridGap: '5px',
     width: '98vw',
-    height: '70vh',
+    height: '80vh',
     margin: '5px 5px 0 5px',
   } as const;
 

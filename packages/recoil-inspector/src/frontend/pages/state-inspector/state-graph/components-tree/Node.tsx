@@ -39,7 +39,7 @@ export function Node({
     event: React.MouseEvent<SVGGElement, MouseEvent>,
     data: HierarchyNode
   ) => void;
-  onMouseLeave: () => void;
+  onMouseLeave?: () => void;
 }) {
   const centerX = -NODE_DEFAULT_SIZE.WIDTH / 2;
   const centerY = -NODE_DEFAULT_SIZE.HEIGHT / 2;
@@ -91,7 +91,7 @@ export function ParentNode({
     event: React.MouseEvent<SVGGElement, MouseEvent>,
     data: HierarchyNode
   ) => void;
-  onMouseLeave: () => void;
+  onMouseLeave?: () => void;
 }) {
   const centerX = -NODE_DEFAULT_SIZE.WIDTH / 2;
   const centerY = -NODE_DEFAULT_SIZE.HEIGHT / 2;

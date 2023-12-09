@@ -4,7 +4,7 @@ import { Group } from '@visx/group';
 import { Tree, hierarchy } from '@visx/hierarchy';
 import { MarkerArrow } from '@visx/marker';
 import { Line, LinkHorizontal } from '@visx/shape';
-import { Tooltip, useTooltip } from '@visx/tooltip';
+import { useTooltip } from '@visx/tooltip';
 import { useMemo } from 'react';
 import {
   convertRecoilStatesToTreeNodes,
@@ -21,7 +21,7 @@ import {
   TreeNode,
 } from './Node';
 import { RecoilStateNode } from './StateNode';
-import { RecoilStateTooltip } from './Tooltips';
+import { NodeStatusTooltip } from '../../../../components/app/state-inspector/node-status-tooltip/NodeStatusTooltip';
 
 export type TreeProps = {
   treeData: any;
@@ -50,7 +50,7 @@ export function ComponentTree({
   }, [recoilStates]);
 
   // NOTE: Tooltip to show when a pointer is over a node.
-  const { tooltipOpen, tooltipData, hideTooltip, showTooltip } =
+  const { tooltipOpen, tooltipData, showTooltip } =
     useTooltip<Pick<HierarchyNode, 'x' | 'y' | 'data'>>();
 
   const isTreeVisible = width > 9 && treeDataProp;
@@ -60,34 +60,12 @@ export function ComponentTree({
       width={width}
       height={height}
       childrenOutsideOfSvg={
-        tooltipOpen &&
         tooltipData && (
-          <Tooltip
-            top={tooltipData.x}
-            left={tooltipData.y}
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr',
-              gridTemplateRows: 'repeat(auto, 1fr)',
-              gap: '4px',
-            }}
-          >
-            <h3
-              style={{
-                margin: 0,
-              }}
-            >
-              {tooltipData.data.name}
-            </h3>
-            {tooltipData.data.recoilStates ? (
-              <RecoilStateTooltip
-                recoilStates={tooltipData.data.recoilStates}
-                isNodeComponent={Boolean(tooltipData.data.hookTypes?.length)}
-              />
-            ) : (
-              'No Data'
-            )}
-          </Tooltip>
+          <NodeStatusTooltip
+            name={tooltipData.data.name}
+            hookTypes={tooltipData.data.hookTypes}
+            recoilStates={tooltipData.data.recoilStates}
+          />
         )
       }
     >
@@ -119,7 +97,6 @@ export function ComponentTree({
                     },
                   });
                 }}
-                onMouseLeave={() => hideTooltip()}
               />
             ))}
 
@@ -152,7 +129,6 @@ export function ComponentTree({
                       tooltipData: data,
                     });
                   }}
-                  onMouseLeave={() => hideTooltip()}
                 />
                 {/* NOTE: Links between Recoil states and React components */}
                 {node.data.recoilStates?.map((recoilState, _: number) => {

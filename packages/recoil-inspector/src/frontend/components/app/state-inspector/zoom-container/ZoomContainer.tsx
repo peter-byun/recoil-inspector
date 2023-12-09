@@ -40,6 +40,8 @@ export const ZoomContainer = ({
             position: 'relative',
           }}
         >
+          {childrenOutsideOfSvg}
+
           <svg
             width={width}
             height={height}
@@ -99,7 +101,6 @@ export const ZoomContainer = ({
               Reset
             </Button>
           </div>
-          {childrenOutsideOfSvg}
         </div>
       )}
     </Zoom>
