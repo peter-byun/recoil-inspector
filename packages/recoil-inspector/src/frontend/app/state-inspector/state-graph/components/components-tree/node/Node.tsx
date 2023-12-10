@@ -1,8 +1,12 @@
 import { Group } from '@visx/group';
 import { HierarchyPointNode } from '@visx/hierarchy/lib/types';
-import { graphColors } from '../../../../../constants/styles/colors';
+import { graphColors } from '../../../../../../constants/styles/colors';
 
-import { RecoilStates } from '../../../StateInspector';
+import { RecoilStates } from '../../../../StateInspector';
+import {
+  separateNodeNameIntoLines,
+  calculateNodeSizeAndCenterPosition,
+} from './utils/node';
 
 // NOTE: Every node of a tree has a name and a children array which may be empty.
 // And the recoilStates is stored as a property named "data" in the node.
@@ -24,11 +28,6 @@ export function RootNode({ node }: { node: HierarchyNode }) {
   );
 }
 
-export const NODE_DEFAULT_SIZE = {
-  WIDTH: 40,
-  HEIGHT: 20,
-} as const;
-
 export function Node({
   node,
   onMouseEnter,
@@ -41,8 +40,8 @@ export function Node({
   ) => void;
   onMouseLeave?: () => void;
 }) {
-  const centerX = -NODE_DEFAULT_SIZE.WIDTH / 2;
-  const centerY = -NODE_DEFAULT_SIZE.HEIGHT / 2;
+  const { nodeWidth, nodeHeight, centerX, centerY } =
+    calculateNodeSizeAndCenterPosition(node.data.name);
 
   const isRoot = node.depth === 0;
   const isParent = !!node.children;
@@ -67,14 +66,14 @@ export function Node({
       onMouseLeave={onMouseLeave}
     >
       <rect
-        width={NODE_DEFAULT_SIZE.WIDTH}
-        height={NODE_DEFAULT_SIZE.HEIGHT}
+        width={nodeWidth}
+        height={nodeHeight}
         y={centerY}
         x={centerX}
         fill={graphColors.background}
         stroke={graphColors.blue}
         strokeWidth={1}
-        rx={14}
+        rx={12}
       />
       <NodeText label={node.data.name} fill={graphColors.white}></NodeText>
     </Group>
@@ -93,20 +92,20 @@ export function ParentNode({
   ) => void;
   onMouseLeave?: () => void;
 }) {
-  const centerX = -NODE_DEFAULT_SIZE.WIDTH / 2;
-  const centerY = -NODE_DEFAULT_SIZE.HEIGHT / 2;
+  const { nodeWidth, nodeHeight, centerX, centerY } =
+    calculateNodeSizeAndCenterPosition(node.data.name);
 
   return (
     <Group top={node.x} left={node.y}>
       <rect
-        width={NODE_DEFAULT_SIZE.WIDTH}
-        height={NODE_DEFAULT_SIZE.HEIGHT}
+        width={nodeWidth}
+        height={nodeHeight}
         y={centerY}
         x={centerX}
         fill={graphColors.background}
         stroke={graphColors.blue}
         strokeWidth={1}
-        rx={10}
+        rx={12}
         onMouseEnter={(e) => {
           onMouseEnter(e, node);
         }}
@@ -118,16 +117,22 @@ export function ParentNode({
 }
 
 export const NodeText = ({ label, fill }: { label: string; fill: string }) => {
+  const lineSeparatedNodeName = separateNodeNameIntoLines(label);
+
   return (
     <text
-      dy=".33em"
+      dy="0"
       fontSize={9}
       fontFamily="Arial"
       textAnchor="middle"
       style={{ pointerEvents: 'none' }}
       fill={fill}
     >
-      {label}
+      {lineSeparatedNodeName.map((labelChunk, idx) => (
+        <tspan x="0" dy={idx === 0 ? 0 : 7} key={idx}>
+          {labelChunk}
+        </tspan>
+      ))}
     </text>
   );
 };

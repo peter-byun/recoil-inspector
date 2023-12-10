@@ -13,13 +13,7 @@ import {
 import { ZoomContainer } from '../zoom-container/ZoomContainer';
 import { graphColors } from '../../../../../constants/styles/colors';
 import { RecoilStates } from '../../../StateInspector';
-import {
-  HierarchyNode,
-  NODE_DEFAULT_SIZE,
-  Node,
-  ROOT_START_X,
-  TreeNode,
-} from './Node';
+import { HierarchyNode, Node, ROOT_START_X, TreeNode } from './node/Node';
 import { RecoilStateNode } from './StateNode';
 import { NodeStatusTooltip } from '../node-status-tooltip/NodeStatusTooltip';
 
@@ -155,7 +149,7 @@ export function ComponentTree({
                         y: recoilStatePosition.y,
                       }}
                       to={{
-                        x: node.y - NODE_DEFAULT_SIZE.WIDTH / 2,
+                        x: node.y - 50 / 2,
                         y: node.x,
                       }}
                       stroke="#fff"

@@ -1,5 +1,7 @@
 import { Group } from '@visx/group';
 import { graphColors } from '../../../../../constants/styles/colors';
+import { NodeText } from './node/Node';
+import { calculateNodeSizeAndCenterPosition } from './node/utils/node';
 
 type RecoilStateNodeProps = {
   node: {
@@ -28,16 +30,14 @@ export function RecoilStateNode({
   ) => void;
   onMouseLeave?: () => void;
 }) {
-  const width = 40;
-  const height = 20;
-  const centerX = -width / 2;
-  const centerY = -height / 2;
+  const { nodeWidth, nodeHeight, centerX, centerY } =
+    calculateNodeSizeAndCenterPosition(node.data.name);
 
   return (
     <Group top={node.y} left={node.x}>
       <rect
-        height={height}
-        width={width}
+        height={nodeHeight}
+        width={nodeWidth}
         y={centerY}
         x={centerX}
         fill={graphColors.background}
@@ -49,16 +49,7 @@ export function RecoilStateNode({
         }}
         onMouseLeave={onMouseLeave}
       />
-      <text
-        dy=".33em"
-        fontSize={9}
-        fontFamily="Arial"
-        textAnchor="middle"
-        fill={graphColors.white}
-        style={{ pointerEvents: 'none' }}
-      >
-        {node.data.name}
-      </text>
+      <NodeText label={node.data.name} fill={graphColors.white}></NodeText>
     </Group>
   );
 }
