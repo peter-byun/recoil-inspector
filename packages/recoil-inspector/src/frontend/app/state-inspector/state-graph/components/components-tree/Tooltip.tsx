@@ -77,11 +77,9 @@ const ComponentNodeTooltip = (props: {
         }}
       >
         <span>
-          Depends on : <strong> {props.recoilState.key}</strong>
+          · Depends on : <strong> {props.recoilState.key}</strong>
         </span>
       </div>
-
-      {!props.isLastProperty && <hr style={{ width: '100%', margin: '0' }} />}
     </div>
   );
 };

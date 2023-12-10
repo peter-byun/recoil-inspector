@@ -11,6 +11,11 @@ const NEXT_JS_FRAMEWORK_COMPONENT_NAMES = [
   'ErrorBoundary',
   'HotReload',
   'Router',
+  'ScrollAndFocusHandler',
+  'NotFoundBoundary',
+  'RedirectBoundary',
+  'AppRouterAnnouncer',
+  'InnerLayoutRouter',
 ];
 const RECOIL_INSPECTOR_COMPONENT_NAMES = [
   'Frontend',

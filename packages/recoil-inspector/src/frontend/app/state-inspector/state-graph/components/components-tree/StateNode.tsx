@@ -30,6 +30,10 @@ export function RecoilStateNode({
   ) => void;
   onMouseLeave?: () => void;
 }) {
+  if (!node.data.name) {
+    return null;
+  }
+
   const { nodeWidth, nodeHeight, centerX, centerY } =
     calculateNodeSizeAndCenterPosition(node.data.name);
 

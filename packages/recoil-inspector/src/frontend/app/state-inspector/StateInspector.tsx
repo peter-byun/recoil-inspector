@@ -143,7 +143,10 @@ export const StateInspector = ({ show }: { show: boolean }) => {
   };
 
   const handleSelectedStateChangeFromHistory = (stateChange: StateChange) => {
-    setComponentTree(stateGraphHistory[stateChange.id]);
+    setComponentTree({
+      ...stateGraphHistory[stateChange.id],
+      name: 'ComponentRoot',
+    });
     setRecoilStates(recoilStatesHistory[Number(stateChange.id)]);
   };
 

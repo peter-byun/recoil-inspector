@@ -20,9 +20,21 @@ export interface TreeNode {
 
 export const ROOT_START_X = 150;
 export function RootNode({ node }: { node: HierarchyNode }) {
+  const { nodeWidth, nodeHeight, centerX, centerY } =
+    calculateNodeSizeAndCenterPosition(node.data.name);
+
   return (
     <Group top={node.x} left={ROOT_START_X}>
-      <circle r={12} fill="transparent" stroke={graphColors.blue} />
+      <rect
+        width={nodeWidth}
+        height={nodeHeight}
+        y={centerY}
+        x={centerX}
+        fill={graphColors.background}
+        stroke={graphColors.blue}
+        strokeWidth={1}
+        rx={12}
+      />
       <NodeText label={node.data.name} fill={graphColors.white}></NodeText>
     </Group>
   );
@@ -40,6 +52,10 @@ export function Node({
   ) => void;
   onMouseLeave?: () => void;
 }) {
+  if (!node.data.name) {
+    return null;
+  }
+
   const { nodeWidth, nodeHeight, centerX, centerY } =
     calculateNodeSizeAndCenterPosition(node.data.name);
 
