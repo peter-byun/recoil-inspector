@@ -1,6 +1,6 @@
 import { RectClipPath } from '@visx/clip-path';
 import { Zoom } from '@visx/zoom';
-import { Button } from '../../../base/button/Button';
+import { Button } from '../../../../../components/base/button/Button';
 
 const initialTransform = {
   scaleX: 1,

@@ -9,10 +9,10 @@ import { useMemo } from 'react';
 import {
   convertRecoilStatesToTreeNodes,
   findRecoilStateTreeNodeWithRecoilState,
-} from '../../../../../client-states-parser/utils/components-tree';
-import { ZoomContainer } from '../../../../components/app/state-inspector/zoom-container/ZoomContainer';
-import { graphColors } from '../../../../constants/styles/colors';
-import { RecoilStates } from '../../StateInspector';
+} from '../../../../../../client-states-parser/utils/components-tree';
+import { ZoomContainer } from '../zoom-container/ZoomContainer';
+import { graphColors } from '../../../../../constants/styles/colors';
+import { RecoilStates } from '../../../StateInspector';
 import {
   HierarchyNode,
   NODE_DEFAULT_SIZE,

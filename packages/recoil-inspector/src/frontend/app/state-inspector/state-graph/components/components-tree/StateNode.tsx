@@ -1,5 +1,5 @@
 import { Group } from '@visx/group';
-import { graphColors } from '../../../../constants/styles/colors';
+import { graphColors } from '../../../../../constants/styles/colors';
 
 type RecoilStateNodeProps = {
   node: {

@@ -1,8 +1,8 @@
 import { Group } from '@visx/group';
 import { HierarchyPointNode } from '@visx/hierarchy/lib/types';
-import { graphColors } from '../../../../constants/styles/colors';
+import { graphColors } from '../../../../../constants/styles/colors';
 
-import { RecoilStates } from '../../StateInspector';
+import { RecoilStates } from '../../../StateInspector';
 
 // NOTE: Every node of a tree has a name and a children array which may be empty.
 // And the recoilStates is stored as a property named "data" in the node.

@@ -9,7 +9,7 @@ import { StateJSON } from './state-json/StateJSON';
 import { StateRawData } from './state-raw-data/StateRawData';
 import { FiberNode } from '../../../client-states-parser/fiber-parser/fiber-parser.types';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';
-import { StateChangeHistory } from '../../components/app/state-inspector/state-change-history/StateChangeHistory';
+import { StateChangeHistory } from './state-change-history/StateChangeHistory';
 
 type StateGraphHistory = {
   [key: string]: FiberNode;

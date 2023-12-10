@@ -4,7 +4,7 @@ import hljs from 'highlight.js';
 import { useEffect, useRef, useState } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
 
-import { StatePanelLayout } from '../../../components/app/layouts/StatePanelLayout';
+import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 import { copyToClipboard } from '../../../utils/copy-to-clipboard';
 
 import './styles/codeblock.css';

@@ -1,4 +1,4 @@
-import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
+import { FiberNode } from '../../../../../client-states-parser/fiber-parser/fiber-parser.types';
 import {
   JSONItemProperties,
   JSONItemPropertiesInDiffMode,

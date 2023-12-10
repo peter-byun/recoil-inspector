@@ -1,44 +1,4 @@
-import { RecoilStates } from '../../StateInspector';
-
-type NodeStatusTooltipProps = {
-  name: string;
-  recoilStates?: any;
-  hookTypes?: any;
-};
-
-export function NodeStatusTooltip(props: NodeStatusTooltipProps) {
-  return (
-    <section
-      style={{
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gridTemplateRows: 'repeat(auto, 1fr)',
-        gap: '4px',
-        marginBottom: '5px',
-        borderRadius: '6px',
-        background: '#45454575',
-        minHeight: '5vh',
-        padding: '6px',
-      }}
-    >
-      <h3
-        style={{
-          margin: 0,
-        }}
-      >
-        {props.name ?? 'Hover your mouse over a node to see the data'}
-      </h3>
-      {props.recoilStates ? (
-        <RecoilStateTooltip
-          recoilStates={props.recoilStates}
-          isNodeComponent={Boolean(props.hookTypes?.length)}
-        />
-      ) : (
-        'No Data'
-      )}
-    </section>
-  );
-}
+import { RecoilStates } from '../../../StateInspector';
 
 export type TreeProps = {
   treeData: any;
