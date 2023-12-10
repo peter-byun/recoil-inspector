@@ -21,7 +21,7 @@ import {
   TreeNode,
 } from './Node';
 import { RecoilStateNode } from './StateNode';
-import { NodeStatusTooltip } from '../../../../components/app/state-inspector/node-status-tooltip/NodeStatusTooltip';
+import { NodeStatusTooltip } from '../node-status-tooltip/NodeStatusTooltip';
 
 export type TreeProps = {
   treeData: any;
@@ -50,7 +50,7 @@ export function ComponentTree({
   }, [recoilStates]);
 
   // NOTE: Tooltip to show when a pointer is over a node.
-  const { tooltipOpen, tooltipData, showTooltip } =
+  const { tooltipData, showTooltip } =
     useTooltip<Pick<HierarchyNode, 'x' | 'y' | 'data'>>();
 
   const isTreeVisible = width > 9 && treeDataProp;

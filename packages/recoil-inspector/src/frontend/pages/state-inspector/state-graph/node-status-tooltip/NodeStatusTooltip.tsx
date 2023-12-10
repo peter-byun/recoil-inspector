@@ -1,4 +1,4 @@
-import { RecoilStates } from '../../../../pages/state-inspector/StateInspector';
+import { RecoilStates } from '../../StateInspector';
 
 type NodeStatusTooltipProps = {
   name: string;
@@ -17,7 +17,7 @@ export function NodeStatusTooltip(props: NodeStatusTooltipProps) {
         marginBottom: '5px',
         borderRadius: '6px',
         background: '#45454575',
-        minHeight: '35px',
+        minHeight: '5vh',
         padding: '6px',
       }}
     >

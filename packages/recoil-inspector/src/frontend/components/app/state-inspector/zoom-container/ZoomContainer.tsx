@@ -40,8 +40,6 @@ export const ZoomContainer = ({
             position: 'relative',
           }}
         >
-          {childrenOutsideOfSvg}
-
           <svg
             width={width}
             height={height}
@@ -72,6 +70,8 @@ export const ZoomContainer = ({
             />
             <g transform={zoom.toString()}>{children}</g>
           </svg>
+          {childrenOutsideOfSvg}
+
           <div
             style={{
               position: 'absolute',

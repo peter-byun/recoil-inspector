@@ -18,6 +18,7 @@ export type SelectProps<V> = {
   items: V[];
   onItemChange: (selectedValue: V) => void;
   onItemsChange?: (selectedValue: V[]) => void;
+  placeholder: string;
   disabled: boolean;
   defaultSelectedItem: V;
 } & React.HtmlHTMLAttributes<HTMLElement>;
@@ -27,6 +28,7 @@ function Select<V extends SelectItem<unknown>>({
   items,
   onItemChange,
   onItemsChange,
+  placeholder,
   disabled,
   defaultSelectedItem,
   ...restProps

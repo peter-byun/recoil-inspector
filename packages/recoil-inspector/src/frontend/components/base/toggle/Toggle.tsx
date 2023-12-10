@@ -29,7 +29,7 @@ export function Toggle(props: ToggleProps) {
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         ...props.style,
       }}
       onClick={handleClick}

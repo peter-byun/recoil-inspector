@@ -146,11 +146,11 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     left: '0',
     top: '0',
     display: 'grid',
-    gridTemplateColumns: '30% 70%',
+    gridTemplateColumns: '20% 80%',
     gridTemplateRows: '60px 90%',
     gridGap: '5px',
     width: '98vw',
-    height: '80vh',
+    height: '90vh',
     margin: '5px 5px 0 5px',
   } as const;
 
