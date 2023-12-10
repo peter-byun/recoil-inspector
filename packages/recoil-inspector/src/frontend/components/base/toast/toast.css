@@ -1,5 +1,6 @@
 .toast-dialog {
   background: #2c2c2cc4;
+  border: none;
 
   position: fixed;
   top: 0;

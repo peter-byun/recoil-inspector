@@ -139,11 +139,14 @@ export const StateChangeHistory = ({
       });
     });
   };
-  useEffect(() => {
-    if (!isDiffOn) {
-      unSelectAllExceptLastSelectedChange();
-    }
-  }, [isDiffOn, setStateChangeHistoryForDisplay]);
+  useEffect(
+    function handleDiffChange() {
+      if (!isDiffOn) {
+        unSelectAllExceptLastSelectedChange();
+      }
+    },
+    [isDiffOn, setStateChangeHistoryForDisplay]
+  );
 
   const stateChangeHistoryForDisplaySortedByChangedAtInDesc = useMemo(() => {
     return stateChangeHistoryForDisplay.sort((a, b) => {
@@ -164,7 +167,7 @@ export const StateChangeHistory = ({
     backgroundColor: colors.dark.surface1,
     borderRadius: '5px',
     overflowY: 'auto',
-    ...scrollbarCss, // Assuming scrollbarCss is another CSS object
+    ...scrollbarCss,
   } as const;
 
   return (
@@ -187,6 +190,9 @@ export const StateChangeHistory = ({
         style={{
           width: '90%',
           margin: '0',
+          height: '1px',
+          border: 'none',
+          background: '#f7fcff',
         }}
       />
       {stateChangeHistoryForDisplaySortedByChangedAtInDesc.map(

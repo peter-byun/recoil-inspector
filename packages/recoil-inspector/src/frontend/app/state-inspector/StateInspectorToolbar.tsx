@@ -33,7 +33,7 @@ export function StateInspectorToolbar<ItemValue>({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        gap: '5px',
+        gap: '10px',
         gridColumn: '2/2',
         gridRow: '1/1',
         padding: '15px',
@@ -50,12 +50,11 @@ export function StateInspectorToolbar<ItemValue>({
       >
         <label
           style={{
-            fontSize: '13px',
             color: colors.dark.fontColor,
             marginRight: '5px',
           }}
         >
-          Visualization Type
+          · Visualization Type
         </label>
         <Select<SelectItem<ItemValue>>
           items={items}
@@ -66,20 +65,11 @@ export function StateInspectorToolbar<ItemValue>({
         />
       </div>
 
-      <span
-        style={{
-          background: '#cacaca',
-          width: '1px',
-          height: '90%',
-          margin: '0 5px',
-        }}
-      ></span>
-
       <div>
         <Switch
           checked={isDiffOn}
           onChange={handleDiffCheckedChange}
-          label="State Diff Mode"
+          label="· State Diff Mode"
           size="sm"
         />
       </div>

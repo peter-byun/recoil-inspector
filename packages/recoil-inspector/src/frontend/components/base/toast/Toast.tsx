@@ -16,6 +16,7 @@ type AlertProps = {
   containerId: string;
   alertData: AlertData;
   setIsAlertOpen: (value: boolean) => void;
+  hasCancel?: boolean;
 };
 
 export const Toast = (props: AlertProps) => {
@@ -76,8 +77,10 @@ export const Toast = (props: AlertProps) => {
         <p>{props.alertData.message}</p>
 
         <div className="toast-button-group">
+          {props.hasCancel ? (
+            <Button onClick={handleCloseClick}>Cancel</Button>
+          ) : null}
           <Button onClick={handleConfirmClick}>Confirm</Button>
-          <Button onClick={handleCloseClick}>Cancel</Button>
         </div>
       </div>
     </dialog>

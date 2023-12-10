@@ -15,9 +15,7 @@ type StateGraphHistory = {
   [key: string]: FiberNode;
 };
 
-type RecoilStatesHistory = {
-  [key: string]: RecoilStates;
-};
+type RecoilStatesHistory = RecoilStates[];
 export type RecoilStates = {
   key: string;
   value: any;
@@ -35,7 +33,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
   const [componentTree, setComponentTree] = useState<any>(null);
   const [recoilStates, setRecoilStates] = useState<any>(null);
   const [recoilStatesHistory, setRecoilStatesHistory] =
-    useState<RecoilStatesHistory>({});
+    useState<RecoilStatesHistory>([]);
   const [stateGraphHistory, setStateGraphHistory] = useState<StateGraphHistory>(
     {}
   );
@@ -44,7 +42,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
       ([id, stateChange]: [id: string, stateChange: StateGraphHistory[0]]) => {
         return {
           id,
-          name: stateChange.name,
+          name: stateChange.name, // recently update data
           changedAt: stateChange.changedAt,
         };
       }
@@ -67,6 +65,12 @@ export const StateInspector = ({ show }: { show: boolean }) => {
       setRecoilStates(updatedData.recoilStates);
 
       setStateGraphHistory((prevStateGraphHistory) => {
+        // recoilStates has been changed. compare it with the prev
+        // find the updated data and save it as "name"
+        const lastRecoilState = recoilStatesHistory.at(-1);
+        // get the changed recoilState(an array), and compare values of each item.
+        // find the item which has update value, and use the key as the name of the history item.
+
         const nextHistory = { ...prevStateGraphHistory };
 
         nextHistory[updatedData.componentTreeRoot?.id] = {
@@ -77,7 +81,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
         return nextHistory;
       });
       setRecoilStatesHistory((prevRecoilStatesHistory) => {
-        const nextHistory = { ...prevRecoilStatesHistory };
+        const nextHistory = [...prevRecoilStatesHistory];
 
         nextHistory[updatedData.componentTreeRoot?.id] = [
           ...updatedData.recoilStates,
@@ -92,7 +96,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     return () => {
       window.removeEventListener('message', onExtensionDataUpdated);
     };
-  }, []);
+  }, [recoilStatesHistory]);
 
   const [selectedVisualizationType, setSelectedVisualizationType] =
     useState<VisualizationType>(VISUALIZATION_TYPES.JSON);
@@ -108,7 +112,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
 
   const handleSelectedStateChangeFromHistory = (stateChange: StateChange) => {
     setComponentTree(stateGraphHistory[stateChange.id]);
-    setRecoilStates(recoilStatesHistory[stateChange.id]);
+    setRecoilStates(recoilStatesHistory[Number(stateChange.id)]);
   };
 
   const [isDiffOn, setIsDiffOn] = useState<boolean>(false);

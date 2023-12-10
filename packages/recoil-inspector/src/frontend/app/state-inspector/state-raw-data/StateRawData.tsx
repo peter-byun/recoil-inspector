@@ -79,7 +79,7 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
             containerId={FRONTEND_CONTAINER_ID}
             alertData={{
               isAlertOpen: toast.open,
-              title: 'Copy to clipboard',
+              title: 'Data Copied ✅',
               message: toast.text,
             }}
             setIsAlertOpen={(nextOpen: boolean) => {
