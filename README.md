@@ -14,7 +14,9 @@ Recoil Inspector is here for you. <br/>
 
 ## Demo 📼
 
-https://github.com/PeterByun/recoil-inspector-project/assets/47588056/21b19ee0-1771-423b-a733-bd2427355b3c
+
+https://github.com/PeterByun/recoil-inspector-project/assets/47588056/81b42260-fbcb-4bbe-a75f-8bd5e2445db3
+
 
 <a name="features"></a>
 
