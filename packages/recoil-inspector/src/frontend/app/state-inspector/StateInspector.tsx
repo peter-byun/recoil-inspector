@@ -65,17 +65,19 @@ export const StateInspector = ({ show }: { show: boolean }) => {
       setRecoilStates(updatedData.recoilStates);
 
       setStateGraphHistory((prevStateGraphHistory) => {
-        // recoilStates has been changed. compare it with the prev
-        // find the updated data and save it as "name"
         const lastRecoilState = recoilStatesHistory.at(-1);
-        // get the changed recoilState(an array), and compare values of each item.
-        // find the item which has update value, and use the key as the name of the history item.
+        const updatedRecoilState = updatedData.recoilStates;
+        const updatedRecoilAtom = findUpdatedRecoilAtomFromTwoRecoilStates(
+          lastRecoilState,
+          updatedRecoilState
+        );
 
         const nextHistory = { ...prevStateGraphHistory };
 
         nextHistory[updatedData.componentTreeRoot?.id] = {
           ...updatedData.componentTreeRoot,
           changedAt: new Date().toLocaleTimeString(),
+          name: updatedRecoilAtom?.key,
         };
 
         return nextHistory;
@@ -97,6 +99,36 @@ export const StateInspector = ({ show }: { show: boolean }) => {
       window.removeEventListener('message', onExtensionDataUpdated);
     };
   }, [recoilStatesHistory]);
+
+  function findUpdatedRecoilAtomFromTwoRecoilStates(
+    recoilStateLeft: RecoilStates | undefined,
+    recoilStateRight: RecoilStates
+  ) {
+    const nonNullableRecoilStateLeft = recoilStateLeft ?? [];
+
+    for (let idx = 0; idx < nonNullableRecoilStateLeft.length; idx++) {
+      const stateUpdated =
+        nonNullableRecoilStateLeft[idx].key === recoilStateRight[idx].key &&
+        recoilStateRight[idx].value !== nonNullableRecoilStateLeft[idx].value;
+      if (stateUpdated) {
+        return recoilStateRight[idx];
+      }
+    }
+
+    const stateAdded =
+      nonNullableRecoilStateLeft.length < recoilStateRight.length;
+    if (stateAdded) {
+      return recoilStateRight.at(-1) ?? null;
+    }
+
+    const stateDeleted =
+      nonNullableRecoilStateLeft.length > recoilStateRight.length;
+    if (stateDeleted) {
+      return nonNullableRecoilStateLeft.at(-1) ?? null;
+    }
+
+    return null;
+  }
 
   const [selectedVisualizationType, setSelectedVisualizationType] =
     useState<VisualizationType>(VISUALIZATION_TYPES.JSON);
