@@ -22,7 +22,6 @@ interface StateChangeHistoryProps {
 
 export const StateChangeHistory = ({
   stateChangeHistory,
-  maxSelectableItem = 1,
   isDiffOn,
   onSelectedStateChange,
   onDiffStatesChange,
@@ -47,48 +46,38 @@ export const StateChangeHistory = ({
     syncStateChangeHistoryForDisplayWithOriginalHistory();
   }, [stateChangeHistory]);
 
-  const handlePressedChange =
-    (changedState: StateChange) => (pressed: boolean) => {
-      if (isDiffOn) {
-        handlePressedChangeInDiffMode(changedState, pressed);
+  const handlePressedChange = (changedState: StateChange) => () => {
+    if (isDiffOn) {
+      handlePressedChangeInDiffMode(changedState);
 
-        return;
-      }
+      return;
+    }
 
-      handlePressedChangeInSingleMode(changedState);
-    };
-
-  const pressedItemsCount = useMemo<number>(() => {
-    return stateChangeHistoryForDisplay.filter(
-      (stateChange) => stateChange.pressed
-    ).length;
-  }, [stateChangeHistoryForDisplay]);
+    handlePressedChangeInSingleMode(changedState);
+  };
 
   const [lastSelectedStateChange, setLastSelectedStateChange] =
     useState<StateChange>();
 
-  const handlePressedChangeInDiffMode = (
-    changedState: StateChange,
-    pressed: boolean
-  ) => {
+  const handlePressedChangeInDiffMode = (changedState: StateChange) => {
+    const pressedItemsCount = stateChangeHistoryForDisplay.filter(
+      (item) => item.pressed
+    ).length;
+
     const updatedHistory = stateChangeHistoryForDisplay.map(
       (stateHistoryItem) => {
         if (!areStatesEqual(stateHistoryItem, changedState)) {
           return stateHistoryItem;
         }
 
-        if (stateHistoryItem.pressed) {
+        if (pressedItemsCount > 1 && !stateHistoryItem.pressed) {
           return stateHistoryItem;
         }
 
-        if (pressedItemsCount < maxSelectableItem) {
-          return {
-            ...stateHistoryItem,
-            pressed,
-          };
-        }
-
-        return stateHistoryItem;
+        return {
+          ...stateHistoryItem,
+          pressed: !stateHistoryItem.pressed,
+        };
       }
     );
 
@@ -97,7 +86,7 @@ export const StateChangeHistory = ({
     const selectedStates = updatedHistory.filter(
       (stateHistoryItem) => stateHistoryItem.pressed
     );
-    onDiffStatesChange(selectedStates);
+    onDiffStatesChange(selectedStates.slice(0, 2));
 
     setLastSelectedStateChange(changedState);
   };
