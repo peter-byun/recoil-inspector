@@ -118,6 +118,9 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     const stateAdded =
       nonNullableRecoilStateLeft.length < recoilStateRight.length;
     if (stateAdded) {
+      if (nonNullableRecoilStateLeft.length === 0) {
+        return recoilStateRight[0];
+      }
       return recoilStateRight.at(-1) ?? null;
     }
 
