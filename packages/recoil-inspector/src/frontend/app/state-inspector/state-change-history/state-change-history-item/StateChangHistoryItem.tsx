@@ -13,11 +13,16 @@ interface StateChangedProps {
 export const StateChangeHistoryItem = ({
   stateChange,
   onPressedChange,
+  pressed,
 }: StateChangedProps) => {
   const { name, changedAt } = stateChange;
 
+  const classNames = ['state-change-history-toggle'];
+  if (pressed) {
+    classNames.push('pressed');
+  }
   return (
-    <Toggle onChange={onPressedChange} className="state-change-history-toggle">
+    <Toggle onChange={onPressedChange} className={classNames.join(' ')}>
       <p
         style={{
           margin: `0 0 0 ${TOGGLE_CONTENT_SPACING}px`,
