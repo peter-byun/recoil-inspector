@@ -103,3 +103,10 @@ a {
     color-scheme: dark;
   }
 }
+
+nav {
+  display: flex;
+  gap: 5px;
+  border: 1px solid white;
+  border-width: 0 0 1px 0;
+}
