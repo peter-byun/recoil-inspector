@@ -6,8 +6,9 @@
 /* Button styles */
 .inspector-toggle-button {
   background-color: #ececec;
+  z-index: 9999;
   position: fixed;
-  left: 6px;
+  right: 6px;
   bottom: 6px;
   display: flex;
   flex-direction: row;

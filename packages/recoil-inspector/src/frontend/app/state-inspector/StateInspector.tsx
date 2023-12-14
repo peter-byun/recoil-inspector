@@ -200,7 +200,9 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     <div
       style={Object.assign(
         {},
-        ...[layoutStyle, { visibility: show ? 'visible' : 'hidden' } as const]
+        ...[layoutStyle, { visibility: show ? 'visible' : 'hidden', 
+          zIndex: show ? '9999' : '-1'
+       } as const]
       )}
     >
       <StateChangeHistory
