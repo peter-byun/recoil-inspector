@@ -6,7 +6,8 @@ import { stepperState } from '@/states/stepper';
 import { stepperSecondState } from '@/states/stepper-second';
 import { sumSelector } from '@/states/sum';
 import { Card } from './Card';
-import { useQuery } from '@tanstack/react-query';
+import { CardSubscribedToStep } from './CardSubscribedToStep';
+import { useGetCards } from './useGetCards';
 
 export default function Cards() {
   const [stepper, setStepper] = useRecoilState(stepperState);
@@ -14,12 +15,7 @@ export default function Cards() {
 
   const sum = useRecoilValue(sumSelector);
 
-  const cardsQuery = useQuery({
-    queryKey: ['cards'],
-    queryFn: () => {
-      return fetch('/api/cards').then((res) => res.json());
-    },
-  });
+  const cardsQuery = useGetCards();
 
   return (
     <main
@@ -52,6 +48,13 @@ export default function Cards() {
           Increase Second Step
         </button>
       </div>
+
+      <section>
+        <h2>Cards</h2>
+        {new Array(100).fill(1).map((_, idx) => (
+          <CardSubscribedToStep key={idx} />
+        ))}
+      </section>
     </main>
   );
 }

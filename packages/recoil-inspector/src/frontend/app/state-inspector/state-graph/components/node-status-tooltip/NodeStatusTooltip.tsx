@@ -1,7 +1,7 @@
 import { RecoilStates } from '../../../StateInspector';
 
 type NodeStatusTooltipProps = {
-  name: string;
+  name?: string;
   recoilStates?: any;
   hookTypes?: any;
 };
@@ -26,7 +26,7 @@ export function NodeStatusTooltip(props: NodeStatusTooltipProps) {
           margin: 0,
         }}
       >
-        {props.name ?? 'Hover your mouse over a node to see the data'}
+        {props.name ?? 'Move the cursor over a node to see the data'}
       </h3>
       {props.recoilStates ? (
         <RecoilStateTooltip

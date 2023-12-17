@@ -6,6 +6,8 @@ import { stepperState } from '@/states/stepper';
 import { stepperSecondState } from '@/states/stepper-second';
 import { sumSelector } from '@/states/sum';
 
+import { CardSubscribedToStep } from './cards/CardSubscribedToStep';
+
 export default function Home() {
   const [stepper, setStepper] = useRecoilState(stepperState);
   const [stepperSecond, setStepperSecond] = useRecoilState(stepperSecondState);
@@ -34,6 +36,13 @@ export default function Home() {
       >
         Increase Second Step
       </button>
+
+      <section>
+        <h2>Cards</h2>
+        {new Array(10).fill(1).map((_, idx) => (
+          <CardSubscribedToStep key={idx} />
+        ))}
+      </section>
     </main>
   );
 }

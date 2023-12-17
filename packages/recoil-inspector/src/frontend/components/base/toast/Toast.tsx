@@ -6,36 +6,36 @@ import { Button } from '../button/Button';
 
 import './toast.css';
 
-export type AlertData = {
-  isAlertOpen: boolean;
+export type ToastData = {
+  isToastOpen: boolean;
   title?: string;
   message?: string;
 };
 
-type AlertProps = {
+type ToastProps = {
   containerId: string;
-  alertData: AlertData;
-  setIsAlertOpen: (value: boolean) => void;
+  toastData: ToastData;
+  setIsToastOpen: (value: boolean) => void;
   hasCancel?: boolean;
 };
 
-export const Toast = (props: AlertProps) => {
+export const Toast = (props: ToastProps) => {
   const closeTimerRef = useRef(0);
 
   useEffect(
     function closeToastAfterOpened() {
-      if (props.alertData.isAlertOpen) {
+      if (props.toastData.isToastOpen) {
         closeTimerRef.current = window.setTimeout(() => {
-          props.setIsAlertOpen(false);
+          props.setIsToastOpen(false);
           closeTimerRef.current = 0;
-        }, 1500);
+        }, 1000);
       }
 
       return () => {
         closeTimerRef.current && clearTimeout(closeTimerRef.current);
       };
     },
-    [props.alertData.isAlertOpen]
+    [props.toastData.isToastOpen]
   );
 
   const handleConfirmClick = () => {
@@ -43,7 +43,7 @@ export const Toast = (props: AlertProps) => {
   };
 
   const handleCloseClick = () => {
-    props.setIsAlertOpen(false);
+    props.setIsToastOpen(false);
   };
 
   const handleAlertClick = (event: React.MouseEvent) => {
@@ -68,13 +68,13 @@ export const Toast = (props: AlertProps) => {
       onClick={handleCloseClick}
       className="toast-dialog"
       style={{
-        display: props.alertData.isAlertOpen ? 'block' : 'none',
+        display: props.toastData.isToastOpen ? 'block' : 'none',
       }}
     >
       <div className="toast-container" onClick={handleAlertClick}>
-        <h3>{props.alertData.title}</h3>
+        <h3>{props.toastData.title}</h3>
 
-        <p>{props.alertData.message}</p>
+        <p>{props.toastData.message}</p>
 
         <div className="toast-button-group">
           {props.hasCancel ? (

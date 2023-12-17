@@ -1,43 +1,31 @@
 'use client';
 
 import hljs from 'highlight.js';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-parser.types';
 
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
-import { copyToClipboard } from '../../../utils/copy-to-clipboard';
 
 import './styles/codeblock.css';
 import { Button } from '../../../components/base/button/Button';
 import { Toast } from '../../../components/base/toast/Toast';
 import { FRONTEND_CONTAINER_ID } from '../../../Frontend';
+import { useCopyToClipboardWithToast } from '../../../utils/copy-to-clipboard/useCopyToClipboardWithToast';
+import { useToast } from '../../../components/base/toast/useToast';
 
 interface StateRawDataProps {
   componentTree: FiberNode;
 }
 
 export const StateRawData = ({ componentTree }: StateRawDataProps) => {
-  const [toast, setToast] = useState({
-    open: false,
-    text: '',
+  const { toast, setToast, openToast } = useToast();
+
+  const { handleCopy } = useCopyToClipboardWithToast({
+    setToast,
   });
-
   const handleCopyClick = () => {
-    try {
-      const componentTreeText = JSON.stringify(componentTree);
-
-      copyToClipboard(componentTreeText);
-
-      setToast({
-        open: true,
-        text: 'Successfully copied data to the clipboard',
-      });
-    } catch (e) {
-      setToast({
-        open: true,
-        text: 'Failed to copy data to the clipboard',
-      });
-    }
+    const componentTreeText = JSON.stringify(componentTree);
+    handleCopy(componentTreeText);
   };
 
   const codeRef = useRef<HTMLDivElement>(null);
@@ -77,17 +65,11 @@ export const StateRawData = ({ componentTree }: StateRawDataProps) => {
 
           <Toast
             containerId={FRONTEND_CONTAINER_ID}
-            alertData={{
-              isAlertOpen: toast.open,
+            toastData={{
+              ...toast,
               title: 'Data Copied ✅',
-              message: toast.text,
             }}
-            setIsAlertOpen={(nextOpen: boolean) => {
-              setToast({
-                ...toast,
-                open: nextOpen,
-              });
-            }}
+            setIsToastOpen={openToast}
           />
           <div
             style={{

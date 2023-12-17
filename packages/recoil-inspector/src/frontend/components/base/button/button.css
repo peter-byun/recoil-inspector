@@ -4,8 +4,6 @@
 
   border-radius: 10px;
 
-  font-size: 1.1rem;
-
   appearance: none;
   -webkit-appearance: none;
 
@@ -17,6 +15,10 @@
 
   border: none;
   outline: none;
+
+  font-size: 1.1rem;
+  word-break: keep-all;
+  white-space: pre;
 
   transition:
     filter 0.2s,
