@@ -28,6 +28,11 @@ jobs:
       - name: Change directory to package
         run: cd packages/recoil-inspector
 
+      - name: Configure the git profile
+        run: |
+          git config --local user.email "peter1035k@gmail.com"
+          git config --local user.name "Peter Byun"
+
       - name: Bump version
         run: npm version patch
 
@@ -38,8 +43,6 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --local user.email "peter1035k@gmail.com"
-          git config --local user.name "Peter Byun"
           git add -A
           git commit -m "chore: updated package versions"
           git push origin main
