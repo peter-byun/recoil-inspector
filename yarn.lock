@@ -1084,6 +1084,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:5.14.0":
+  version: 5.14.0
+  resolution: "@tanstack/query-core@npm:5.14.0"
+  checksum: 691c2f8978294a8bf1b8e5c5c13dc01b9fd82d892720655ef3c3da0b895b2a72625c7364a26a0a78cc3aa97b5e1bce320df480b9067928d644c88689ef28279d
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^5.14.0":
+  version: 5.14.0
+  resolution: "@tanstack/react-query@npm:5.14.0"
+  dependencies:
+    "@tanstack/query-core": 5.14.0
+  peerDependencies:
+    react: ^18.0.0
+  checksum: 2c154d5d09c73eee98fdfd6cfe033d74946357eeb9cf37a9527de874fa3952f20b9539140e7328d01be9e6a9c314ec609102edf5614bb4b22ba7312043cc0890
+  languageName: node
+  linkType: hard
+
 "@trivago/prettier-plugin-sort-imports@npm:^4.3.0":
   version: 4.3.0
   resolution: "@trivago/prettier-plugin-sort-imports@npm:4.3.0"
@@ -5625,6 +5643,7 @@ eslint-config-turbo@latest:
   dependencies:
     "@emotion/react": ^11.10.5
     "@emotion/styled": ^11.11.0
+    "@tanstack/react-query": ^5.14.0
     "@types/node": ^20
     "@types/react": ^18
     "@types/react-dom": ^18

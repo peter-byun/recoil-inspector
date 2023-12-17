@@ -6,12 +6,20 @@ import { stepperState } from '@/states/stepper';
 import { stepperSecondState } from '@/states/stepper-second';
 import { sumSelector } from '@/states/sum';
 import { Card } from './Card';
+import { useQuery } from '@tanstack/react-query';
 
 export default function Cards() {
   const [stepper, setStepper] = useRecoilState(stepperState);
   const [stepperSecond, setStepperSecond] = useRecoilState(stepperSecondState);
 
   const sum = useRecoilValue(sumSelector);
+
+  const cardsQuery = useQuery({
+    queryKey: ['cards'],
+    queryFn: () => {
+      return fetch('/api/cards').then((res) => res.json());
+    },
+  });
 
   return (
     <main
@@ -25,6 +33,8 @@ export default function Cards() {
       <Card>stepper: {stepper}</Card>
       <Card>stepperSecond: {stepperSecond}</Card>
       <Card>sum: {sum}</Card>
+
+      {cardsQuery.isSuccess && JSON.stringify(cardsQuery.data)}
 
       <div>
         <button

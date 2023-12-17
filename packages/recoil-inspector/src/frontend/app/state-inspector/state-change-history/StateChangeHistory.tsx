@@ -171,6 +171,7 @@ export const StateChangeHistory = ({
           fontSize: '16px',
           fontWeight: 'normal',
           textAlign: 'center',
+          color: '#f7fcff',
         }}
       >
         State Change History

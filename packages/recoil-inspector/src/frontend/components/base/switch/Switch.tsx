@@ -28,6 +28,7 @@ const Switch = ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-start',
+        color: '#f7fcff',
       }}
     >
       {labelText}

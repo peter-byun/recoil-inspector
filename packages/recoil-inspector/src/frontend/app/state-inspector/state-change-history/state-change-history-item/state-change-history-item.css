@@ -1,4 +1,6 @@
 .state-change-history-toggle {
+  color: #f7fcff;
+
   display: flex;
   flex-direction: row;
   align-items: center;
