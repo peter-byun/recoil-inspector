@@ -10,6 +10,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup NVM
+        run: |
+          npm install -g nvm
+          nvm install
+
       - name: Setup yarn
         run: npm install -g yarn
 
