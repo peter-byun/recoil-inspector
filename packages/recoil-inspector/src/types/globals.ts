@@ -4,7 +4,10 @@ declare global {
     __RECOIL_INSPECTOR_COMPONENT_TREE_ROOT?: any;
     __RECOIL_INSPECTOR_FIBER_ROOT_ID?: number;
     __RECOIL_INSPECTOR_RECOIL_STATES?: any;
+    hljs: any;
   }
 }
+
+declare module '*.css';
 
 export {};

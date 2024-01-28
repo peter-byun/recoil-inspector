@@ -2,10 +2,6 @@
   "name": "recoil-inspector-project",
   "version": "0.0.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
@@ -20,5 +16,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "pnpm@8.15.0"
 }

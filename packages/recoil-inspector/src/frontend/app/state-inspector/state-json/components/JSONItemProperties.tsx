@@ -78,7 +78,7 @@ export const JSONItemPropertiesInDiffMode = ({
         .map(([key, { value, marker }], idx) => (
           <li
             key={`${key + value}${idx}`}
-            css={getJSONItemCssByDiffMarker(marker)}
+            style={getJSONItemCssByDiffMarker(marker)}
           >
             {`${key} :`}{' '}
             <JSONItemPropertyValue value={value} key={`${key + value}${idx}`} />

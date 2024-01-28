@@ -1,7 +1,5 @@
 import { CSSProperties, ReactNode, useState } from 'react';
 
-import './toggle.css';
-
 interface ToggleProps {
   onChange: (checked: boolean) => void;
   children: ReactNode;

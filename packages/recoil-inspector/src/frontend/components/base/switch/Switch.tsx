@@ -1,5 +1,4 @@
 import React from 'react';
-import './switch.css';
 
 type Size = 'sm' | 'md' | 'lg';
 

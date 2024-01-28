@@ -10,20 +10,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup yarn
-        run: npm install -g yarn
+      - name: Setup pnpm
+        run: npm install -g pnpm
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: yarn
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Build the package
-        run: yarn run build --filter recoil-inspector
+        run: pnpm build --filter recoil-inspector
 
       - name: Change directory to package
         run: cd packages/recoil-inspector

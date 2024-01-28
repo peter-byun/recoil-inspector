@@ -1,4 +1,4 @@
-import { StateChange } from 'recoil-inspector/src/types/state';
+import { StateChange } from '../../../../types/state';
 import { StateChangeForDisplay } from './state-change-history.types';
 
 // TODO: It takes O(n2) time to compute, so we need to use the timestamps as IDs,

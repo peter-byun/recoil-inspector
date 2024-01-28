@@ -1,9 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# yarn
-.yarn/cache
-.yarn/install-state.gz
-
 # bundle
 build
 
@@ -21,8 +17,6 @@ coverage
 
 # debug
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 .pnpm-debug.log*
 
 # local env files

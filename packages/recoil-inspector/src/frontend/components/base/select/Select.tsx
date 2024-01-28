@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import './select.css';
-
 const SELECT_OPENER_CLASS_NAME = 'SELECT_OPENER_CLASS_NAME' as const;
 
 const SELECT_BUTTON_SIZE = {

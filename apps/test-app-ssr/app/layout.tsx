@@ -1,11 +1,11 @@
 'use client';
 
 import { Inter } from 'next/font/google';
-import './globals.css';
 import { RecoilRoot } from 'recoil';
-import { RecoilInspector } from 'recoil-inspector';
 import Link from 'next/link';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { RecoilInspector } from 'recoil-inspector';
+import 'recoil-inspector/public/index.css';
 
 const queryClient = new QueryClient();
 

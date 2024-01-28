@@ -1,7 +1,5 @@
 import { ButtonHTMLAttributes } from 'react';
 
-import './button.css';
-
 export const Button = ({
   onClick,
   children,

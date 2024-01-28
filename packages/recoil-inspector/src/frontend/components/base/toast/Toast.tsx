@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 
 import { Button } from '../button/Button';
 
-import './toast.css';
-
 export type ToastData = {
   isToastOpen: boolean;
   title?: string;

@@ -6,7 +6,6 @@ import { FiberNode } from '../../../../client-states-parser/fiber-parser/fiber-p
 
 import { StatePanelLayout } from '../../../components/layouts/StatePanelLayout';
 
-import './styles/codeblock.css';
 import { Button } from '../../../components/base/button/Button';
 import { Toast } from '../../../components/base/toast/Toast';
 import { FRONTEND_CONTAINER_ID } from '../../../Frontend';

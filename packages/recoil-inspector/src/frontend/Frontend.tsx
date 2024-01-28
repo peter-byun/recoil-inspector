@@ -6,8 +6,6 @@ import { StateInspector } from './app/state-inspector/StateInspector';
 
 import { InspectorToggle } from './app/state-inspector/inspector-toggle/InspectorToggle';
 
-import './styles/frontend.css';
-
 export const FRONTEND_CONTAINER_ID = 'recoil-inspector-frontend';
 
 export function Frontend() {

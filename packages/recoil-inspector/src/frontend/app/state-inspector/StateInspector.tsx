@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useState } from 'react';
 
-import { StateChange } from 'recoil-inspector/src/types/state';
 import { StateInspectorToolbar } from './StateInspectorToolbar';
 import { StateGraph } from './state-graph/StateGraph';
 import { StateJSON } from './state-json/StateJSON';
@@ -10,6 +9,7 @@ import { StateRawData } from './state-raw-data/StateRawData';
 import { FiberNode } from '../../../client-states-parser/fiber-parser/fiber-parser.types';
 import { VISUALIZATION_TYPES } from '../../constants/visualization';
 import { StateChangeHistory } from './state-change-history/StateChangeHistory';
+import { StateChange } from '../../../types/state';
 
 type StateGraphHistory = {
   [key: string]: FiberNode;
@@ -192,7 +192,7 @@ export const StateInspector = ({ show }: { show: boolean }) => {
     gridTemplateRows: '60px 90%',
     gridGap: '5px',
     width: '98vw',
-    height: '90vh',
+    height: '95vh',
     margin: '5px 5px 0 5px',
   } as const;
 

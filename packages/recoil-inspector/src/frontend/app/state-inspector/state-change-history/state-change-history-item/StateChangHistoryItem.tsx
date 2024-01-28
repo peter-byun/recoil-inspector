@@ -1,7 +1,5 @@
-import { StateChange } from 'recoil-inspector/src/types/state';
-
+import { StateChange } from '../../../../../types/state';
 import { Toggle } from '../../../../components/base/toggle/Toggle';
-import './state-change-history-item.css';
 
 interface StateChangedProps {
   stateChange: StateChange;

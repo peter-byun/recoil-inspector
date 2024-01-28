@@ -1,7 +1,7 @@
 # Recoil Inspector 🔍 &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-Ever wondered which components are subscribing which states, or had hard time debugging how Recoil states change? <br/>
-Recoil Inspector is here for you. <br/>
+Ever had a hard time debugging a Recoil state update bug? <br/>
+Try Recoil Inspector to visualize which components are using which states, and get to the source of the bug quickly. <br/>
 
 ## Contents
 
@@ -14,9 +14,7 @@ Recoil Inspector is here for you. <br/>
 
 ## Demo 📼
 
-
 https://github.com/PeterByun/recoil-inspector-project/assets/47588056/74eff88e-adf3-4703-8156-2e3d754c2d7e
-
 
 <a name="features"></a>
 
@@ -26,7 +24,7 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/74eff88e-a
   - See which components are referencing which Recoil states and props.
 - <strong>State Changes History ⏺</strong>
   - See how states have been changed over time. You can compare two changes to see exactly which properties have been updated, deleted, or added.
-- <strong>Tree-shakable 🌳</strong>
+- <strong>Enabled Only On Development Mode </strong>
   - It is activated only when `process.env.NODE_ENV` is `development`, and to avoid increasing your application's bundle size, it is lazily loaded only when enabled.
 
 <a name="installation-guide"></a>
@@ -49,6 +47,11 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/74eff88e-a
 'use client';
 
 import { RecoilInspector } from 'recoil-inspector';
+
+if (process.env.NODE_ENV === 'development') {
+  import('recoil-inspector/public/index.css');
+}
+
 export default function RootLayout({
   children,
 }: {
