@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 
 import { RecoilRoot } from 'recoil';
 import { RecoilInspector } from 'recoil-inspector';
-import 'recoil-inspector/public/index.css';
 
 if (process.env.NODE_ENV === 'development') {
   import('recoil-inspector/public/index.css');

@@ -30,7 +30,7 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/74eff88e-a
 
 <a name="installation-guide"></a>
 
-# Installation Guide 💿
+## Installation Guide 💿
 
 1. Install the [React Devtool extension](https://chromewebstore.google.com/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-US&utm_source=ext_sidebar) if you have not already.
 
@@ -40,7 +40,7 @@ https://github.com/PeterByun/recoil-inspector-project/assets/47588056/74eff88e-a
    ```
 3. Import the package in your entry point like the below examples.
 
-<strong>Next.js App Router</strong>
+### Next.js App Router
 
 ```tsx
 // layout.ts
@@ -67,6 +67,25 @@ export default function RootLayout({
         </body>
       </RecoilRoot>
     </html>
+  );
+}
+```
+
+### Next.js Pages
+
+```tsx
+import { RecoilInspector } from 'recoil-inspector';
+
+if (process.env.NODE_ENV === 'development') {
+  import('recoil-inspector/public/index.css');
+}
+
+export function Layout({ children }: { children: ReactNode }) {
+  return (
+    <RecoilRoot>
+      {children}
+      <RecoilInspector />
+    </RecoilRoot>
   );
 }
 ```
