@@ -28,24 +28,14 @@ jobs:
       - name: Build the package
         run: pnpm build --filter recoil-inspector
 
-      - name: Change directory to package
-        run: cd packages/recoil-inspector
-
       - name: Configure the git profile
         run: |
           git config --local user.email "peter1035k@gmail.com"
           git config --local user.name "Peter Byun"
 
-      - name: Update the package version
-        run: npm version patch
-
       - name: Publish the package
-        run: npm publish --access public
+        run: |
+          npm publish --access public
+          cd packages/recoil-inspector
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Commit and push changes
-        run: |
-          git add -A
-          git commit -m "chore: updated package versions"
-          git push origin main
