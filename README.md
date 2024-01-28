@@ -2,6 +2,7 @@
 
 Ever had a hard time debugging a Recoil state update bug? <br/>
 Try Recoil Inspector to visualize which components are using which states, and get to the source of the bug quickly. <br/>
+It supports both Next.js 13 and 14.
 
 ## Contents
 
