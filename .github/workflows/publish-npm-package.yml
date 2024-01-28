@@ -1,6 +1,7 @@
 name: Publish Package to npmjs
 on:
   workflow_dispatch:
+# TODO: Make it run on release
 
 jobs:
   publish:
@@ -35,7 +36,7 @@ jobs:
 
       - name: Publish the package
         run: |
-          npm publish --access public
           cd packages/recoil-inspector
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
