@@ -1,5 +1,8 @@
 # Recoil Inspector 🔍 &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/main/LICENSE) ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
+> [!IMPORTANT]
+> Recoil is no longer maintained, so Recoil Inspector is also archived and remains available as a tool for existing Recoil projects.
+
 Ever had a hard time debugging a Recoil state update bug? <br/>
 Try Recoil Inspector to visualize which components are using which states, and get to the source of the bug quickly. <br/>
 It supports both Next.js 13 and 14.
